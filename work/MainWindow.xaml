@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="this is a btn"></Button>
+        <Button Content="1111111"></Button>
     </Grid>
 </Window>
