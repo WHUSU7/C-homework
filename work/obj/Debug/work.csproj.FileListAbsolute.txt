@@ -1,0 +1,16 @@
+D:\Vs project\work\bin\Debug\work.exe.config
+D:\Vs project\work\bin\Debug\work.exe
+D:\Vs project\work\bin\Debug\work.pdb
+D:\Vs project\work\obj\Debug\work.csproj.AssemblyReference.cache
+D:\Vs project\work\obj\Debug\work.csproj.SuggestedBindingRedirects.cache
+D:\Vs project\work\obj\Debug\MainWindow.g.cs
+D:\Vs project\work\obj\Debug\App.g.cs
+D:\Vs project\work\obj\Debug\work_MarkupCompile.cache
+D:\Vs project\work\obj\Debug\work_MarkupCompile.lref
+D:\Vs project\work\obj\Debug\MainWindow.baml
+D:\Vs project\work\obj\Debug\work.g.resources
+D:\Vs project\work\obj\Debug\work.Properties.Resources.resources
+D:\Vs project\work\obj\Debug\work.csproj.GenerateResource.cache
+D:\Vs project\work\obj\Debug\work.csproj.CoreCompileInputs.cache
+D:\Vs project\work\obj\Debug\work.exe
+D:\Vs project\work\obj\Debug\work.pdb
