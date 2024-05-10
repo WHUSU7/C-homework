@@ -20,9 +20,64 @@ namespace work
     /// </summary>
     public partial class MainWindow : Window
     {
+        //决定现在是谁行动 0代表黄色，1代表蓝色
+        public int nowTurn = 0;
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        //所有按钮的公共方法
+        private void CommonBtnClickHandler(object sender,RoutedEventArgs e) { 
+            Button btn = sender as Button;
+            MessageBox.Show(btn.Name);
+
+        }
+
+        //点击棋盘canvas调用
+        private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Point clickPoint = e.GetPosition(myCanvas);
+
+            double canvasWidth = myCanvas.ActualWidth;
+            double canvasHeight = myCanvas.ActualHeight;
+
+            double buttonWidthSize = canvasWidth *(0.142857);
+            double buttonHeightSize = canvasHeight * (0.142857);
+
+            //获取当前点击的区域，并转换成对应按钮实例和坐标
+            int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
+            int y= Utils.getIndex(buttonWidthSize,clickPoint.X);
+            string targetBtn = "Button" + x.ToString() + y.ToString();
+            Button btn = (Button)FindName(targetBtn);
+            btn.Visibility = Visibility.Visible;
+            //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
+            if (nowTurn==0)
+            {
+                btn.Background=new SolidColorBrush(Colors.Yellow);
+                nowTurn = 1;
+            }
+            else
+            {
+               btn.Background=new SolidColorBrush(Colors.Blue);
+                nowTurn = 0;
+            }
+            // MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
+            // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
+            //MessageBox.Show($"pos:({x},{y})");
+
+        }
+
+        //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
+        private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double canvasWidth = myCanvas.ActualWidth;
+            double canvasHeight = myCanvas.ActualHeight;
+
+           
+
+     
         }
     }
 }
