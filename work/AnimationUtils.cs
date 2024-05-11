@@ -61,7 +61,7 @@ namespace work
             rotateAnimation.KeyFrames.Add(endFrame);
             rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
 
-           btn.RenderTransform = new RotateTransform();
+            btn.RenderTransform = new RotateTransform();
             btn.RenderTransformOrigin = new Point(0.5, 0.5);
             btn.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
         }
