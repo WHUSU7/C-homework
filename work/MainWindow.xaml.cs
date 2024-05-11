@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -59,7 +61,11 @@ namespace work
             {
                 btn.Visibility = Visibility.Visible;
                 board[x, y] = 1;
-                //AnimationUtils.ChessDropDownAnimation(btn,x,y);
+               // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
+                //AnimationUtils.ChessRotateAnimation(btn);
+                AnimationUtils.allAnimation(btn,x,canvasHeight);
+               
+
             }
             else { 
             
@@ -81,6 +87,8 @@ namespace work
             //MessageBox.Show($"pos:({x},{y})");
 
         }
+
+
 
         //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
         private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
