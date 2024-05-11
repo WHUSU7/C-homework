@@ -63,9 +63,7 @@ namespace work
                 board[x, y] = 1;
                // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn,x,canvasHeight);
-               
-
+                AnimationUtils.allAnimation(btn,x,canvasHeight);           
             }
             else { 
             
@@ -87,6 +85,7 @@ namespace work
             //MessageBox.Show($"pos:({x},{y})");
 
         }
+
 
 
 
