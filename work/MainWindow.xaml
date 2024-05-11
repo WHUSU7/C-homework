@@ -13,6 +13,7 @@
             <!--<Setter Property="Height" Value="100"/>-->
             <!--<Setter Property="Background" Value="Yellow"/>-->
             <Setter Property="Visibility" Value="Hidden"/>
+            
         </Style>
     </Window.Resources>
     <Grid>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,6 +22,7 @@ namespace work
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 0代表黄色，1代表蓝色
         public int nowTurn = 0;
         public MainWindow()
@@ -51,7 +54,23 @@ namespace work
             int y= Utils.getIndex(buttonWidthSize,clickPoint.X);
             string targetBtn = "Button" + x.ToString() + y.ToString();
             Button btn = (Button)FindName(targetBtn);
-            btn.Visibility = Visibility.Visible;
+
+            //判断该点击处是否合法，合法再执行下面动画和显示
+            bool isClickValid = Utils.isClickValid(x,y,board);
+            if (isClickValid)
+            {
+                btn.Visibility = Visibility.Visible;
+                board[x, y] = 1;
+               // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
+                //AnimationUtils.ChessRotateAnimation(btn);
+                AnimationUtils.allAnimation(btn,x,canvasHeight);
+               
+
+            }
+            else { 
+            
+            }
+           
             //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
             if (nowTurn==0)
             {
@@ -68,6 +87,8 @@ namespace work
             //MessageBox.Show($"pos:({x},{y})");
 
         }
+
+
 
         //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
         private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
