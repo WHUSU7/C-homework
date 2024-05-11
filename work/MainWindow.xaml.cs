@@ -20,6 +20,7 @@ namespace work
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 0代表黄色，1代表蓝色
         public int nowTurn = 0;
         public MainWindow()
@@ -51,7 +52,19 @@ namespace work
             int y= Utils.getIndex(buttonWidthSize,clickPoint.X);
             string targetBtn = "Button" + x.ToString() + y.ToString();
             Button btn = (Button)FindName(targetBtn);
-            btn.Visibility = Visibility.Visible;
+
+            //判断该点击处是否合法，合法再执行下面动画和显示
+            bool isClickValid = Utils.isClickValid(x,y,board);
+            if (isClickValid)
+            {
+                btn.Visibility = Visibility.Visible;
+                board[x, y] = 1;
+                //AnimationUtils.ChessDropDownAnimation(btn,x,y);
+            }
+            else { 
+            
+            }
+           
             //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
             if (nowTurn==0)
             {
