@@ -23,8 +23,8 @@ namespace work
     public partial class MainWindow : Window
     {
         public int[,] board = Board.getBoardInstance();
-        //决定现在是谁行动 0代表黄色，1代表蓝色
-        public int nowTurn = 0;
+        //决定现在是谁行动 1代表黄色，-1代表蓝色
+        public int nowTurn = 1;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace work
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
 
-            double buttonWidthSize = canvasWidth *(0.142857);
+            double buttonWidthSize = canvasWidth *(0.125);
             double buttonHeightSize = canvasHeight * (0.142857);
 
             //获取当前点击的区域，并转换成对应按钮实例和坐标
@@ -60,25 +60,31 @@ namespace work
             if (isClickValid)
             {
                 btn.Visibility = Visibility.Visible;
-                board[x, y] = 1;
+                if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn,x,canvasHeight);           
-            }
-            else { 
-            
-            }
-           
+                AnimationUtils.allAnimation(btn,x,canvasHeight);
+               
             //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-            if (nowTurn==0)
+            if (nowTurn==1)
             {
-                btn.Background=new SolidColorBrush(Colors.Yellow);
-                nowTurn = 1;
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+               // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                bitmap.EndInit();
+                // 创建 ImageBrush 并设置其 ImageSource
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = bitmap;
+                btn.Background = imageBrush;
+                nowTurn = -1;
             }
             else
             {
-               btn.Background=new SolidColorBrush(Colors.Blue);
-                nowTurn = 0;
+               btn.Background= new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                    nowTurn = 1;
+            }
+
             }
             // MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
             // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
