@@ -22,7 +22,7 @@ namespace work
         //判断该点击处是合法
         public static bool isClickValid(int x,int y, int[,] board) {
             if (board[x,y]!=0) { return false; }
-            if (x == 6) { return true; }
+            if (x == 5) { return true; }
             else {
                 if (board[x+1,y]!=0) { return true; }
                 else { 

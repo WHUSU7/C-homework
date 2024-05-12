@@ -46,8 +46,8 @@ namespace work
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
 
-            double buttonWidthSize = canvasWidth *(0.125);
-            double buttonHeightSize = canvasHeight * (0.142857);
+            double buttonWidthSize = canvasWidth *(0.142857);
+            double buttonHeightSize = canvasHeight * (0.166667);
 
             //获取当前点击的区域，并转换成对应按钮实例和坐标
             int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
