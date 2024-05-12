@@ -29,3 +29,7 @@ D:\Vs project\work\obj\Debug\work.pdb
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\work.csproj.CoreCompileInputs.cache
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\work.exe
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\work.pdb
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\HistoryPage.g.cs
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\HistoryPage.baml
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\MainPage.g.cs
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\MainPage.baml
