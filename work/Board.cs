@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,22 +29,26 @@ namespace work
         }
         
         //落子逻辑  turn =0 为白子 用+1表示 ;turn = 1为黑子 用-1表示
-        private static void SetBoard(int x,int y,bool turn)
+        public static void SetBoard(int x,int y,bool turn)
         {
             if(turn == true)//黑子
             {
+               
                 board[x,y] = -1;
+                
             }
             else
             {
+            
                 board[x, y] = 1;
             }
+            ShowMatrix();
         }
 
         //判断胜利逻辑，看x,y附近是否四连
         //白字 turn =0 +1表示
         //黑子 turn =1 -1表示
-        private static bool IsWin(int x,int y,bool turn)
+        public static bool IsWin(int x,int y,bool turn)
         {
             if (turn == true)//黑子落下，看周围-1
             {
@@ -230,5 +235,19 @@ namespace work
 
         }
 
+        public static void ShowMatrix()
+        {
+           
+            string matrixInfo = "Matrix Information:\n";
+            for (int i = 0; i < 7; i++) {
+                for(int j = 0; j < 8; j++)
+                {
+                    matrixInfo += board[i, j].ToString() + "\t";
+                }
+                matrixInfo += "\n";
+            }
+            MessageBox.Show(matrixInfo);
+        }
+      
     }
 }
