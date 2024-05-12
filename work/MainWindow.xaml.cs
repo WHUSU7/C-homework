@@ -22,88 +22,48 @@ namespace work
     /// </summary>
     public partial class MainWindow : Window
     {
-        public int[,] board = Board.getBoardInstance();
-        //决定现在是谁行动 1代表黄色，-1代表蓝色
-        public int nowTurn = 1;
+        //跳转页面
+        public static MainWindow window;
+        public enum WindowsID { 
+            main,
+              history
+        };
+
+        Frame history = new Frame() { Content = new Pages.HistoryPage() };
+        Frame main = new Frame() { Content = new Pages.MainPage() };
+
+
         public MainWindow()
         {
             InitializeComponent();
-
+            window = this;
         }
 
-        //所有按钮的公共方法
-        private void CommonBtnClickHandler(object sender,RoutedEventArgs e) { 
-            Button btn = sender as Button;
-            MessageBox.Show(btn.Name);
+       
 
-        }
-
-        //点击棋盘canvas调用
-        private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //跳转到目标页面
+        public void jumpToTargetPage(WindowsID winid)
         {
-            Point clickPoint = e.GetPosition(myCanvas);
+            
+            
 
-            double canvasWidth = myCanvas.ActualWidth;
-            double canvasHeight = myCanvas.ActualHeight;
-
-            double buttonWidthSize = canvasWidth *(0.142857);
-            double buttonHeightSize = canvasHeight * (0.166667);
-
-            //获取当前点击的区域，并转换成对应按钮实例和坐标
-            int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
-            int y= Utils.getIndex(buttonWidthSize,clickPoint.X);
-            string targetBtn = "Button" + x.ToString() + y.ToString();
-            Button btn = (Button)FindName(targetBtn);
-
-            //判断该点击处是否合法，合法再执行下面动画和显示
-            bool isClickValid = Utils.isClickValid(x,y,board);
-            if (isClickValid)
+            switch (winid)
             {
-                btn.Visibility = Visibility.Visible;
-                if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
-               // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
-                //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn,x,canvasHeight);
-               
-            //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-            if (nowTurn==1)
-            {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
-               // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
-                bitmap.EndInit();
-                // 创建 ImageBrush 并设置其 ImageSource
-                ImageBrush imageBrush = new ImageBrush();
-                imageBrush.ImageSource = bitmap;
-                btn.Background = imageBrush;
-                nowTurn = -1;
-            }
-            else
-            {
-               btn.Background= new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-                    nowTurn = 1;
-            }
+                case WindowsID.main:
+                    mainContent.Content = main;
+                    break;
+                case WindowsID.history:
+                   mainContent.Content= history;
+                    break;
 
             }
-            // MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
-            // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
-            //MessageBox.Show($"pos:({x},{y})");
-
         }
 
-
-
-
-        //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
-        private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            double canvasWidth = myCanvas.ActualWidth;
-            double canvasHeight = myCanvas.ActualHeight;
-
-           
-
-     
+       public void  jumpToMain(object sender, RoutedEventArgs e) {
+            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
+
+       
+
     }
 }

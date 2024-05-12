@@ -1,0 +1,133 @@
+﻿<Page x:Class="work.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:work.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainPage">
+
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="commonBtnStyle">
+            <EventSetter Event="Button.Click" Handler="CommonBtnClickHandler"/>
+            <!--<Setter Property="Width" Value="100"/>-->
+            <!--<Setter Property="Height" Value="100"/>-->
+            <!--<Setter Property="Background" Value="Yellow"/>-->
+            <Setter Property="Visibility" Value="Hidden"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                               BorderBrush="{TemplateBinding BorderBrush}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               CornerRadius="{Binding ActualWidth,ElementName=Button00}">
+                            <!-- 使边缘圆形 -->
+                            <ContentPresenter HorizontalAlignment="Center"
+                                             VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <StackPanel x:Name="leftStack" Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Background="Beige">
+                <Button x:Name="HistoryBtn"  Content="历史记录111" Background="Gold" Height="100" Click="jumpToHistory"/>
+            </StackPanel>
+
+
+            <Canvas x:Name="myCanvas" Background="Aqua" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged">
+                <Grid Background="#81D8CF"   Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
+                    <Grid.RowDefinitions >
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Grid.Row="0"  x:Name="Button00" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="1" Grid.Row="0" x:Name="Button01" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="2" Grid.Row="0" x:Name="Button02" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="3" Grid.Row="0" x:Name="Button03" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="4" Grid.Row="0" x:Name="Button04" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="5" Grid.Row="0"  x:Name="Button05" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="6" Grid.Row="0" x:Name="Button06" Style="{StaticResource commonBtnStyle}" />
+
+                    <Button Grid.Column="0" Grid.Row="1" x:Name="Button10" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="1" Grid.Row="1" x:Name="Button11" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="2" Grid.Row="1" x:Name="Button12" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="3" Grid.Row="1"  x:Name="Button13" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="4" Grid.Row="1" x:Name="Button14" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="5" Grid.Row="1" x:Name="Button15" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="6" Grid.Row="1" x:Name="Button16" Style="{StaticResource commonBtnStyle}" />
+
+                    <Button Grid.Column="0" Grid.Row="2" x:Name="Button20" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="1" Grid.Row="2"  x:Name="Button21" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="2" Grid.Row="2" x:Name="Button22" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="3" Grid.Row="2" x:Name="Button23" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="4" Grid.Row="2" x:Name="Button24" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="5" Grid.Row="2" x:Name="Button25" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="6" Grid.Row="2"  x:Name="Button26" Style="{StaticResource commonBtnStyle}" />
+
+                    <Button Grid.Column="0" Grid.Row="3" x:Name="Button30" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="1" Grid.Row="3" x:Name="Button31" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="2" Grid.Row="3" x:Name="Button32" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="3" Grid.Row="3" x:Name="Button33" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="4" Grid.Row="3"  x:Name="Button34" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="5" Grid.Row="3" x:Name="Button35" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="6" Grid.Row="3" x:Name="Button36" Style="{StaticResource commonBtnStyle}" />
+
+                    <Button Grid.Column="0" Grid.Row="4" x:Name="Button40" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="1" Grid.Row="4" x:Name="Button41" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="2" Grid.Row="4"  x:Name="Button42" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="3" Grid.Row="4" x:Name="Button43" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="4" Grid.Row="4" x:Name="Button44" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="5" Grid.Row="4" x:Name="Button45" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="6" Grid.Row="4" x:Name="Button46" Style="{StaticResource commonBtnStyle}" />
+
+                    <Button Grid.Column="0" Grid.Row="5"  x:Name="Button50" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="1" Grid.Row="5" x:Name="Button51" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="2" Grid.Row="5" x:Name="Button52" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="3" Grid.Row="5" x:Name="Button53" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="4" Grid.Row="5" x:Name="Button54" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="5" Grid.Row="5"  x:Name="Button55" Style="{StaticResource commonBtnStyle}" />
+                    <Button Grid.Column="6" Grid.Row="5" x:Name="Button56" Style="{StaticResource commonBtnStyle}" />
+
+
+
+
+                </Grid>
+            </Canvas>
+
+        </Grid>
+</Page>
