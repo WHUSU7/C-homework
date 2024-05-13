@@ -32,8 +32,6 @@ namespace work.Pages
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
-
-
         //所有按钮的公共方法
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
@@ -45,6 +43,7 @@ namespace work.Pages
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -64,14 +63,14 @@ namespace work.Pages
             if (isClickValid)
             {
                 btn.Visibility = Visibility.Visible;
-                if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
-                // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
-                //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn, x, canvasHeight);
-
-                //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-                if (nowTurn == 1)
+                board[x, y] = 1;
+                if (Board.IsWin(x, y, 1))
                 {
+                    MessageBox.Show("YOU Win!");
+                }
+
+                AnimationUtils.allAnimation(btn, x, canvasHeight);
+                //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
                     bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
@@ -81,19 +80,39 @@ namespace work.Pages
                     ImageBrush imageBrush = new ImageBrush();
                     imageBrush.ImageSource = bitmap;
                     btn.Background = imageBrush;
+                    
+
+            }
+
+            // 在每个玩家的轮次结束后调用AI函数
+            Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+            if (aiMove != null)
+            {
+                int aiX = aiMove.Item1;
+                int aiY = aiMove.Item2;
+                string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
+
+                Button aiBtn = (Button)FindName(aiTargetBtn);
+                if (aiBtn != null)
+                {
+                    aiBtn.Visibility = Visibility.Visible;
+                    board[aiX, aiY] = -1;
+                    aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
                     nowTurn = -1;
+
+                    if (Board.IsWin(aiX, aiY, -1))
+                    {
+                        MessageBox.Show("AI Win!");
+                    }
                 }
                 else
                 {
-                    btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-                    nowTurn = 1;
+                    MessageBox.Show("Error: aiBtn is null");
                 }
 
-            }
-            // MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
-            // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
-            //MessageBox.Show($"pos:({x},{y})");
 
+            }
         }
 
 
