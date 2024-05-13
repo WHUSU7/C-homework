@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,22 +17,22 @@ using System.Windows.Shapes;
 namespace work.Pages
 {
     /// <summary>
-    /// MainPage.xaml 的交互逻辑
+    /// AI.xaml 的交互逻辑
     /// </summary>
-    public partial class MainPage : Page
+    public partial class AI : Page
     {
         MainDataModel mdm;
-        public MainPage()
+        public AI()
         {
             InitializeComponent();
             mdm = new MainDataModel();
-            this.DataContext =mdm;
+            this.DataContext = mdm;
 
         }
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
-       
+
 
         //所有按钮的公共方法
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
@@ -106,20 +105,16 @@ namespace work.Pages
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
             double myCanvasFatherGridHeight = myCanvasFatherGrid.ActualHeight;
-            
-           mdm.CanvasWidth= myCanvasFatherGridHeight * 1.166667;
-           
+
+            mdm.CanvasWidth = myCanvasFatherGridHeight * 1.166667;
+
         }
-        //跳转到历史记录页面
-        public void jumpToHistory(object sender, RoutedEventArgs e)
+        //跳转到主页
+        public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.history);
+            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
-        //跳转到人机对战页面
-        public void jumpToAI(object sender, RoutedEventArgs e)
-        {
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.ai);
-        }
+        
 
         //Binding绑定的数据源
         public class MainDataModel : INotifyPropertyChanged
@@ -138,15 +133,15 @@ namespace work.Pages
                     }
                 }
             }
-            
+
             //元素改变时候触发的委托（监听）
             public event PropertyChangedEventHandler PropertyChanged;
-               
+
             protected virtual void OnPropertyChanged(string propertyName)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
-
 }
+

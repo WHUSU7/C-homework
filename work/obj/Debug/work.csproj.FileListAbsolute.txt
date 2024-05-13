@@ -33,3 +33,5 @@ D:\Vs project\work\obj\Debug\work.pdb
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\HistoryPage.baml
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\MainPage.g.cs
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\MainPage.baml
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\AI.g.cs
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\AI.baml
