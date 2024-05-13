@@ -26,12 +26,13 @@ namespace work
         public static MainWindow window;
         public enum WindowsID { 
             main,
-              history
+              history,
+              ai
         };
 
         Frame history = new Frame() { Content = new Pages.HistoryPage() };
         Frame main = new Frame() { Content = new Pages.MainPage() };
-
+        Frame ai= new Frame() { Content = new Pages.AI() };
 
         public MainWindow()
         {
@@ -55,6 +56,10 @@ namespace work
                 case WindowsID.history:
                    mainContent.Content= history;
                     break;
+                case WindowsID.ai:
+                    mainContent.Content = ai;
+                    break;
+
 
             }
         }
