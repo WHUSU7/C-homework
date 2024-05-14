@@ -43,7 +43,7 @@ namespace work.Pages
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            nowTurn = 1;
+
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -71,27 +71,28 @@ namespace work.Pages
 
                 AnimationUtils.allAnimation(btn, x, canvasHeight);
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
-                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
-                    bitmap.EndInit();
-                    // 创建 ImageBrush 并设置其 ImageSource
-                    ImageBrush imageBrush = new ImageBrush();
-                    imageBrush.ImageSource = bitmap;
-                    btn.Background = imageBrush;
-
-                //简单AI
-                DifficultAIPlay(x, canvasHeight);
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+                // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                bitmap.EndInit();
+                // 创建 ImageBrush 并设置其 ImageSource
+                ImageBrush imageBrush = new ImageBrush();
+                imageBrush.ImageSource = bitmap;
+                btn.Background = imageBrush;
 
 
             }
+            //简单AI
+            //SimpleAIPlay(x, canvasHeight);
+            //困难AI
+            DifficultAIPlay(x, canvasHeight);
 
 
         }
-
+     
         //简单AI的封装函数
-        private void SimpleAIPlay(int x,double canvasHeight)
+        private void SimpleAIPlay(int x, double canvasHeight)
         {
             Tuple<int, int> aiMove = Board.NextMove(nowTurn);
             if (aiMove != null)
@@ -155,6 +156,7 @@ namespace work.Pages
 
             }
         }
+
 
 
         //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）

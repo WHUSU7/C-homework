@@ -16,8 +16,8 @@ namespace work
         public const int NUM_ROW = 6;//定义棋盘行数
         public const int PLAYER = 1;//玩家
         public const int COMPUTER = -1;//AI
-        private static int[,] board = { 
-           
+        private static int[,] board = {
+
             {0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0},
@@ -29,14 +29,15 @@ namespace work
 
 
         //单例模式，确保只有一个board
-        public static int[,] getBoardInstance() { 
+        public static int[,] getBoardInstance()
+        {
             return board;
         }
-              
+
         //判断胜利逻辑，看x,y附近是否四连
         //turn =+1表示  人
         //turn =-1表示  AI
-        public static bool IsWin(int x,int y,int turn)
+        public static bool IsWin(int x, int y, int turn)
         {
             if (turn == -1)//黑子落下，看周围-1
             {
@@ -229,8 +230,8 @@ namespace work
         }
 
 
-       
-//-------------------------------------------------简单AI代码块--------------------------------------------------------------------
+
+        //-------------------------------------------------简单AI代码块--------------------------------------------------------------------
         public static Tuple<int, int> NextMove(int nowturn)
         {
             // 1、如果能胜利，直接下
@@ -269,7 +270,7 @@ namespace work
                     {
                         // 尝试在当前位置落子，然后检查自己是否即将获胜
 
-                        bool opponentWinningMove = IsWin(row, col,nowturn);
+                        bool opponentWinningMove = IsWin(row, col, nowturn);
 
                         //如果获胜了，直接下
                         if (opponentWinningMove)
@@ -459,14 +460,14 @@ namespace work
             }
         }
         //为适应前端要求给出的X，Y横坐标
-        public static Tuple<int,int> showMove()
+        public static Tuple<int, int> showMove()
         {
-            int  column = aiMove();
+            int column = aiMove();
             for (int r = NUM_ROW - 1; r >= 0; r--)
             {
                 if (board[r, column] == 0)
                 {
-                   return new Tuple<int, int>(r, column);
+                    return new Tuple<int, int>(r, column);
                 }
             }
             return null;
@@ -569,7 +570,7 @@ namespace work
             {
                 for (int c = 0; c < NUM_COL; c++)
                 {
-                    rs[c] = b[r,c]; // this is a distinct row alone
+                    rs[c] = b[r, c]; // this is a distinct row alone
                 }
                 for (int c = 0; c < NUM_COL - 3; c++)
                 {
@@ -585,7 +586,7 @@ namespace work
             {
                 for (int r = 0; r < NUM_ROW; r++)
                 {
-                    cs[r] = b[r,c];
+                    cs[r] = b[r, c];
                 }
                 for (int r = 0; r < NUM_ROW - 3; r++)
                 {
@@ -601,13 +602,13 @@ namespace work
             {
                 for (int c = 0; c < NUM_COL; c++)
                 {
-                    rs[c] = b[r,c];
+                    rs[c] = b[r, c];
                 }
                 for (int c = 0; c < NUM_COL - 3; c++)
                 {
                     for (int i = 0; i < 4; i++)
                     {
-                        set[i] = b[r + i,c + i];
+                        set[i] = b[r + i, c + i];
                     }
                     score += scoreSet(set, p);
                 }
@@ -616,19 +617,19 @@ namespace work
             {
                 for (int c = 0; c < NUM_COL; c++)
                 {
-                    rs[c] = b[r,c];
+                    rs[c] = b[r, c];
                 }
                 for (int c = 0; c < NUM_COL - 3; c++)
                 {
                     for (int i = 0; i < 4; i++)
                     {
-                        set[i] = b[r + 3 - i,c + i];
+                        set[i] = b[r + 3 - i, c + i];
                     }
                     score += scoreSet(set, p);
                 }
             }
             return score;
-        }       
+        }
         private static int scoreSet(List<int> v, int p)
         {
             int good = 0; // points in favor of p
@@ -644,7 +645,7 @@ namespace work
             bad -= good;
             return heurFunction(good, bad, empty);
         }
-        private static int heurFunction(int g, int b,int z)
+        private static int heurFunction(int g, int b, int z)
         {
             int score = 0;
             if (g == 4) { score += 500001; } // preference to go for winning move vs. block
