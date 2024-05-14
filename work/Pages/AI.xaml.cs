@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,8 +28,8 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext = mdm;
-
-        }
+			suggession();
+		}
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
@@ -36,14 +37,14 @@ namespace work.Pages
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            MessageBox.Show(btn.Name);
+            //MessageBox.Show("sdfs");
 
         }
 
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -83,9 +84,9 @@ namespace work.Pages
                     
 
             }
-
-            // 在每个玩家的轮次结束后调用AI函数
-            Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+			
+			// 在每个玩家的轮次结束后调用AI函数
+			Tuple<int, int> aiMove = Board.NextMove(nowTurn);
             if (aiMove != null)
             {
                 int aiX = aiMove.Item1;
@@ -113,13 +114,15 @@ namespace work.Pages
 
 
             }
-        }
+			suggession();
+
+		}
 
 
-
-
-        //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
-        private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+       
+     
+		//棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
+		private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
@@ -161,6 +164,38 @@ namespace work.Pages
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-    }
+
+		private void Button50_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+        //位置提示
+		public void suggession()
+		{
+			for (int i = 0; i < 7; i++)
+			{
+				if (board[5, i] == 0)
+				{
+					string targetBt = "Button5" + i.ToString();
+					Button bt = (Button)FindName(targetBt);
+					bt.Visibility = Visibility.Visible;
+				}
+				else
+				{
+					for (int j = 4; j >= 0; j--)
+					{
+						if (board[j, i] == 0)
+						{
+							string targetBt = "Button" + j.ToString() + i.ToString();
+							Button bt = (Button)FindName(targetBt);
+							bt.Visibility = Visibility.Visible;
+							break;
+						}
+					}
+				}
+
+			}
+		}
+	}
 }
 
