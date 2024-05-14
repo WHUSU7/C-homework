@@ -83,9 +83,51 @@ namespace work.Pages
                     
 
             }
+            //简单AI
+            //SimpleAIPlay(x, canvasHeight);
+            //困难AI
+            DifficultAIPlay(x, canvasHeight);
+        }
 
-            // 在每个玩家的轮次结束后调用AI函数
-            Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+        
+     
+        //简单AI的封装函数
+        private void SimpleAIPlay(int x, double canvasHeight)
+    {
+        Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+        if (aiMove != null)
+        {
+            int aiX = aiMove.Item1;
+            int aiY = aiMove.Item2;
+            string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
+
+            Button aiBtn = (Button)FindName(aiTargetBtn);
+            if (aiBtn != null)
+            {
+                aiBtn.Visibility = Visibility.Visible;
+                board[aiX, aiY] = -1;
+                aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
+                nowTurn = -1;
+
+                if (Board.IsWin(aiX, aiY, -1))
+                {
+                    MessageBox.Show("AI Win!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: aiBtn is null");
+            }
+
+
+        }
+    }
+
+    //困难AI的封装函数
+    private void DifficultAIPlay(int x, double canvasHeight)
+        {
+            Tuple<int, int> aiMove = Board.showMove();
             if (aiMove != null)
             {
                 int aiX = aiMove.Item1;
@@ -114,7 +156,6 @@ namespace work.Pages
 
             }
         }
-
 
 
 
