@@ -71,61 +71,61 @@ namespace work.Pages
 
                 AnimationUtils.allAnimation(btn, x, canvasHeight);
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
-                // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
-                bitmap.EndInit();
-                // 创建 ImageBrush 并设置其 ImageSource
-                ImageBrush imageBrush = new ImageBrush();
-                imageBrush.ImageSource = bitmap;
-                btn.Background = imageBrush;
-
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                    bitmap.EndInit();
+                    // 创建 ImageBrush 并设置其 ImageSource
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = bitmap;
+                    btn.Background = imageBrush;
+                    
 
             }
             //简单AI
             //SimpleAIPlay(x, canvasHeight);
             //困难AI
             DifficultAIPlay(x, canvasHeight);
-
-
         }
+
+        
      
         //简单AI的封装函数
         private void SimpleAIPlay(int x, double canvasHeight)
+    {
+        Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+        if (aiMove != null)
         {
-            Tuple<int, int> aiMove = Board.NextMove(nowTurn);
-            if (aiMove != null)
+            int aiX = aiMove.Item1;
+            int aiY = aiMove.Item2;
+            string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
+
+            Button aiBtn = (Button)FindName(aiTargetBtn);
+            if (aiBtn != null)
             {
-                int aiX = aiMove.Item1;
-                int aiY = aiMove.Item2;
-                string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
+                aiBtn.Visibility = Visibility.Visible;
+                board[aiX, aiY] = -1;
+                aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
+                nowTurn = -1;
 
-                Button aiBtn = (Button)FindName(aiTargetBtn);
-                if (aiBtn != null)
+                if (Board.IsWin(aiX, aiY, -1))
                 {
-                    aiBtn.Visibility = Visibility.Visible;
-                    board[aiX, aiY] = -1;
-                    aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
-                    nowTurn = -1;
-
-                    if (Board.IsWin(aiX, aiY, -1))
-                    {
-                        MessageBox.Show("AI Win!");
-                    }
+                    MessageBox.Show("AI Win!");
                 }
-                else
-                {
-                    MessageBox.Show("Error: aiBtn is null");
-                }
-
-
             }
-        }
+            else
+            {
+                MessageBox.Show("Error: aiBtn is null");
+            }
 
-        //困难AI的封装函数
-        private void DifficultAIPlay(int x, double canvasHeight)
+
+        }
+    }
+
+    //困难AI的封装函数
+    private void DifficultAIPlay(int x, double canvasHeight)
         {
             Tuple<int, int> aiMove = Board.showMove();
             if (aiMove != null)

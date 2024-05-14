@@ -33,6 +33,8 @@ namespace work
         {
             return board;
         }
+        
+
 
         //判断胜利逻辑，看x,y附近是否四连
         //turn =+1表示  人
