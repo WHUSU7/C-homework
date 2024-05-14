@@ -28,7 +28,7 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext = mdm;
-			suggession();
+		      	suggession();
 		}
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -84,9 +84,53 @@ namespace work.Pages
                     
 
             }
-			
-			// 在每个玩家的轮次结束后调用AI函数
-			Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+
+            //简单AI
+            //SimpleAIPlay(x, canvasHeight);
+            //困难AI
+            DifficultAIPlay(x, canvasHeight);
+        }
+
+        
+     
+        //简单AI的封装函数
+        private void SimpleAIPlay(int x, double canvasHeight)
+    {
+        Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+        if (aiMove != null)
+        {
+            int aiX = aiMove.Item1;
+            int aiY = aiMove.Item2;
+            string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
+
+            Button aiBtn = (Button)FindName(aiTargetBtn);
+            if (aiBtn != null)
+            {
+                aiBtn.Visibility = Visibility.Visible;
+                board[aiX, aiY] = -1;
+                aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
+                nowTurn = -1;
+
+                if (Board.IsWin(aiX, aiY, -1))
+                {
+                    MessageBox.Show("AI Win!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error: aiBtn is null");
+            }
+
+
+        }
+        suggession();
+    }
+
+    //困难AI的封装函数
+    private void DifficultAIPlay(int x, double canvasHeight)
+        {
+            Tuple<int, int> aiMove = Board.showMove();
             if (aiMove != null)
             {
                 int aiX = aiMove.Item1;
@@ -119,10 +163,8 @@ namespace work.Pages
 		}
 
 
-       
-     
-		//棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
-		private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
+        private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
