@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static work.Utilwindows.ChooseDifficultyWindow;
+using work.Utilwindows;
 
 namespace work.Pages
 {
@@ -33,7 +35,7 @@ namespace work.Pages
             
         }
 
-      
+       
 
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -51,6 +53,7 @@ namespace work.Pages
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -99,9 +102,9 @@ namespace work.Pages
             // MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
             // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
             //MessageBox.Show($"pos:({x},{y})");
-           
+
             //suggession();
-         
+           
         }
 
 
@@ -127,6 +130,7 @@ namespace work.Pages
         public void jumpToAI(object sender, RoutedEventArgs e)
         {
             Board.resetBoard("AI");
+            chooseDifficuty();
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.ai);
         }
 
@@ -164,11 +168,22 @@ namespace work.Pages
             }
         }
 
-       
-                
 
-            
-        
+
+        private void chooseDifficuty()
+        {
+            ChooseDifficultyWindow cdw = new ChooseDifficultyWindow();
+            cdw.DifficultyChanged += chooseDifficutyChanged;
+            cdw.ShowDialog();
+        }
+
+        private void chooseDifficutyChanged(object sender, DifficutyChangedEventArgs e)
+        {
+           AI.difficulty = e.Difficuty;  // 使用事件数据更新主窗口
+           
+        }
+
+
     }
 
 }

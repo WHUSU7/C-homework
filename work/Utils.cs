@@ -12,8 +12,11 @@ using static work.MainWindow;
 
 namespace work
 {
+    
     public class Utils
     {
+        //结束判断标志
+        public static bool end = false;
         //获取当前坐标
         public static int getIndex(double inch, double pos)
         {
@@ -29,6 +32,7 @@ namespace work
         //判断该点击处是合法
         public static bool isClickValid(int x, int y, int[,] board)
         {
+            if (end) { return false; }
             if (board[x, y] != 0) { return false; }
             if (x == 5) { return true; }
             else

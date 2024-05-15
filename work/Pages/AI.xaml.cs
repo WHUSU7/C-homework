@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using work.Utilwindows;
+using static work.Utilwindows.ChooseDifficultyWindow;
 
 namespace work.Pages
 {
@@ -31,6 +33,12 @@ namespace work.Pages
             App.AIInstance = this;
 		    suggession();
 		}
+        //难度
+        public static int difficulty=-1;
+
+        //落子计数器
+        public int tie = 0;
+
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
@@ -46,7 +54,7 @@ namespace work.Pages
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+           
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -69,6 +77,7 @@ namespace work.Pages
                 board[x, y] = 1;
                 if (Board.IsWin(x, y, 1))
                 {
+                    Utils.end = true;
                     MessageBox.Show("YOU Win!");
                 }
 
@@ -84,10 +93,24 @@ namespace work.Pages
                     imageBrush.ImageSource = bitmap;
                     btn.Background = imageBrush;
 
-                //简单AI
-                //SimpleAIPlay(x, canvasHeight);
-                //困难AI
-                DifficultAIPlay(x, canvasHeight);
+                //选择难度级别（后续考虑动态选择困难难度）
+                switch (AI.difficulty) {
+                    case -1:
+                        
+                        SimpleAIPlay(x, canvasHeight);
+                        break;
+                    case 1:
+                        DifficultAIPlay(x, canvasHeight);
+                        
+                        break ;
+                }
+                tie += 1;
+                if (tie == 21)
+                {
+                    Utils.end = true;
+                    MessageBox.Show("平局");
+                }
+               
             }
           
            
@@ -111,7 +134,8 @@ namespace work.Pages
                 aiBtn.Visibility = Visibility.Visible;
                 board[aiX, aiY] = -1;
                 aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-                AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
+                    
+                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
                 nowTurn = -1;
 
                 if (Board.IsWin(aiX, aiY, -1))
@@ -174,7 +198,7 @@ namespace work.Pages
             double myCanvasFatherGridHeight = myCanvasFatherGrid.ActualHeight;
 
             mdm.CanvasWidth = myCanvasFatherGridHeight * 1.166667;
-
+           
         }
         //跳转到主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
@@ -241,6 +265,8 @@ namespace work.Pages
 		{
 
 		}
-	}
+
+      
+    }
 }
 
