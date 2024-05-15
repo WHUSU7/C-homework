@@ -59,8 +59,6 @@ namespace work
                 case WindowsID.ai:
                     mainContent.Content = ai;
                     break;
-
-
             }
         }
 

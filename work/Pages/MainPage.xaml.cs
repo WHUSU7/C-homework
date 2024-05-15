@@ -62,6 +62,11 @@ namespace work.Pages
 
             //判断该点击处是否合法，合法再执行下面动画和显示
             bool isClickValid = Utils.isClickValid(x, y, board);
+            if(isClickValid)
+            {
+                GameService.Instance.getPosition(x, y);
+            }
+
             if (isClickValid)
             {
                 btn.Visibility = Visibility.Visible;
