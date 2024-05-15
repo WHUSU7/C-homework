@@ -28,7 +28,7 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext =mdm;
-
+            
         }
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -94,7 +94,8 @@ namespace work.Pages
             // MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
             // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
             //MessageBox.Show($"pos:({x},{y})");
-
+           
+         
         }
 
 
@@ -113,11 +114,13 @@ namespace work.Pages
         //跳转到历史记录页面
         public void jumpToHistory(object sender, RoutedEventArgs e)
         {
+
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.history);
         }
         //跳转到人机对战页面
         public void jumpToAI(object sender, RoutedEventArgs e)
         {
+            Board.resetBoard();
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.ai);
         }
 

@@ -155,7 +155,7 @@ namespace work.Pages
                 {
                     MessageBox.Show("Error: aiBtn is null");
                 }
-
+               
 
             }
 			suggession();
@@ -163,7 +163,7 @@ namespace work.Pages
 		}
 
 
-        //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
+        //棋盘canvas尺寸变化时调用
         private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double canvasWidth = myCanvas.ActualWidth;
@@ -176,6 +176,7 @@ namespace work.Pages
         //跳转到主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
+            Board.resetBoard();
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
         

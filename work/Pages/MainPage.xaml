@@ -52,9 +52,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <BitmapImage x:Key="chessBoardImage" UriSource="pack://application:,,,/Images/chessBoard.png" />
+        <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
     </Page.Resources>
 
-        <Grid Background="White">
+        <Grid Background="Ivory">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -82,6 +84,16 @@
         <Button Grid.Column="4" Grid.Row="7" x:Name="AIBtn"  Content="人机对战" Height="100" Click="jumpToAI" Style="{StaticResource ctrlButton}"/>
         <Button Grid.Column="5" Grid.Row="7" x:Name="PeopleBtn"  Content="人人对战" Height="100" Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
         
+        <Grid Background="Bisque" x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="6" >
+            <Canvas  x:Name="myCanvas" Background="{StaticResource chessBoardBackground}"  MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
+                <Grid   Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
+                    <Grid.RowDefinitions >
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
 
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
             <Canvas  x:Name="myCanvas" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">

@@ -33,8 +33,16 @@ namespace work
         {
             return board;
         }
-        
 
+        //重置board为全0
+
+        public static void resetBoard() {
+            for (int i = 0; i < board.GetLength(0); i++) {
+                for (int j = 0; j < board.GetLength(1); j++) {
+                   board[i, j] = 0;
+                }
+            }
+        }
 
         //判断胜利逻辑，看x,y附近是否四连
         //turn =+1表示  人
