@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\ctmik\\C-homework\\work\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|c:\\users\\ctmik\\c-homework\\work\\pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|c:\\users\\ctmik\\c-homework\\work\\pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -109,8 +109,7 @@
               "RelativeToolTip": "Pages\\PVP.xaml.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAAADkAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T06:35:23.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T06:35:23.213Z"
             },
             {
               "$type": "Document",
@@ -176,8 +175,8 @@
               "Title": "PVP.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml",
               "RelativeDocumentMoniker": "Pages\\PVP.xaml",
-              "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml",
-              "RelativeToolTip": "Pages\\PVP.xaml",
+              "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml*",
+              "RelativeToolTip": "Pages\\PVP.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-05-15T05:05:37.922Z",
               "EditorCaption": ""
