@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ctmik\\C-homework\\work\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ctmik\\C-homework\\work\\pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:pages\\pvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|c:\\users\\ctmik\\c-homework\\work\\pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\pages\\ai.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,16 +27,28 @@
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\ctmik\\c-homework\\work\\pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:pages\\pvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,19 +66,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "AI.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\AI.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\AI.xaml.cs",
               "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\AI.xaml.cs",
               "RelativeToolTip": "Pages\\AI.xaml.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAA8wDwAAABCAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAswDwAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-15T07:30:41.347Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "HistoryPage.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\HistoryPage.xaml",
               "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml",
@@ -89,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
@@ -101,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "PVP.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\PVP.xaml.cs",
@@ -109,23 +109,23 @@
               "RelativeToolTip": "Pages\\PVP.xaml.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAAAADkAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T06:35:23.213Z"
+              "WhenOpened": "2024-05-15T06:35:23.213Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\MainPage.xaml",
               "RelativeDocumentMoniker": "Pages\\MainPage.xaml",
               "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\MainPage.xaml",
               "RelativeToolTip": "Pages\\MainPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-15T06:28:17.475Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T06:28:17.475Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "AI.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\AI.xaml",
               "RelativeDocumentMoniker": "Pages\\AI.xaml",
@@ -136,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -148,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Board.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Board.cs",
               "RelativeDocumentMoniker": "Board.cs",
@@ -160,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -168,12 +168,11 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T05:05:52.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T05:05:52.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "PVP.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml",
               "RelativeDocumentMoniker": "Pages\\PVP.xaml",
@@ -185,19 +184,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-15T05:05:45.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T05:05:45.743Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Utils.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Utils.cs",
               "RelativeDocumentMoniker": "Utils.cs",

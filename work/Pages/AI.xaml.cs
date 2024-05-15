@@ -28,7 +28,8 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext = mdm;
-		      	suggession();
+            App.AIInstance = this;
+		    suggession();
 		}
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -37,13 +38,13 @@ namespace work.Pages
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
+       
             //MessageBox.Show("sdfs");
 
         }
-        public int tie=0;
-	
-		//点击棋盘canvas调用
-		private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+
+        //点击棋盘canvas调用
+        private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             
             Point clickPoint = e.GetPosition(myCanvas);
@@ -68,7 +69,6 @@ namespace work.Pages
                 board[x, y] = 1;
                 if (Board.IsWin(x, y, 1))
                 {
-                    Utils.end = true;
                     MessageBox.Show("YOU Win!");
                 }
 
@@ -84,23 +84,17 @@ namespace work.Pages
                     imageBrush.ImageSource = bitmap;
                     btn.Background = imageBrush;
 
-				DifficultAIPlay(x, canvasHeight);
-                tie += 1;//等于21时表平局
-                if(tie == 21)
-                {
-					Utils.end = true;
-					MessageBox.Show("平局");
-				}
-			}
-
-            //简单AI
-            //SimpleAIPlay(x, canvasHeight);
-            //困难AI
+                //简单AI
+                //SimpleAIPlay(x, canvasHeight);
+                //困难AI
+                DifficultAIPlay(x, canvasHeight);
+            }
+          
            
         }
 
-
         
+     
         //简单AI的封装函数
         private void SimpleAIPlay(int x, double canvasHeight)
     {
@@ -122,8 +116,7 @@ namespace work.Pages
 
                 if (Board.IsWin(aiX, aiY, -1))
                 {
-						Utils.end = true;
-						MessageBox.Show("AI Win!");
+                    MessageBox.Show("AI Win!");
                 }
             }
             else
@@ -133,7 +126,7 @@ namespace work.Pages
 
 
         }
-        suggession();
+       suggession();
     }
 
     //困难AI的封装函数
@@ -157,23 +150,23 @@ namespace work.Pages
 
                     if (Board.IsWin(aiX, aiY, -1))
                     {
-						Utils.end = true;
-						MessageBox.Show("AI Win!");
+                        MessageBox.Show("AI Win!");
                     }
                 }
                 else
                 {
                     MessageBox.Show("Error: aiBtn is null");
                 }
-
+               
 
             }
+         
 			suggession();
 
 		}
 
 
-        //棋盘canvas尺寸变化时调用（暂时无用，后续可能有用）
+        //棋盘canvas尺寸变化时调用
         private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double canvasWidth = myCanvas.ActualWidth;
@@ -186,6 +179,7 @@ namespace work.Pages
         //跳转到主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
+            Board.resetBoard("MainPage");
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
         
@@ -217,34 +211,25 @@ namespace work.Pages
             }
         }
 
-		private void Button50_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
+		
         //位置提示
 		public void suggession()
 		{
 			for (int i = 0; i < 7; i++)
 			{
-				if (board[5, i] == 0)
-				{
-					string targetBt = "Button5" + i.ToString();
-					Button bt = (Button)FindName(targetBt);
-					bt.Visibility = Visibility.Visible;
-				}
-				else
-				{
-					for (int j = 4; j >= 0; j--)
+				
+					for (int j = 5; j >= 0; j--)
 					{
 						if (board[j, i] == 0)
 						{
 							string targetBt = "Button" + j.ToString() + i.ToString();
 							Button bt = (Button)FindName(targetBt);
 							bt.Visibility = Visibility.Visible;
+                            bt.Background =  new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1A000000")); ;
 							break;
 						}
 					}
-				}
+				
 
 			}
 		}

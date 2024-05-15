@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:work.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="900"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="AI">
 
     <Page.Resources>
@@ -53,6 +53,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <BitmapImage x:Key="chessBoardImage" UriSource="pack://application:,,,/Images/chessBoard.png" />
+        <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
     </Page.Resources>
 
     <Grid Background="White">
@@ -87,13 +89,14 @@
 
 
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
-
-            <Canvas  x:Name="myCanvas"  
+            <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+                <Canvas  x:Name="myCanvas"  
+                     Background="{StaticResource chessBoardBackground}"
                          MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" 
                          SizeChanged="myCanvas_SizeChanged" 
                          Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}"
                          Width="{Binding CanvasWidth}">
-                <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+               
                     <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
                         <Grid.RowDefinitions >
                             <RowDefinition></RowDefinition>
@@ -154,7 +157,7 @@
                         <Button Grid.Column="5" Grid.Row="4" x:Name="Button45" Style="{StaticResource commonBtnStyle}" />
                         <Button Grid.Column="6" Grid.Row="4" x:Name="Button46" Style="{StaticResource commonBtnStyle}" />
 
-                        <Button Grid.Column="0" Grid.Row="5" x:Name="Button50" Style="{StaticResource commonBtnStyle}" Click="Button50_Click" />
+                        <Button Grid.Column="0" Grid.Row="5" x:Name="Button50" Style="{StaticResource commonBtnStyle}"  />
                         <Button Grid.Column="1" Grid.Row="5" x:Name="Button51" Style="{StaticResource commonBtnStyle}" />
                         <Button Grid.Column="2" Grid.Row="5" x:Name="Button52" Style="{StaticResource commonBtnStyle}" />
                         <Button Grid.Column="3" Grid.Row="5" x:Name="Button53" Style="{StaticResource commonBtnStyle}" />
@@ -166,9 +169,9 @@
 
 
                     </Grid>
-                </Border>
+               
             </Canvas>
-
+            </Border>
         </Grid>
     </Grid>
 </Page>
