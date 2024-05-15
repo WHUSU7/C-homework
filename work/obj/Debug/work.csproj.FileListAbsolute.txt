@@ -81,3 +81,5 @@ D:\Git\GITHUB\C-homework\work\obj\Debug\work.exe
 D:\Git\GITHUB\C-homework\work\obj\Debug\work.pdb
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\PVP.g.cs
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\PVP.baml
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\ChooseDifficultyWindow.g.cs
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\ChooseDifficultyWindow.baml
