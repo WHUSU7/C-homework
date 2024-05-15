@@ -14,8 +14,6 @@ namespace work
 {
     public class Utils
     {
-
-
         //获取当前坐标
         public static int getIndex(double inch, double pos)
         {

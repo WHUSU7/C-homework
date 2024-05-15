@@ -130,6 +130,13 @@ namespace work.Pages
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.ai);
         }
 
+        //跳转到pvp页面
+        public void jumpToPvp(object sender, RoutedEventArgs e)
+        {
+           
+            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.pvp);
+        }
+
         //Binding绑定的数据源
         public class MainDataModel : INotifyPropertyChanged
         {

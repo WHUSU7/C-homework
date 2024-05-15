@@ -82,7 +82,7 @@
 
         <Button Grid.Column="3" Grid.Row="7" x:Name="HistoryBtn"  Content="历史记录"  Height="100" Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
         <Button Grid.Column="4" Grid.Row="7" x:Name="AIBtn"  Content="人机对战" Height="100" Click="jumpToAI" Style="{StaticResource ctrlButton}"/>
-        <Button Grid.Column="5" Grid.Row="7" x:Name="PeopleBtn"  Content="人人对战" Height="100" Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
+        <Button Grid.Column="5" Grid.Row="7" x:Name="PeopleBtn"  Content="人人对战" Height="100" Click="jumpToPvp" Style="{StaticResource ctrlButton}"/>
         
       
 
