@@ -79,3 +79,5 @@ D:\Git\GITHUB\C-homework\work\obj\Debug\work.csproj.GenerateResource.cache
 D:\Git\GITHUB\C-homework\work\obj\Debug\work.csproj.CoreCompileInputs.cache
 D:\Git\GITHUB\C-homework\work\obj\Debug\work.exe
 D:\Git\GITHUB\C-homework\work\obj\Debug\work.pdb
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\PVP.g.cs
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\PVP.baml

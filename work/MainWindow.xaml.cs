@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using work.Pages;
 
 namespace work
 {
@@ -27,13 +28,14 @@ namespace work
         public enum WindowsID { 
             main,
               history,
-              ai
+              ai,
+              pvp
         };
 
         Frame history = new Frame() { Content = new Pages.HistoryPage() };
         Frame main = new Frame() { Content = new Pages.MainPage() };
         Frame ai= new Frame() { Content = new Pages.AI() };
-
+        Frame pvp = new Frame { Content = new Pages.PVP() };
         public MainWindow()
         {
             InitializeComponent();
@@ -59,8 +61,9 @@ namespace work
                 case WindowsID.ai:
                     mainContent.Content = ai;
                     break;
-
-
+                case WindowsID.pvp:
+                    mainContent.Content = pvp;
+                    break;
             }
         }
 
