@@ -28,7 +28,8 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext = mdm;
-		      	suggession();
+            App.AIInstance = this;
+		    suggession();
 		}
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -37,6 +38,7 @@ namespace work.Pages
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
+       
             //MessageBox.Show("sdfs");
 
         }
@@ -81,14 +83,14 @@ namespace work.Pages
                     ImageBrush imageBrush = new ImageBrush();
                     imageBrush.ImageSource = bitmap;
                     btn.Background = imageBrush;
-                    
 
+                //简单AI
+                //SimpleAIPlay(x, canvasHeight);
+                //困难AI
+                DifficultAIPlay(x, canvasHeight);
             }
-
-            //简单AI
-            //SimpleAIPlay(x, canvasHeight);
-            //困难AI
-            DifficultAIPlay(x, canvasHeight);
+          
+           
         }
 
         
@@ -124,7 +126,7 @@ namespace work.Pages
 
 
         }
-        suggession();
+       suggession();
     }
 
     //困难AI的封装函数
@@ -158,6 +160,7 @@ namespace work.Pages
                
 
             }
+         
 			suggession();
 
 		}
@@ -176,7 +179,7 @@ namespace work.Pages
         //跳转到主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            Board.resetBoard();
+            Board.resetBoard("MainPage");
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
         
@@ -208,34 +211,25 @@ namespace work.Pages
             }
         }
 
-		private void Button50_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
+		
         //位置提示
 		public void suggession()
 		{
 			for (int i = 0; i < 7; i++)
 			{
-				if (board[5, i] == 0)
-				{
-					string targetBt = "Button5" + i.ToString();
-					Button bt = (Button)FindName(targetBt);
-					bt.Visibility = Visibility.Visible;
-				}
-				else
-				{
-					for (int j = 4; j >= 0; j--)
+				
+					for (int j = 5; j >= 0; j--)
 					{
 						if (board[j, i] == 0)
 						{
 							string targetBt = "Button" + j.ToString() + i.ToString();
 							Button bt = (Button)FindName(targetBt);
 							bt.Visibility = Visibility.Visible;
+                            bt.Background =  new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1A000000")); ;
 							break;
 						}
 					}
-				}
+				
 
 			}
 		}

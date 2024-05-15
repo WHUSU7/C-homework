@@ -28,8 +28,13 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext =mdm;
+            App.MainPageInstance = this;
+            //suggession();
             
         }
+
+      
+
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
@@ -39,7 +44,7 @@ namespace work.Pages
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            MessageBox.Show(btn.Name);
+            //MessageBox.Show(btn.Name);
 
         }
 
@@ -95,6 +100,7 @@ namespace work.Pages
             // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
             //MessageBox.Show($"pos:({x},{y})");
            
+            //suggession();
          
         }
 
@@ -120,7 +126,7 @@ namespace work.Pages
         //跳转到人机对战页面
         public void jumpToAI(object sender, RoutedEventArgs e)
         {
-            Board.resetBoard();
+            Board.resetBoard("AI");
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.ai);
         }
 
@@ -150,6 +156,12 @@ namespace work.Pages
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+       
+                
+
+            
+        
     }
 
 }

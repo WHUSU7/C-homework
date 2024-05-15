@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:work.Pages"
      xmlns:work="clr-namespace:work"
       mc:Ignorable="d" 
-      d:DesignHeight="800" d:DesignWidth="900"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="MainPage">
 
     <Page.Resources>
@@ -84,20 +84,12 @@
         <Button Grid.Column="4" Grid.Row="7" x:Name="AIBtn"  Content="人机对战" Height="100" Click="jumpToAI" Style="{StaticResource ctrlButton}"/>
         <Button Grid.Column="5" Grid.Row="7" x:Name="PeopleBtn"  Content="人人对战" Height="100" Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
         
-        <Grid Background="Bisque" x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="6" Grid.RowSpan="6" >
-            <Canvas  x:Name="myCanvas" Background="{StaticResource chessBoardBackground}"  MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
-                <Grid   Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
-                    <Grid.RowDefinitions >
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+      
 
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
-            <Canvas  x:Name="myCanvas" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
-                <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+            <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+                <Canvas  x:Name="myCanvas" Background="{StaticResource chessBoardBackground}" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
+               
                     <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
                         <Grid.RowDefinitions >
                             <RowDefinition></RowDefinition>
@@ -167,8 +159,9 @@
                         <Button Grid.Column="6" Grid.Row="5" x:Name="Button56" Style="{StaticResource commonBtnStyle}" />
 
                     </Grid>
-                </Border>
+               
             </Canvas>
+            </Border>
         </Grid>
     </Grid>
 </Page>
