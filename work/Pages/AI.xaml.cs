@@ -40,9 +40,10 @@ namespace work.Pages
             //MessageBox.Show("sdfs");
 
         }
-
-        //点击棋盘canvas调用
-        private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        public int tie=0;
+	
+		//点击棋盘canvas调用
+		private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             
             Point clickPoint = e.GetPosition(myCanvas);
@@ -67,6 +68,7 @@ namespace work.Pages
                 board[x, y] = 1;
                 if (Board.IsWin(x, y, 1))
                 {
+                    Utils.end = true;
                     MessageBox.Show("YOU Win!");
                 }
 
@@ -81,18 +83,24 @@ namespace work.Pages
                     ImageBrush imageBrush = new ImageBrush();
                     imageBrush.ImageSource = bitmap;
                     btn.Background = imageBrush;
-                    
 
-            }
+				DifficultAIPlay(x, canvasHeight);
+                tie += 1;//等于21时表平局
+                if(tie == 21)
+                {
+					Utils.end = true;
+					MessageBox.Show("平局");
+				}
+			}
 
             //简单AI
             //SimpleAIPlay(x, canvasHeight);
             //困难AI
-            DifficultAIPlay(x, canvasHeight);
+           
         }
 
+
         
-     
         //简单AI的封装函数
         private void SimpleAIPlay(int x, double canvasHeight)
     {
@@ -114,7 +122,8 @@ namespace work.Pages
 
                 if (Board.IsWin(aiX, aiY, -1))
                 {
-                    MessageBox.Show("AI Win!");
+						Utils.end = true;
+						MessageBox.Show("AI Win!");
                 }
             }
             else
@@ -148,7 +157,8 @@ namespace work.Pages
 
                     if (Board.IsWin(aiX, aiY, -1))
                     {
-                        MessageBox.Show("AI Win!");
+						Utils.end = true;
+						MessageBox.Show("AI Win!");
                     }
                 }
                 else
