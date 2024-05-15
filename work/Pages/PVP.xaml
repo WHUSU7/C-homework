@@ -78,8 +78,8 @@
             <RowDefinition/>
             <!--<RowDefinition/>-->
         </Grid.RowDefinitions>
-       
-            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="7" Content="Player vs Player"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+
+        <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="7" Content="Player vs Player"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
         <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" Content="返回主页" Style="{StaticResource ctrlButton}" Click="jumpBackToMain"/>
         <Button Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="2" Content="开始匹配" Style="{StaticResource ctrlButton}" Click="startToMatch"/>
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
@@ -87,9 +87,8 @@
                 <Canvas  x:Name="myCanvas"  
                 Background="{StaticResource chessBoardBackground}"
                  MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" 
-                 SizeChanged="myCanvas_SizeChanged" 
-                 Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}"
-                 Width="{Binding CanvasWidth}">
+                 SizeChanged="myCanvas_SizeChanged"
+                 Width="{Binding CanvasWidth}" Margin="112,0,112,0">
 
                     <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
                         <Grid.RowDefinitions >
