@@ -23,7 +23,15 @@ namespace work.Pages
         public HistoryPage()
         {
             InitializeComponent();
+            this.Loaded += HistoryPageLoaded;
         }
+
+        private void HistoryPageLoaded(object sender, RoutedEventArgs e)
+        {
+            //Utils.PrintBoard(Board.getBoardInstance());
+        }
+
+       
 
         public void jumpBackToMain(object sender, RoutedEventArgs e) {
 

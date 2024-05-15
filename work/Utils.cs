@@ -44,7 +44,23 @@ namespace work
 
         }
 
+        //输出board当前的值
+        public static void PrintBoard(int[,] board)
+        {
+            StringBuilder str = new StringBuilder();
+            for (int i = 0; i < board.GetLength(0); i++)
+            { 
+                for (int j = 0; j < board.GetLength(1); j++)
+                {  
+                    str.Append(board[i, j]);
+                    str.Append(" ");
+                }
+                str.Append("\r\n"); 
+            }
+            MessageBox.Show(str.ToString());
+        }
 
+        
 
     }
 
