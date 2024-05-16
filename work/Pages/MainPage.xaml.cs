@@ -72,6 +72,10 @@ namespace work.Pages
             bool isClickValid = Utils.isClickValid(x, y, board);
             if (isClickValid)
             {
+                GameService.Instance.getPosition(x, y);
+            }
+            if (isClickValid)
+            {
                 btn.Visibility = Visibility.Visible;
                 if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
