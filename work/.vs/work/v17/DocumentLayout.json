@@ -6,16 +6,19 @@
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\historypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\ai.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -34,9 +37,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\choosedifficultywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
@@ -76,11 +76,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "AI.xaml",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml",
               "RelativeDocumentMoniker": "Pages\\AI.xaml",
@@ -92,33 +92,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-16T02:43:54.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "APIService.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\APIService.cs",
               "RelativeDocumentMoniker": "APIService.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\APIService.cs",
               "RelativeToolTip": "APIService.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAIAgwDYAAAAhAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAMA7wCwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-16T02:31:19.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AI.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\AI.xaml.cs",
@@ -126,12 +113,11 @@
               "RelativeToolTip": "Pages\\AI.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAHAAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-13T03:46:59.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T03:46:59.073Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PVP.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\PVP.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\PVP.xaml.cs",
@@ -139,36 +125,35 @@
               "RelativeToolTip": "Pages\\PVP.xaml.cs",
               "ViewState": "AQIAAA4AAAAAAAAAAAAywBcAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T03:55:40.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T03:55:40.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "HistoryPage.xaml",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml",
               "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml",
               "RelativeToolTip": "Pages\\HistoryPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T10:58:03.761Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-12T10:58:03.761Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "MainPage.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\MainPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\MainPage.xaml.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\MainPage.xaml.cs",
               "RelativeToolTip": "Pages\\MainPage.xaml.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAADQvzcAAAAMAAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAIA3wEoAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-12T11:12:11.029Z"
+              "WhenOpened": "2024-05-12T11:12:11.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Board.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Board.cs",
               "RelativeDocumentMoniker": "Board.cs",
@@ -176,8 +161,7 @@
               "RelativeToolTip": "Board.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAEA0wAcBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T02:14:54.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T02:14:54.524Z"
             },
             {
               "$type": "Document",
@@ -199,25 +183,36 @@
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\MainPage.xaml",
               "RelativeToolTip": "Pages\\MainPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T11:11:34.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-12T11:11:34.896Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "HistoryPage.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
               "RelativeToolTip": "Pages\\HistoryPage.xaml.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAVwDIAAAAAAAAA",
+              "ViewState": "AQIAACoAAAAAAAAAAEAxwD0AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-12T09:40:00.942Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T02:43:54.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ChooseDifficultyWindow.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\ChooseDifficultyWindow.xaml.cs",
               "RelativeDocumentMoniker": "Utilwindows\\ChooseDifficultyWindow.xaml.cs",
@@ -229,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Utils.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utils.cs",
               "RelativeDocumentMoniker": "Utils.cs",
@@ -241,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ChooseDifficultyWindow.xaml",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\ChooseDifficultyWindow.xaml",
               "RelativeDocumentMoniker": "Utilwindows\\ChooseDifficultyWindow.xaml",
@@ -259,8 +254,7 @@
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-12T09:07:27.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-12T09:07:27.567Z"
             },
             {
               "$type": "Document",

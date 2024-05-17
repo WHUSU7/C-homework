@@ -9,21 +9,30 @@
       Title="HistoryPage">
 
     <Grid>
-        <StackPanel>
-        <Label Content="this is history page" Background="Aqua" FontSize="50"></Label>
-        <Button Background="Beige" Content="click me to jump back to main" FontSize="50" Click="jumpBackToMain"></Button>
-            <Button Background="Beige" Content="load history" FontSize="50" Click="getHistoryById"></Button>
-            <Button Background="Beige" Content="login" FontSize="50" Click="login"></Button>
+       
+       
+        <Grid >
+            
+
+             
+
            
-        </StackPanel>
-
-
-        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+               
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400*"/>
                 <ColumnDefinition Width="400*"/>
+              
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
+            <StackPanel Grid.ColumnSpan="2">
+            <Button Background="Beige" Content="click me to jump back to main" FontSize="50" Click="jumpBackToMain"></Button>
+            <Button Background="Beige" Content="load history" FontSize="50" Click="getHistoryById"></Button>
+            <Button Background="Beige" Content="login" FontSize="50" Click="login"></Button>
+            </StackPanel>
+            <StackPanel Background="AliceBlue" Grid.Column="0" Grid.Row="1">
                 <StackPanel.Resources>
                     <Style x:Key="统一TextBlock高度" TargetType="{x:Type TextBlock}">
                         <Setter Property="Height" Value="17"/>
@@ -58,7 +67,7 @@
                 <TextBlock Text="{Binding Result[40]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="1">
+            <StackPanel Background="Aquamarine" Grid.Column="1" Grid.Row="1">
                 <StackPanel.Resources>
                     <Style x:Key="统一TextBlock高度" TargetType="{x:Type TextBlock}">
                         <Setter Property="Height" Value="17"/>

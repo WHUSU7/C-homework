@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using work.Models;
 
 namespace work.Pages
 {
@@ -44,18 +45,29 @@ namespace work.Pages
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
 
+        //获取单条历史记录
         public async void getHistoryById(object sender, RoutedEventArgs e)
         {
-            var products = await apiService.getSingleHistory(0);
-            MessageBox.Show(products);
+            var history =  await apiService.getSingleHistory(0);
+            MessageBox.Show(history);
                 
         }
-
-        public void login(object sender, RoutedEventArgs e)
+        //登录
+        public async void login(object sender, RoutedEventArgs e)
         {
-
-          
+            User u = new User(5, "atb", "123456");
+            var result = await  apiService.login(u);
+            if (result!=null)
+            {
+                MessageBox.Show(result.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Failed to login");
+            }
         }
+
+    }
 
     }
 
@@ -93,4 +105,4 @@ namespace work.Pages
         }
     }
 
-}
+
