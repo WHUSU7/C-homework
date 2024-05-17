@@ -23,6 +23,7 @@ namespace work.Pages
     public partial class HistoryPage : Page, INotifyPropertyChanged
     {
         private int a;
+        private APIService apiService = new APIService();
         public HistoryPage()
         {
             InitializeComponent();
@@ -42,6 +43,20 @@ namespace work.Pages
         {
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
+
+        public async void getHistoryById(object sender, RoutedEventArgs e)
+        {
+            var products = await apiService.getSingleHistory(0);
+            MessageBox.Show(products);
+                
+        }
+
+        public void login(object sender, RoutedEventArgs e)
+        {
+
+          
+        }
+
     }
 
 

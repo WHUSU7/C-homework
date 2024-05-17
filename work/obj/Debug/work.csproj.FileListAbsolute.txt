@@ -83,3 +83,6 @@ D:\Git\GITHUB\C-homework\work\obj\Debug\work.pdb
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\PVP.baml
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\ChooseDifficultyWindow.g.cs
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\ChooseDifficultyWindow.baml
+\\Mac\Home\Downloads\C-homework\work\bin\Debug\Newtonsoft.Json.dll
+\\Mac\Home\Downloads\C-homework\work\bin\Debug\Newtonsoft.Json.xml
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\work.csproj.Up2Date

@@ -9,13 +9,12 @@
       Title="HistoryPage">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0" >
-            <Button Height="93" Background="Beige" Content="click me to jump back to main" FontSize="20" Click="jumpBackToMain"></Button>
+        <StackPanel>
+        <Label Content="this is history page" Background="Aqua" FontSize="50"></Label>
+        <Button Background="Beige" Content="click me to jump back to main" FontSize="50" Click="jumpBackToMain"></Button>
+            <Button Background="Beige" Content="load history" FontSize="50" Click="getHistoryById"></Button>
+            <Button Background="Beige" Content="login" FontSize="50" Click="login"></Button>
+           
         </StackPanel>
 
 

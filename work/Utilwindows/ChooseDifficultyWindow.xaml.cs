@@ -36,7 +36,7 @@ namespace work.Utilwindows
             this.Close();
 
         }
-        //简单难度
+        //困难难度
         public void difficultLevel(object sender, RoutedEventArgs e)
         {
 
