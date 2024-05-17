@@ -72,6 +72,7 @@ namespace work.Pages
             bool isClickValid = Utils.isClickValid(x, y, board);
             if (isClickValid)
             {
+                //历史记录获取坐标
                 GameService.Instance.getPosition(x, y);
             }
             if (isClickValid)
