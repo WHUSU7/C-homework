@@ -56,17 +56,23 @@ namespace work.Pages
         //获取所有历史记录
         public async void getHistories(object sender, RoutedEventArgs e)
         {
-            var history = await apiService.getHistories(1);
+            var history = await apiService.getHistories(App.user.id);
             string str = "";
             foreach (string item in history) {
-                str += ",";
+                str += "     ";
                 str += item;
             }
             MessageBox.Show(str);
 
         }
 
-        
+        //插入历史记录
+        public async void insertHistory(object sender, RoutedEventArgs e) {
+            //把这个替换成要插入的历史记录就行了
+            string str = "111";
+            var isSuccess = await apiService.insertHistory(new History(-1,str),App.user.id);
+            MessageBox.Show(isSuccess);
+        } 
 
 
 

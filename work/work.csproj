@@ -61,6 +61,7 @@
     <Compile Include="AnimationUtils.cs" />
     <Compile Include="APIService.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="Models\History.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AI.xaml.cs">
       <DependentUpon>AI.xaml</DependentUpon>

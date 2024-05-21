@@ -65,6 +65,21 @@ namespace work
 
         }
 
+        //插入历史记录
+        public async Task<string> insertHistory(History history,int userid) {
+            var json = JsonConvert.SerializeObject(history);
+           var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            var response = await client.PostAsync($"{userid}/insertHistory", content);
+            if (response.IsSuccessStatusCode) { 
+            string res = await response.Content.ReadAsStringAsync();
+             var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+                string isSuccess = jsonObject["isSuccess"].ToString();
+                return isSuccess;
+            }
+            return "";
+
+        } 
+
         //登录（post）
         public async Task<int> login(User user)
         {
