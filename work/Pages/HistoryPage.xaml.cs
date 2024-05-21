@@ -48,24 +48,28 @@ namespace work.Pages
         //获取单条历史记录
         public async void getHistoryById(object sender, RoutedEventArgs e)
         {
-            var history =  await apiService.getSingleHistory(0);
+            var history =  await apiService.getSingleHistory(1);
             MessageBox.Show(history);
                 
         }
-        //登录
-        public async void login(object sender, RoutedEventArgs e)
+
+        //获取所有历史记录
+        public async void getHistories(object sender, RoutedEventArgs e)
         {
-            User u = new User(5, "atb", "123456");
-            var result = await  apiService.login(u);
-            if (result!=null)
-            {
-                MessageBox.Show(result.ToString());
+            var history = await apiService.getHistories(1);
+            string str = "";
+            foreach (string item in history) {
+                str += ",";
+                str += item;
             }
-            else
-            {
-                MessageBox.Show("Failed to login");
-            }
+            MessageBox.Show(str);
+
         }
+
+        
+
+
+
 
     }
 

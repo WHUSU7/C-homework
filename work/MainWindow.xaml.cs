@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using work.Models;
 using work.Pages;
 
 namespace work
@@ -23,6 +24,7 @@ namespace work
     /// </summary>
     public partial class MainWindow : Window
     {
+        public APIService apiService = new APIService();
         //跳转页面
         public static MainWindow window;
         public enum WindowsID { 
@@ -42,7 +44,48 @@ namespace work
             window = this;
         }
 
-       
+        
+        //登录
+        public async void Login(object sender, RoutedEventArgs e)
+        {
+            if (nameInput.Text == ""|| passwordInput.Password=="") {
+                MessageBox.Show("用户名或密码不能为空");
+                return;
+            }
+            User u = new User(-1, nameInput.Text, passwordInput.Password);
+            var result = await apiService.login(u);
+            if (result >0)
+            {
+                MessageBox.Show("登录成功，id是：" + result.ToString());
+                jumpToTargetPage(WindowsID.main);
+              
+            }
+            else 
+            {
+                return;
+            }
+        }
+        //注册
+        public async void Register(object sender, RoutedEventArgs e) {
+            if (nameInput.Text == "" || passwordInput.Password == "")
+            {
+                MessageBox.Show("用户名或密码不能为空");
+                return;
+            }
+            User u = new User(-1, nameInput.Text, passwordInput.Password);
+            var result = await apiService.register(u);
+            if (result >0)
+            {
+                MessageBox.Show("注册成功，id是："+result.ToString());
+                jumpToTargetPage(WindowsID.main);
+            }
+            else
+            {
+                return;
+            }
+
+        }
+
 
         //跳转到目标页面
         public void jumpToTargetPage(WindowsID winid)

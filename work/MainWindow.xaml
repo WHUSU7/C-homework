@@ -9,9 +9,47 @@
     
 
     <ContentControl x:Name="mainContent">
-    <Grid>
+    <Grid Background="Ivory">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        
             <Button Content="jump to Main" Background="AliceBlue" Click="jumpToMain"> </Button>
-       
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="Beige">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                 
+                </Grid.RowDefinitions>
+                <TextBox x:Name="nameInput" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="10" VerticalContentAlignment="Center" > </TextBox>
+                <PasswordBox x:Name="passwordInput" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Margin="10" VerticalContentAlignment="Center"></PasswordBox>
+                <Button x:Name="login" Content="登录" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Background="#C7EDCC" Click="Login"> </Button>
+                <Button x:Name="register" Content="注册" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Margin="10" Background="#FDE6E0" Click="Register"> </Button>
+            </Grid>
  </Grid>
     </ContentControl>
 </Window>

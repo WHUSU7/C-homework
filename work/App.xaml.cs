@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using work.Pages;
-
+using work.Models;
 namespace work
 {
     /// <summary>
@@ -18,5 +18,6 @@ namespace work
         public static MainPage MainPageInstance { get; set; }
         public static AI AIInstance { get; set; }
 		public static PVP PVPInstance { get; set; }
+        public static User user = new User(-1,"-1","-1");
 	}
 }
