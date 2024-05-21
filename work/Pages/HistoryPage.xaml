@@ -30,7 +30,8 @@
             <StackPanel Grid.ColumnSpan="2">
             <Button Background="Beige" Content="click me to jump back to main" FontSize="50" Click="jumpBackToMain"></Button>
             <Button Background="Beige" Content="load history" FontSize="50" Click="getHistoryById"></Button>
-            <Button Background="Beige" Content="login" FontSize="50" Click="login"></Button>
+        
+                <Button Background="Beige" Content="load all historys" FontSize="50" Click="getHistories"></Button>
             </StackPanel>
             <StackPanel Background="AliceBlue" Grid.Column="0" Grid.Row="1">
                 <StackPanel.Resources>
