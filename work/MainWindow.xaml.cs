@@ -113,8 +113,23 @@ namespace work
        public void  jumpToMain(object sender, RoutedEventArgs e) {
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
+        //窗口最小化和关闭
+        public void WindowMinimized(object sender,RoutedEventArgs e)
+        {
+			this.WindowState = WindowState.Minimized;
+		}
+        public void WindowClose(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+		private void nameInput_TextChanged(object sender, TextChangedEventArgs e)
+		{
 
-       
+        }
 
-    }
+		private void login_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 }
