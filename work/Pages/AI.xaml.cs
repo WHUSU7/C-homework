@@ -119,9 +119,13 @@ namespace work.Pages
         
      
         //简单AI的封装函数
-        private void SimpleAIPlay(int x, double canvasHeight)
+        private async void SimpleAIPlay(int x, double canvasHeight)
     {
-        Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+            //随机延时0.5-1s
+            Random random = new Random();
+            double delaySeconds = random.NextDouble() * 0.5 + 0.5; // 生成 0.5 到 1.0 之间的随机数
+            await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
+            Tuple<int, int> aiMove = Board.NextMove(nowTurn);
         if (aiMove != null)
         {
             int aiX = aiMove.Item1;
@@ -154,8 +158,12 @@ namespace work.Pages
     }
 
     //困难AI的封装函数
-    private void DifficultAIPlay(int x, double canvasHeight)
+    private async void DifficultAIPlay(int x, double canvasHeight)
         {
+            //随机延时
+            Random random = new Random();
+            double delaySeconds = random.NextDouble() * 0.5 + 0.5; // 生成 0.2 到0.4 之间的随机数
+            await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
             Tuple<int, int> aiMove = Board.showMove();
             if (aiMove != null)
             {

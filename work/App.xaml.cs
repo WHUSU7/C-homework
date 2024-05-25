@@ -19,7 +19,7 @@ namespace work
         public static AI AIInstance { get; set; }
 		public static PVP PVPInstance { get; set; }
 
-        public static User user = new User(0,"-1","-1");
+        public static User user = new User(0,"-1","-1","-1");
 
         public static Msg AppMsg = new Msg("empty","0");
 

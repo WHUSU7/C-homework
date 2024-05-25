@@ -31,7 +31,7 @@ namespace work
             //base api
             //虚拟机上要用物理机可用端口的ip代替本地地址，如en0的inet
             //物理机上直接127.0.0.1：4523即可
-            client.BaseAddress = new Uri("http://192.168.43.254:8000/m1/4020303-0-default/fourchess/");
+            client.BaseAddress = new Uri("http://127.0.0.1:8000/m1/4020303-0-default/fourchess/");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
 
@@ -98,9 +98,11 @@ namespace work
                 string id = jsonObject["id"].ToString();
                 string name = jsonObject["name"].ToString();
                 string password = jsonObject["password"].ToString();
+                string nickname = jsonObject["nickname"].ToString();
                 App.user.id = int.Parse(id);
                 App.user.name = name;
                 App.user.password = password;
+                App.user.nickname = nickname;
                 return int.Parse(id);
             }
             else if ((int)response.StatusCode == 401) {
@@ -124,15 +126,17 @@ namespace work
                 string id = jsonObject["id"].ToString();
                 string name = jsonObject["name"].ToString();
                 string password = jsonObject["password"].ToString();
+                string nickname = jsonObject["nickname"].ToString();
                 App.user.id = int.Parse(id);
                 App.user.name = name;
                 App.user.password = password;
+                App.user.nickname = nickname;
 
                 return int.Parse(id);
             }
             else if ((int)response.StatusCode ==400)
             {
-                MessageBox.Show("该用户名已被使用");
+                MessageBox.Show("该账号已经存在");
                 return -1;
             }
             return -2;
