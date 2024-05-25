@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 using System.Xml.Linq;
 using work.Models;
 
@@ -19,8 +21,8 @@ namespace work
     public class APIService
     {
 
-       
-       
+        public int[,] board = Board.getBoardInstance();
+
 
         private static readonly HttpClient client = new HttpClient();
 
@@ -138,6 +140,7 @@ namespace work
 
 
         //发送消息
+        //turn是开始对局的时候返回的数，作为双方身份的唯一标识
         public async Task<string> clientSendMsg(Msg msg,int userid) { 
             var json = JsonConvert.SerializeObject(msg);
             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
@@ -160,8 +163,53 @@ namespace work
             if (response.IsSuccessStatusCode)
             {
                 string res = await response.Content.ReadAsStringAsync();
-                App.AppMsg.msg = res;
+
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+                string msg = jsonObject["msg"].ToString();
+                string turn = jsonObject["turn"].ToString();
               
+                App.AppMsg.msg = msg;
+                App.AppMsg.turn = turn;
+                //执行同步（按钮显示等）
+                int x = (int)msg[0]-'0';
+                int y = (int)msg[1]-'0';
+                
+                Button btn = (Button)App.PVPInstance.FindName("Button"+msg);
+             
+                //历史记录获取坐标
+                GameService.Instance.getPosition(x, y);
+               
+                btn.Visibility = Visibility.Visible;
+                if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
+               
+                AnimationUtils.allAnimation(btn, x,App.AppCanvasShape.width);
+
+                //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
+                if (App.AppMsg.turn == "1")
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                    bitmap.EndInit();
+                    // 创建 ImageBrush 并设置其 ImageSource
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = bitmap;
+                    btn.Background = imageBrush;
+                }
+                else
+                {
+                    btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                   
+                }
+
+                //同步完成后把turn取反
+                if (App.AppMsg.turn == "1") {
+                    App.AppMsg.turn = "-1";
+                }
+                else {
+                    App.AppMsg.turn = "1";
+                }
 
                 clientGetMsg(userid);
             }
@@ -179,8 +227,10 @@ namespace work
             if (response.IsSuccessStatusCode)
             {
                 string res = await response.Content.ReadAsStringAsync();
-               // var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
-               // string turn = jsonObject["turn"].ToString();
+                // var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+                // string turn = jsonObject["turn"].ToString();
+                App.AppMsg.turn = res;
+               
                 return res;
 
             }
