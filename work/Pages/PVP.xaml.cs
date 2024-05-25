@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using work.Models;
 using System.Windows.Threading;
 
 namespace work.Pages
@@ -102,8 +103,6 @@ namespace work.Pages
 			}
 		}
 		MainDataModel mdm;
-		private DispatcherTimer timer;
-		private int timeLeft;
 		public PVP()
         {
             InitializeComponent();
@@ -144,6 +143,11 @@ namespace work.Pages
         {
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
+
+
+
+
+
 		//开始匹配，涉及网络通信，匹配成功后，按钮更改
         public void startToMatch(object sender, RoutedEventArgs e)
         {
@@ -190,6 +194,30 @@ namespace work.Pages
 			Button btn = sender as Button;
 		}
 		//数据绑定
-		
+		public class MainDataModel : INotifyPropertyChanged
+		{
+			private double _canvasWidth;
+
+			public double CanvasWidth
+			{
+				get { return _canvasWidth; }
+				set
+				{
+					if (_canvasWidth != value)
+					{
+						_canvasWidth = value;
+						OnPropertyChanged(nameof(CanvasWidth));
+					}
+				}
+			}
+
+			//元素改变时候触发的委托（监听）
+			public event PropertyChangedEventHandler PropertyChanged;
+
+			protected virtual void OnPropertyChanged(string propertyName)
+			{
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
 	}
 }

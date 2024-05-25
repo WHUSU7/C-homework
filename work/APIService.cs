@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
 using System.Xml.Linq;
 using work.Models;
 
@@ -135,6 +136,57 @@ namespace work
             return -2;
         }
 
+
+        //发送消息
+        public async Task<string> clientSendMsg(Msg msg,int userid) { 
+            var json = JsonConvert.SerializeObject(msg);
+            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            var response = await client.PostAsync($"{userid}/clientSendMsg", content);
+            if(response.IsSuccessStatusCode)
+            {
+                string res = await response.Content.ReadAsStringAsync();
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+                string isSuccess = jsonObject["isSuccess"].ToString();
+                return isSuccess;
+
+            }
+            return "";
+        }
+        //接收消息
+        public async void clientGetMsg(int userid)
+        {
+            
+            var response = await client.GetAsync($"{userid}/clientGetMsg");
+            if (response.IsSuccessStatusCode)
+            {
+                string res = await response.Content.ReadAsStringAsync();
+                App.AppMsg.msg = res;
+              
+
+                clientGetMsg(userid);
+            }
+            else if ((int)response.StatusCode == 400) {
+
+                clientGetMsg(userid);
+            }
+           
+        }
+        //开始pvp
+        public async Task<string> createPvp(int userid)
+        {
+           
+            var response = await client.GetAsync($"{userid}/createPvp");
+            if (response.IsSuccessStatusCode)
+            {
+                string res = await response.Content.ReadAsStringAsync();
+               // var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+               // string turn = jsonObject["turn"].ToString();
+                return res;
+
+            }
+            return "";
+
+        }
 
     }
 }
