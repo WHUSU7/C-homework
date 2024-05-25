@@ -70,13 +70,13 @@ namespace work.Pages
 
             //判断该点击处是否合法，合法再执行下面动画和显示
             bool isClickValid = Utils.isClickValid(x, y, board);
+           
             if (isClickValid)
             {
                 //历史记录获取坐标
                 GameService.Instance.getPosition(x, y);
-            }
-            if (isClickValid)
-            {
+
+
                 btn.Visibility = Visibility.Visible;
                 if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
@@ -159,6 +159,7 @@ namespace work.Pages
                     if (_canvasWidth != value)
                     {
                         _canvasWidth = value;
+                        App.AppCanvasShape.width = value;
                         OnPropertyChanged(nameof(CanvasWidth));
                     }
                 }

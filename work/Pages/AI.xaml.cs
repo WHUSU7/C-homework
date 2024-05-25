@@ -221,6 +221,7 @@ namespace work.Pages
                     if (_canvasWidth != value)
                     {
                         _canvasWidth = value;
+                        App.AppCanvasShape.width = value;
                         OnPropertyChanged(nameof(CanvasWidth));
                     }
                 }
