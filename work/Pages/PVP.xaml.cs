@@ -210,7 +210,7 @@ namespace work.Pages
                 if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn, x, canvasHeight);
+                AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (App.AppMsg.turn == "1")

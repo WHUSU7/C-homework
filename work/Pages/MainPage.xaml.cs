@@ -46,7 +46,8 @@ namespace work.Pages
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            //MessageBox.Show(btn.Name);
+           // MessageBox.Show(btn.Name);
+
 
         }
 
@@ -81,7 +82,7 @@ namespace work.Pages
                 if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn, x, canvasHeight);
+                AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (nowTurn == 1)
