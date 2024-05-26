@@ -116,8 +116,8 @@ namespace work
             register.Visibility = register.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
             back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
             confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-            Grid.SetRow(passwordlabel, 2);
-            Grid.SetRow(passwordInput, 2);
+            Grid.SetRow(passwordlabel, 7);
+            Grid.SetRow(passwordInput, 7);
         }
         public void change2login(object sender, RoutedEventArgs e)
         {
@@ -132,8 +132,8 @@ namespace work
             register.Visibility = register.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
             back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
             confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-            Grid.SetRow(passwordlabel, 3);
-            Grid.SetRow(passwordInput, 3);
+            Grid.SetRow(passwordlabel, 6);
+            Grid.SetRow(passwordInput, 6);
         }
 
         //跳转到目标页面
