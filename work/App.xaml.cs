@@ -18,6 +18,11 @@ namespace work
         public static MainPage MainPageInstance { get; set; }
         public static AI AIInstance { get; set; }
 		public static PVP PVPInstance { get; set; }
-        public static User user = new User(1,"-1","-1");
+
+        public static User user = new User(0,"-1","-1","-1");
+
+        public static Msg AppMsg = new Msg("empty","0");
+
+        public static CanvasShape AppCanvasShape= new CanvasShape(0,0);
 	}
 }
