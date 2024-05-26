@@ -186,7 +186,7 @@ namespace work
                 btn.Visibility = Visibility.Visible;
                 if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
                
-                AnimationUtils.allAnimation(btn, x,App.AppCanvasShape.width);
+                AnimationUtils.allAnimation(btn, x,App.AppCanvasShape.width,null);
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (App.AppMsg.turn == "1")
