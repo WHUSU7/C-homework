@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -31,7 +32,7 @@ namespace work.Pages
             mdm = new MainDataModel();
             this.DataContext = mdm;
             App.AIInstance = this;
-		    suggession();
+		 //   suggession();
 		}
         //难度
         public static int difficulty=-1;
@@ -50,7 +51,7 @@ namespace work.Pages
             //MessageBox.Show("sdfs");
 
         }
-
+        double buttonWidthSize,buttonHeightSize;
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -60,8 +61,8 @@ namespace work.Pages
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
 
-            double buttonWidthSize = canvasWidth * (0.142857);
-            double buttonHeightSize = canvasHeight * (0.166667);
+             buttonWidthSize = canvasWidth * (0.142857);
+             buttonHeightSize = canvasHeight * (0.166667);
 
             //获取当前点击的区域，并转换成对应按钮实例和坐标
             int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
@@ -81,11 +82,11 @@ namespace work.Pages
                     MessageBox.Show("YOU Win!");
                 }
 
-                AnimationUtils.allAnimation(btn, x, canvasHeight);
+                AnimationUtils.allAnimation(btn, x, canvasHeight,myCanvas);
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
                     BitmapImage bitmap = new BitmapImage();
                     bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+                    bitmap.UriSource = new Uri(@"..\..\Images\chess2.gif", UriKind.RelativeOrAbsolute);
                     // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
                     bitmap.EndInit();
                     // 创建 ImageBrush 并设置其 ImageSource
@@ -139,7 +140,7 @@ namespace work.Pages
                 board[aiX, aiY] = -1;
                 aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
                     
-                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
+                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
                 nowTurn = -1;
 
                 if (Board.IsWin(aiX, aiY, -1))
@@ -177,7 +178,7 @@ namespace work.Pages
                     aiBtn.Visibility = Visibility.Visible;
                     board[aiX, aiY] = -1;
                     aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight);
+                    AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
                     nowTurn = -1;
 
                     if (Board.IsWin(aiX, aiY, -1))
@@ -248,7 +249,8 @@ namespace work.Pages
         //位置提示
 		public void suggession()
 		{
-			for (int i = 0; i < 7; i++)
+            
+            for (int i = 0; i < 7; i++)
 			{
 				
 					for (int j = 5; j >= 0; j--)
@@ -258,8 +260,36 @@ namespace work.Pages
 							string targetBt = "Button" + j.ToString() + i.ToString();
 							Button bt = (Button)FindName(targetBt);
 							bt.Visibility = Visibility.Visible;
-                            bt.Background =  new SolidColorBrush((Color)ColorConverter.ConvertFromString("#1A000000")); ;
-							break;
+                        // 创建 ImageBrush 对象
+                        ImageBrush imageBrush = new ImageBrush();
+
+                        // 设置 ImageBrush 的 ImageSource 属性为 GIF 图像的路径
+                        imageBrush.ImageSource = new BitmapImage(new Uri(@"..\..\Images\circle4.gif", UriKind.Relative));
+                        // 创建 RotateTransform 对象
+                        RotateTransform rotateTransform = new RotateTransform();
+                
+                        // 将 RotateTransform 设置为 ImageBrush 的 Transform 属性
+                        imageBrush.Transform = rotateTransform;
+                        rotateTransform.CenterX = buttonWidthSize/2;
+                        rotateTransform.CenterY = buttonHeightSize/2;
+
+                        // 创建动画，使 RotateTransform 持续旋转
+                        DoubleAnimation rotateAnimation = new DoubleAnimation
+                        {
+                            
+                            From = 0,
+                            To = 360,
+                            Duration = TimeSpan.FromSeconds(1), // 设置动画持续时间为1秒
+                            RepeatBehavior = RepeatBehavior.Forever // 设置动画重复执行
+                        };
+
+                        // 将动画应用到 RotateTransform 的 Angle 属性
+                        rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+                        // 将 ImageBrush 设置为按钮的背景
+                        bt.Background = imageBrush;
+
+                        break;
 						}
 					}
 				

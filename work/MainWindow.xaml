@@ -79,7 +79,7 @@
                 <Button Name="register" Grid.Column="3" Grid.Row="11" Content="注册" Style="{StaticResource TransparentButtonStyle}"
                     HorizontalAlignment="Center"  Click="change2register" Width="32"  Grid.RowSpan="2"/>
 
-                <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="2" Content="确      认" Style="{StaticResource ButtonStyle}" Height="30"
+                <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="2" Content="注     册" Style="{StaticResource ButtonStyle}" Height="30"
                     VerticalAlignment="Center"  Name="confirm" Click="Register" Visibility="Collapsed"/>
 
                 <Button Name="back" Grid.Column="3" Grid.Row="11" Content="返回" Style="{StaticResource TransparentButtonStyle}"

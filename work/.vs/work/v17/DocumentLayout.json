@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|c:\\users\\ctmik\\c-homework\\work\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
@@ -62,8 +62,7 @@
               "RelativeToolTip": "packages.config",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-05-26T14:19:50.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-26T14:19:50.478Z"
             },
             {
               "$type": "Document",
