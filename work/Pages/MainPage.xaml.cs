@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static work.Utilwindows.ChooseDifficultyWindow;
+using work.Utilwindows;
 
 namespace work.Pages
 {
@@ -28,8 +30,13 @@ namespace work.Pages
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext =mdm;
-
+            App.MainPageInstance = this;
+            //suggession();
+            
         }
+
+       
+
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
@@ -39,13 +46,15 @@ namespace work.Pages
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
             Button btn = sender as Button;
-            MessageBox.Show(btn.Name);
+           // MessageBox.Show(btn.Name);
+
 
         }
 
         //点击棋盘canvas调用
         private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -62,13 +71,18 @@ namespace work.Pages
 
             //判断该点击处是否合法，合法再执行下面动画和显示
             bool isClickValid = Utils.isClickValid(x, y, board);
+           
             if (isClickValid)
             {
+                //历史记录获取坐标
+                GameService.Instance.getPosition(x, y);
+
+
                 btn.Visibility = Visibility.Visible;
                 if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn, x, canvasHeight);
+                AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (nowTurn == 1)
@@ -95,6 +109,8 @@ namespace work.Pages
             // MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
             //MessageBox.Show($"pos:({x},{y})");
 
+            //suggession();
+           
         }
 
 
@@ -113,12 +129,22 @@ namespace work.Pages
         //跳转到历史记录页面
         public void jumpToHistory(object sender, RoutedEventArgs e)
         {
+
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.history);
         }
         //跳转到人机对战页面
         public void jumpToAI(object sender, RoutedEventArgs e)
         {
+            Board.resetBoard("AI");
+            chooseDifficuty();
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.ai);
+        }
+
+        //跳转到pvp页面
+        public void jumpToPvp(object sender, RoutedEventArgs e)
+        {
+           
+            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.pvp);
         }
 
         //Binding绑定的数据源
@@ -134,6 +160,7 @@ namespace work.Pages
                     if (_canvasWidth != value)
                     {
                         _canvasWidth = value;
+                        App.AppCanvasShape.width = value;
                         OnPropertyChanged(nameof(CanvasWidth));
                     }
                 }
@@ -147,6 +174,23 @@ namespace work.Pages
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+
+
+        private void chooseDifficuty()
+        {
+            ChooseDifficultyWindow cdw = new ChooseDifficultyWindow();
+            cdw.DifficultyChanged += chooseDifficutyChanged;
+            cdw.ShowDialog();
+        }
+
+        private void chooseDifficutyChanged(object sender, DifficutyChangedEventArgs e)
+        {
+           AI.difficulty = e.Difficuty;  // 使用事件数据更新主窗口
+           
+        }
+
+
     }
 
 }

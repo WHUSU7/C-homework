@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 
 namespace work
@@ -33,8 +34,31 @@ namespace work
         {
             return board;
         }
-        
 
+        //重置board为全0
+        //通过名称来清楚对应界面的按钮显示
+      
+        public static void resetBoard(string target) {
+            for (int i = 0; i < board.GetLength(0); i++) {
+                for (int j = 0; j < board.GetLength(1); j++) {
+                 
+                    switch (target)
+                    {
+                        case "MainPage":
+                            string mtargetBtn = "Button" + i.ToString() + j.ToString(); 
+                            Button mbtn = (Button)App.MainPageInstance.FindName(mtargetBtn);
+                            mbtn.Visibility = Visibility.Hidden;
+                            break;
+                        case "AI":
+                            string atargetBtn = "Button" + i.ToString() + j.ToString();
+                            Button abtn = (Button)App.AIInstance.FindName(atargetBtn);
+                            abtn.Visibility = Visibility.Hidden;
+                            break;
+                    }
+                    board[i, j] = 0;
+                }
+            }
+        }
 
         //判断胜利逻辑，看x,y附近是否四连
         //turn =+1表示  人
