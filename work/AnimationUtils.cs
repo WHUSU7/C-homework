@@ -110,8 +110,8 @@ namespace work
                     double dy = r * Math.Sin(angle);
 
                     // 创建并设置粒子动画
-                    DoubleAnimation animX = new DoubleAnimation(x, x + 3 * dx, TimeSpan.FromSeconds(0.3));
-                    DoubleAnimation animY = new DoubleAnimation(y, y + 3 * dy, TimeSpan.FromSeconds(0.3));
+                    DoubleAnimation animX = new DoubleAnimation(x, x + 2 * dx, TimeSpan.FromSeconds(0.3));
+                    DoubleAnimation animY = new DoubleAnimation(y, y + 2 * dy, TimeSpan.FromSeconds(0.3));
                     animX.Completed += (s, e) => canvas.Children.Remove(particle); // 动画完成时移除粒子
                     animY.Completed += (s, e) => canvas.Children.Remove(particle); // 动画完成时移除粒子
 
@@ -135,6 +135,18 @@ namespace work
         //两个方法一起调用
         public static void allAnimation(Button btn, int x, double maxHeight, Canvas canvas)
         {
+            int column = Grid.GetColumn(btn);
+            int row = Grid.GetRow(btn);
+            double canvasWidth = canvas.ActualWidth;
+            double canvasHeight = canvas.ActualHeight;
+            double buttonWidthSize = canvasWidth * 0.142857;
+            double buttonHeightSize = canvasHeight * 0.166667;
+            double mx = (column + 0.5) * buttonWidthSize;
+            double my = (row + 0.5) * buttonHeightSize;
+            double ax = column * buttonWidthSize;
+            double ay = row * buttonHeightSize;
+             ShowParticleEffect(btn, mx, my, canvas);
+         
             // 创建和配置 RotateTransform 和 TranslateTransform
             RotateTransform rotateTransform = new RotateTransform();
             TranslateTransform translateTransform = new TranslateTransform();
@@ -170,16 +182,7 @@ namespace work
             dakY.KeyFrames.Add(startKf);
             dakY.KeyFrames.Add(endKf);
 
-            int column = Grid.GetColumn(btn);
-            int row = Grid.GetRow(btn);
-            double canvasWidth = canvas.ActualWidth;
-            double canvasHeight = canvas.ActualHeight;
-            double buttonWidthSize = canvasWidth * 0.142857;
-            double buttonHeightSize = canvasHeight * 0.166667;
-            double mx = (column + 0.5) * buttonWidthSize;
-            double my = (row + 0.5) * buttonHeightSize;
-            double ax =column * buttonWidthSize;
-            double ay = row * buttonHeightSize;
+           
             dakY.Completed += (sender, e) =>
             {
                 ShowParticleEffect(btn, mx, my, canvas);
