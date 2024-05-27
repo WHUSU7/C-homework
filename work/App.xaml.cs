@@ -15,7 +15,7 @@ namespace work
     public partial class App : Application
 
     {
-        public static MainPage MainPageInstance { get; set; }
+        public static mainpage MainPageInstance { get; set; }
         public static AI AIInstance { get; set; }
 		public static PVP PVPInstance { get; set; }
 

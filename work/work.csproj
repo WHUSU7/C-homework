@@ -61,6 +61,9 @@
     <Compile Include="AnimationUtils.cs" />
     <Compile Include="APIService.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="mainpage.xaml.cs">
+      <DependentUpon>mainpage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\CanvasShape.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\Msg.cs" />
@@ -71,8 +74,11 @@
     <Compile Include="Pages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Pages\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Local.xaml.cs">
+      <DependentUpon>Local.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PVP.xaml.cs">
       <DependentUpon>PVP.xaml</DependentUpon>
@@ -81,6 +87,10 @@
     <Compile Include="Utilwindows\ChooseDifficultyWindow.xaml.cs">
       <DependentUpon>ChooseDifficultyWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="mainpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,7 +111,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainPage.xaml">
+    <Page Include="Pages\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Local.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

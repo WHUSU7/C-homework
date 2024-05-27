@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using work.Utilwindows;
+using static work.mainpage;
 using static work.Utilwindows.ChooseDifficultyWindow;
 
 namespace work.Pages
@@ -26,16 +27,18 @@ namespace work.Pages
     public partial class AI : Page
     {
         MainDataModel mdm;
-        public AI()
+		public event EventHandler ReturnRequested;
+		public AI()
         {
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext = mdm;
             App.AIInstance = this;
-		 //   suggession();
-		}
-        //难度
-        public static int difficulty=-1;
+			
+			//   suggession();
+		}		
+		//难度
+		public static int difficulty=-1;
 
         //落子计数器
         public int tie = 0;
@@ -209,12 +212,13 @@ namespace work.Pages
             mdm.CanvasWidth = myCanvasFatherGridHeight * 1.166667;
            
         }
+
+
         //跳转到主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            Board.resetBoard("MainPage");
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
-        }
+			mainpage.window.jumpToTargetPage(WindowsID.home);
+		}
         
 
         //Binding绑定的数据源

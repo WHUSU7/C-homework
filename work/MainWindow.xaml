@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:work"     
         
         mc:Ignorable="d"
-        Title="登录" Height="300" Width="450"
-        WindowStartupLocation="CenterScreen"  Style="{StaticResource WindowStyle}" >
+        Title="登录"
+        WindowStartupLocation="CenterScreen"  Style="{DynamicResource WindowStyle}" >
     <ContentControl x:Name="mainContent">
         <Grid>
             <Grid.RowDefinitions>
@@ -15,12 +15,13 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="45*" />
+                <ColumnDefinition Width="98*" />
+                <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal"
-                    VerticalAlignment="Top" HorizontalAlignment="Right" Margin="5">
+            <StackPanel Grid.Column="1"  Orientation="Horizontal"
+                    VerticalAlignment="Center" HorizontalAlignment="Left" Margin="260,0,0,0" Grid.ColumnSpan="2">
                 <Button Style="{StaticResource TitleButtonStyle}" Content="-" Click="WindowMinimized" />
                 <Button Style="{StaticResource TitleButtonStyle}" Content="×" Click="WindowClose" />
             </StackPanel>
@@ -34,7 +35,7 @@
                 </StackPanel>
             </Border>
 
-            <Grid Grid.Row="1" Grid.Column="1">
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.5*" />
                     <ColumnDefinition Width="2.5*" />
