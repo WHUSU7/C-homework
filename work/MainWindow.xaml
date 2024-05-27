@@ -11,21 +11,27 @@
     <ContentControl x:Name="mainContent">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="13*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="45*" />
-                <ColumnDefinition Width="98*" />
-                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="100*" />
+                
             </Grid.ColumnDefinitions>
+            <Grid Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="1*" />
 
-            <StackPanel Grid.Column="1"  Orientation="Horizontal"
-                    VerticalAlignment="Center" HorizontalAlignment="Left" Margin="260,0,0,0" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource TitleButtonStyle}" Content="-" Click="WindowMinimized" />
-                <Button Style="{StaticResource TitleButtonStyle}" Content="×" Click="WindowClose" />
-            </StackPanel>
-
+                </Grid.ColumnDefinitions>
+                <Border Background="Transparent" Height="30" MouseLeftButtonDown="Border_MouseLeftButtonDown" Panel.ZIndex="1"/>
+                <StackPanel Grid.Column="1"  Orientation="Horizontal"
+                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Button Style="{StaticResource TitleButtonStyle}" Content="-" Click="WindowMinimized" />
+                    <Button Style="{StaticResource TitleButtonStyle}" Content="×" Click="WindowClose" />
+                </StackPanel>
+            </Grid>
             <Border Grid.Column="0" Grid.RowSpan="2" CornerRadius="10 0 0 10"
                 Background="{DynamicResource MainColor}">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -44,43 +50,43 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
 
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
-                    <RowDefinition Height="20" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="*" />
 
                 </Grid.RowDefinitions>
 
-                <TextBlock Name="nicknameLabel" Style="{StaticResource TextBlockStyle}" Text="用  户  名" VerticalAlignment="Center" Margin="0 0 5 0" Grid.Column="1" Grid.Row="1" Visibility="Collapsed" />
-                <TextBox Name="nicknameInput" Style="{StaticResource InputBoxStyle}" Width="160" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="1" Visibility="Collapsed" />
+                <TextBlock Name="nicknameLabel" Style="{StaticResource TextBlockStyle}" Text="用  户  名" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="2" Visibility="Collapsed" />
+                <TextBox Name="nicknameInput" Style="{StaticResource InputBoxStyle}" Width="180" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="2" Visibility="Collapsed" />
 
 
-                <TextBlock Style="{StaticResource TextBlockStyle}" Text="账       户" VerticalAlignment="Center" Margin="0 0 5 0" Grid.Column="1" Grid.Row="3"/>
-                <TextBox Style="{StaticResource InputBoxStyle}" Width="160" Name="nameInput" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="3"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlable" Text="账       号" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="3"/>
+                <TextBox Style="{StaticResource InputBoxStyle}" Width="180" Name="nameInput" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="3"/>
 
-                <TextBlock Style="{StaticResource TextBlockStyle}" Name ="ensurePasswordLabel" Text="确认密码"  Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0 0 5 0" Visibility="Collapsed"/>
-                <PasswordBox Style="{StaticResource InputBoxStyle}" Width="160" Name="ensurepasswordInput" Grid.Column="2" Grid.Row="5" VerticalContentAlignment="Center" Visibility="Collapsed"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name ="ensurePasswordLabel" Text="确认密码"  Grid.Column="1" Grid.Row="8" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0 0 0 0" Visibility="Collapsed"/>
+                <PasswordBox Style="{StaticResource InputBoxStyle}" Width="180" Name="ensurepasswordInput" Grid.Column="2" Grid.Row="8" VerticalContentAlignment="Center" Visibility="Collapsed"/>
 
-                <TextBlock Name="passwordlabel" Style="{StaticResource TextBlockStyle}" Text="密       码" VerticalAlignment="Center" Margin="0 0 5 0" Grid.Column="1" Grid.Row="6"/>
-                <PasswordBox x:Name="passwordInput" Style="{StaticResource InputBoxStyle}" Width="160" Grid.Column="2" Grid.Row="6"/>
+                <TextBlock Name="passwordlabel" Style="{StaticResource TextBlockStyle}" Text="密       码" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="6"/>
+                <PasswordBox x:Name="passwordInput" Style="{StaticResource InputBoxStyle}" Width="180" Grid.Column="2" Grid.Row="6"/>
 
                 <!--Buttons-->
-                <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="2" Content="登      录" Style="{StaticResource ButtonStyle}" Height="30"
+                <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="2" Content="登     录" Style="{StaticResource ButtonStyle}" Height="30"
                     VerticalAlignment="Center" Name="login" Click="Login" />
 
                 <Button Name="register" Grid.Column="3" Grid.Row="11" Content="注册" Style="{StaticResource TransparentButtonStyle}"
                     HorizontalAlignment="Center"  Click="change2register" Width="32"  Grid.RowSpan="2"/>
 
-                <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="2" Content="注     册" Style="{StaticResource ButtonStyle}" Height="30"
+                <Button Grid.Column="2" Grid.Row="10" Grid.RowSpan="2" Content="注     册" Style="{StaticResource ButtonStyle}" Height="30"
                     VerticalAlignment="Center"  Name="confirm" Click="Register" Visibility="Collapsed"/>
 
                 <Button Name="back" Grid.Column="3" Grid.Row="11" Content="返回" Style="{StaticResource TransparentButtonStyle}"

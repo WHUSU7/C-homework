@@ -83,7 +83,9 @@ namespace work
 			if (result > 0)
 			{
 				MessageBox.Show("注册成功，id是：" + result.ToString());
-				//jumpToTargetPage(WindowsID.main);
+				mainpage mainpage = new mainpage();
+				mainpage.Show();
+				window.Close();
 			}
 			else
 			{
@@ -106,8 +108,10 @@ namespace work
 			register.Visibility = register.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Grid.SetRow(passwordlabel, 7);
-			Grid.SetRow(passwordInput, 7);
+			
+			Grid.SetRow(nameInputlable, 4);
+			Grid.SetRow(nameInput, 4);
+
 		}
 		public void change2login(object sender, RoutedEventArgs e)
 		{
@@ -122,8 +126,10 @@ namespace work
 			register.Visibility = register.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Grid.SetRow(passwordlabel, 6);
-			Grid.SetRow(passwordInput, 6);
+			
+			Grid.SetRow(nameInputlable, 3);
+			Grid.SetRow(nameInput, 3);
+
 		}
 
 		//跳转到目标页面
@@ -133,6 +139,7 @@ namespace work
 		{
 			mainpage mainpage = new mainpage();
 			mainpage.Show();
+			window.Close();
 			
 		}
 		//窗口最小化和关闭
@@ -143,6 +150,16 @@ namespace work
 		public void WindowClose(object sender, RoutedEventArgs e)
 		{
 			this.Close();
+		}
+
+		private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			// 检查鼠标左键是否按下
+			if (e.LeftButton == MouseButtonState.Pressed)
+			{
+				// 开始拖动窗体
+				this.DragMove();
+			}
 		}
 		private void nameInput_TextChanged(object sender, TextChangedEventArgs e)
 		{

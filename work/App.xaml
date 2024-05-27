@@ -24,8 +24,8 @@
                 <Setter Property="WindowStyle" Value="None" />
                 <Setter Property="AllowsTransparency" Value="True" />
                 <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Height" Value="300"/>
-            <Setter Property="Width" Value="450"/>
+            <Setter Property="Height" Value="400"/>
+            <Setter Property="Width" Value="600"/>
             <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Window}">
@@ -40,6 +40,29 @@
             <Setter Property="Height" Value="450"/>
             <Setter Property="Width" Value="800"/>
             
+        </Style>
+
+        <!--控制按钮样式-->
+        <Style x:Key="ctrlButton" TargetType="Button">
+            <Setter Property="Background" Value="#c3bef0"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="20">
+                           <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <!--标题按钮样式-->
             <Style x:Key="TitleButtonStyle" TargetType="{x:Type Button}">
@@ -69,6 +92,7 @@
             <!--普通按钮样式-->
             <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="Background" Value="{DynamicResource MainColor}" />
+                <Setter Property="FontSize" Value="18"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
@@ -94,7 +118,8 @@
             <!--透明按钮样式-->
             <Style x:Key="TransparentButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="Foreground" Value="{DynamicResource MainColor}" />
-                <Setter Property="Template">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="Transparent" BorderBrush="Transparent">
@@ -166,7 +191,7 @@
             <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
                 <Setter Property="Foreground" Value="{DynamicResource MainColor}" />
                 <Setter Property="FontWeight" Value="Bold" />
-                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontSize" Value="18" />
             </Style>
         </Application.Resources>
     </Application>

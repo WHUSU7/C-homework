@@ -300,14 +300,11 @@ namespace work.Pages
 
 			}
 		}
-		private void lastStep(object sender, RoutedEventArgs e)
+		private void regret(object sender, RoutedEventArgs e)
 		{
 
 		}
-		private void nextStep(object sender, RoutedEventArgs e)
-		{
-
-		}
+		
 
       
     }
