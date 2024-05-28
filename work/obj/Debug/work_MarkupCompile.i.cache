@@ -16,5 +16,5 @@ DEBUG;TRACE
 14-1305296252
 MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\MainPage.xaml;Pages\PVP.xaml;Utilwindows\ChooseDifficultyWindow.xaml;
 
-True
+False
 
