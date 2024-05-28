@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Security.Cryptography;
+using System.Net.WebSockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -19,16 +23,17 @@ using System.Windows.Threading;
 namespace work.Pages
 {
     /// <summary>
-    /// PVP.xaml 的交互逻辑
+    /// WebsocketPvp.xaml 的交互逻辑
     /// </summary>
-    public  partial class PVP : Page
+    public partial class WebsocketPvp : Page
     {
+        WebsocketService websocketService;
 
-        APIService apiService = new APIService();
+      
 
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
-        
+
 
 
         //数据绑定
@@ -113,16 +118,42 @@ namespace work.Pages
         MainDataModel mdm;
         private DispatcherTimer timer;
         private int timeLeft;
-        public PVP()
+        public WebsocketPvp()
         {
+
             InitializeComponent();
             mdm = new MainDataModel();
             this.DataContext = mdm;
-            App.PVPInstance = this;
+            App.WebsocketPVPInstance = this;
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
+            websocketService = new WebsocketService();
         }
+
+
+
+
+        //通过websocket链接后端
+        public async void connect()
+        {
+            Uri serverUri = new Uri($"ws://192.168.43.254:8000/fourchess/?param={App.AppPublicGroup.id}");
+            await websocketService.ConnectAsync(serverUri);
+            await websocketService.StartListeningAsync();
+
+
+        }
+
+        //发送信息
+        private async void send(object json)
+        {
+            
+            await websocketService.SendAsync(json);
+           
+        }
+
+        
+
         //落子倒计时
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -154,25 +185,16 @@ namespace work.Pages
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
         //开始匹配，涉及网络通信，匹配成功后，按钮更改
-        public async void startToMatch(object sender, RoutedEventArgs e)
+        public   void startToMatch(object sender, RoutedEventArgs e)
         {
             mdm.MatchText = "匹配中";
             mdm.BackText = "终止对局并返回主页";
             //match();匹配函数
             mdm.MatchText = "正在对局";
-            MessageBox.Show("请双方点击同一位置开始对局");
-            string res = await apiService.createPvp(App.user.id);
-           
-          
 
-            if (res== "1")
-            {
-                left.Content = "你的回合是:"+"1"+"you first";
-            }
-            else if(res == "-1") { 
-                right.Content = "你的回合是:"+"-1"+"you second";
-            }
-            apiService.clientGetMsg(App.user.id);
+            connect();
+         
+
             countDown1();
 
             //交互函数
@@ -181,7 +203,7 @@ namespace work.Pages
 
 
         //点击落子操作，与aixaml.cs逻辑类似
-        private async void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private  void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Point clickPoint = e.GetPosition(myCanvas);
 
@@ -200,11 +222,11 @@ namespace work.Pages
 
             //判断该点击处是否合法，合法再执行下面动画和显示
             bool isClickValid = Utils.isClickValid(x, y, board);
-           
+
             if (isClickValid)
             {
                 //历史记录获取坐标
-                GameService.Instance.getPosition(x, y);
+                //GameService.Instance.getPosition(x, y);
 
                 btn.Visibility = Visibility.Visible;
                 if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
@@ -225,25 +247,27 @@ namespace work.Pages
                     imageBrush.ImageSource = bitmap;
                     btn.Background = imageBrush;
 
-                  
+
                 }
                 else
                 {
-                   
+
                     btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-                  
+
                 }
-                App.AppMsg.msg = x.ToString() + y.ToString();
-                
-                await apiService.clientSendMsg(App.AppMsg, App.user.id);
-
-
-
+               string  mes = x.ToString() + y.ToString();
+                var jsondata = new
+                {
+                    Message = mes,
+                    Turn = App.AppMsg.turn,
+                };
+                send(jsondata);
+              
             }
-          
 
 
-    }
+
+        }
         //外观适应，无需更改
         private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -258,7 +282,7 @@ namespace work.Pages
         {
             Button btn = sender as Button;
         }
-       
+
 
     }
 }

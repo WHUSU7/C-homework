@@ -31,13 +31,17 @@ namespace work
               main,
               history,
               ai,
-              pvp
+              pvp,
+              websocketPvp
+
+
         };
 
         Frame history = new Frame() { Content = new Pages.HistoryPage() };
         Frame main = new Frame() { Content = new Pages.MainPage() };
         Frame ai= new Frame() { Content = new Pages.AI() };
         Frame pvp = new Frame { Content = new Pages.PVP() };
+        Frame websocketPvp = new Frame() { Content = new Pages.WebsocketPvp() };
         public MainWindow()
         {
             InitializeComponent();
@@ -156,14 +160,20 @@ namespace work
                 case WindowsID.pvp:
                     mainContent.Content = pvp;
                     break;
+                case WindowsID.websocketPvp:
+                    mainContent.Content = websocketPvp;
+                    break;
             }
         }
 
        public void  jumpToMain(object sender, RoutedEventArgs e) {
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
         }
+        public void jumpToWebsocketPvp(object sender, RoutedEventArgs e)
+        {
+            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.websocketPvp);
+        }
 
-       
 
     }
 }
