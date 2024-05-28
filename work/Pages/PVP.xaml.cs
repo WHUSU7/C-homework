@@ -21,7 +21,7 @@ namespace work.Pages
     /// <summary>
     /// PVP.xaml 的交互逻辑
     /// </summary>
-    public partial class PVP : Page
+    public  partial class PVP : Page
     {
 
         APIService apiService = new APIService();
@@ -236,6 +236,9 @@ namespace work.Pages
                 App.AppMsg.msg = x.ToString() + y.ToString();
                 
                 await apiService.clientSendMsg(App.AppMsg, App.user.id);
+
+
+
             }
           
 

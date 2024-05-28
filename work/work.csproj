@@ -62,6 +62,7 @@
     <Compile Include="APIService.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Models\CanvasShape.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\Msg.cs" />
     <Compile Include="Models\User.cs" />
@@ -77,10 +78,14 @@
     <Compile Include="Pages\PVP.xaml.cs">
       <DependentUpon>PVP.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WebsocketPvp.xaml.cs">
+      <DependentUpon>WebsocketPvp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Utilwindows\ChooseDifficultyWindow.xaml.cs">
       <DependentUpon>ChooseDifficultyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WebsocketService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PVP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WebsocketPvp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

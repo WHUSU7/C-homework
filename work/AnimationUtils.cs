@@ -170,6 +170,7 @@ namespace work
             dakY.KeyFrames.Add(startKf);
             dakY.KeyFrames.Add(endKf);
 
+
             int column = Grid.GetColumn(btn);
             int row = Grid.GetRow(btn);
             double canvasWidth = canvas.ActualWidth;
