@@ -31,7 +31,7 @@ namespace work
             //base api
             //虚拟机上要用物理机可用端口的ip代替本地地址，如en0的inet
             //物理机上直接127.0.0.1：4523即可
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/m1/4020303-0-default/fourchess/");
+            client.BaseAddress = new Uri("http://192.168.43.254:8000/m1/4020303-0-default/fourchess/");
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         }
 
@@ -40,7 +40,7 @@ namespace work
         public async Task<string> getSingleHistory(int index)
         {
               
-          var response =  await client.GetAsync($"history{index}");
+           var response =  await client.GetAsync($"history{index}");
             //取到的是所有属性的字符串
             string json = await response.Content.ReadAsStringAsync();
             //做格式转换并通过key的方式取某个属性
@@ -69,10 +69,12 @@ namespace work
         }
 
         //插入历史记录
+        
         public async Task<string> insertHistory(History history,int userid) {
             var json = JsonConvert.SerializeObject(history);
            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
             var response = await client.PostAsync($"{userid}/insertHistory", content);
+
             if (response.IsSuccessStatusCode) { 
             string res = await response.Content.ReadAsStringAsync();
              var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
@@ -186,7 +188,7 @@ namespace work
                 btn.Visibility = Visibility.Visible;
                 if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
                
-                AnimationUtils.allAnimation(btn, x,App.AppCanvasShape.width,null);
+                AnimationUtils.allAnimation(btn, x,App.AppCanvasShape.width,(Canvas)App.PVPInstance.FindName("myCanvas"));
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (App.AppMsg.turn == "1")
