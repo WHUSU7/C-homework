@@ -145,3 +145,5 @@ D:\Git\C-homework\C-homework\work\obj\Debug\work.exe
 D:\Git\C-homework\C-homework\work\obj\Debug\work.pdb
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\WebsocketPvp.g.cs
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Pages\WebsocketPvp.baml
+D:\Git\C-homework\C-homework\work\obj\Debug\Pages\WebsocketPvp.g.cs
+D:\Git\C-homework\C-homework\work\obj\Debug\Pages\WebsocketPvp.baml
