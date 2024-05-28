@@ -89,7 +89,7 @@ namespace work
                 // 循环创建粒子并设置动画
                 double r = btn.ActualWidth / 2;
                 Random rand = new Random();
-                for (int i = 0; i < 500; i++)
+                for (int i = 0; i < 300; i++)
                 {
                     // 创建新的粒子
                     var particle = new Ellipse();
@@ -146,7 +146,6 @@ namespace work
             double my = (row + 0.5) * buttonHeightSize;
             double ax = column * buttonWidthSize;
             double ay = row * buttonHeightSize;
-             ShowParticleEffect(btn, mx, my, canvas);
          
             // 创建和配置 RotateTransform 和 TranslateTransform
             RotateTransform rotateTransform = new RotateTransform();
