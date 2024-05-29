@@ -91,7 +91,7 @@ namespace work
                         btn.Visibility = Visibility.Visible;
                         if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
 
-                        AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width,(Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
+                       await AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width,(Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
 
                         //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                         if (App.AppMsg.turn == "1")
@@ -112,6 +112,20 @@ namespace work
 
                         }
 
+                        if (Board.IsWin(x, y, int.Parse(App.AppMsg.turn)))
+                        {
+                            if (App.isPvpWin)
+                            {
+                                MessageBox.Show("YOU Win!");
+                                Utils.showIsInsertHistoryWindow();
+                            }
+                            else {
+                                MessageBox.Show("YOU Lose!");
+                                Utils.showIsInsertHistoryWindow();
+                            }
+
+                        }
+                      
 
                         //渲染界面之后再把turn置反
                         if (Turn == "1") { App.AppMsg.turn = "-1"; }

@@ -85,6 +85,9 @@
     <Compile Include="Utilwindows\ChooseDifficultyWindow.xaml.cs">
       <DependentUpon>ChooseDifficultyWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utilwindows\isInsertHistory.xaml.cs">
+      <DependentUpon>isInsertHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WebsocketService.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +125,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Utilwindows\isInsertHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -156,8 +163,6 @@
   <ItemGroup>
     <Resource Include="Images\chessBoard.png" />
   </ItemGroup>
-
-
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

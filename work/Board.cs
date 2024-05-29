@@ -36,9 +36,13 @@ namespace work
         }
 
         //重置board为全0
+        //重置Util中的判断结束end标志为false
+        //重置pvp对战中的判胜标志（在App.xaml.cs）
         //通过名称来清楚对应界面的按钮显示
-      
+       
         public static void resetBoard(string target) {
+            Utils.end = false;
+            App.isPvpWin = false;
             for (int i = 0; i < board.GetLength(0); i++) {
                 for (int j = 0; j < board.GetLength(1); j++) {
                  
@@ -53,6 +57,11 @@ namespace work
                             string atargetBtn = "Button" + i.ToString() + j.ToString();
                             Button abtn = (Button)App.AIInstance.FindName(atargetBtn);
                             abtn.Visibility = Visibility.Hidden;
+                            break;
+                        case "PVP":
+                            string ptargetBtn = "Button" + i.ToString() + j.ToString();
+                            Button pbtn = (Button)App.PVPInstance.FindName(ptargetBtn);
+                            pbtn.Visibility = Visibility.Hidden;
                             break;
                     }
                     board[i, j] = 0;

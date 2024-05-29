@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Git\C-homework\C-homework\work\obj\Debug\
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\
 work
 none
 false
 DEBUG;TRACE
-D:\Git\C-homework\C-homework\work\App.xaml
-6796508083
+\\Mac\Home\Downloads\C-homework\work\App.xaml
+8-1327432920
 
-19-1980518459
-14116651603
-MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\MainPage.xaml;Pages\PVP.xaml;Utilwindows\ChooseDifficultyWindow.xaml;
+23248213565
+14-1305296252
+MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\MainPage.xaml;Pages\PVP.xaml;Pages\WebsocketPvp.xaml;Utilwindows\ChooseDifficultyWindow.xaml;Utilwindows\isInsertHistory.xaml;
 
-False
+True
 

@@ -84,6 +84,7 @@ namespace work.Pages
                 {
                     Utils.end = true;
                     MessageBox.Show("YOU Win!");
+                    Utils.showIsInsertHistoryWindow();
                 }
                 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
@@ -120,6 +121,7 @@ namespace work.Pages
                 {
                     Utils.end = true;
                     MessageBox.Show("平局");
+                    Utils.showIsInsertHistoryWindow();
                 }
 
                
@@ -153,8 +155,10 @@ namespace work.Pages
 
                 if (Board.IsWin(aiX, aiY, -1))
                 {
+                      
                     MessageBox.Show("AI Win!");
-                }
+                        Utils.showIsInsertHistoryWindow();
+                    }
             }
             else
             {
@@ -189,6 +193,7 @@ namespace work.Pages
 
                     if (Board.IsWin(aiX, aiY, -1))
                     {
+                        Utils.showIsInsertHistoryWindow();
                         MessageBox.Show("AI Win!");
                     }
                 }
