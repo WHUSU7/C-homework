@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\ctmik\\C-homework\\work\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\animationutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:animationutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|c:\\users\\ctmik\\c-homework\\work\\pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -99,10 +103,6 @@
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\animationutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:animationutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|C:\\Users\\ctmik\\C-homework\\work\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|solutionrelative:packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
@@ -125,7 +125,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -133,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "HistoryPage.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\HistoryPage.xaml",
               "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml",
@@ -145,19 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HistoryPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml.cs",
-              "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
-              "RelativeToolTip": "Pages\\HistoryPage.xaml.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAAC0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T17:12:29.052Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Home.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\Home.xaml",
               "RelativeDocumentMoniker": "Pages\\Home.xaml",
@@ -168,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -180,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -191,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -203,7 +191,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "mainpage.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\mainpage.xaml",
               "RelativeDocumentMoniker": "mainpage.xaml",
@@ -214,7 +202,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
+              "Title": "AnimationUtils.cs",
+              "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\AnimationUtils.cs",
+              "RelativeDocumentMoniker": "AnimationUtils.cs",
+              "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\AnimationUtils.cs",
+              "RelativeToolTip": "AnimationUtils.cs",
+              "ViewState": "AQIAAOoAAAAAAAAAAAAAAAgBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T15:41:13.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HistoryPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml.cs",
+              "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
+              "RelativeToolTip": "Pages\\HistoryPage.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAC0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T17:12:29.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "AI.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\AI.xaml",
               "RelativeDocumentMoniker": "Pages\\AI.xaml",
@@ -225,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "PVP.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml",
               "RelativeDocumentMoniker": "Pages\\PVP.xaml",
@@ -236,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "PVP.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\PVP.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\PVP.xaml.cs",
@@ -248,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Set.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\Set.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\Set.xaml.cs",
@@ -260,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "mainpage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\mainpage.xaml.cs",
               "RelativeDocumentMoniker": "mainpage.xaml.cs",
@@ -272,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
@@ -284,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\App.config",
               "RelativeDocumentMoniker": "App.config",
@@ -296,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Set.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\Set.xaml",
               "RelativeDocumentMoniker": "Pages\\Set.xaml",
@@ -307,19 +320,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AnimationUtils.cs",
-              "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\AnimationUtils.cs",
-              "RelativeDocumentMoniker": "AnimationUtils.cs",
-              "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\AnimationUtils.cs",
-              "RelativeToolTip": "AnimationUtils.cs",
-              "ViewState": "AQIAAOsAAAAAAAAAAAAAwBMBAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T15:41:13.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "CanvasShape.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Models\\CanvasShape.cs",
               "RelativeDocumentMoniker": "Models\\CanvasShape.cs",
@@ -331,7 +332,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Board.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Board.cs",
               "RelativeDocumentMoniker": "Board.cs",
@@ -343,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "History.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Models\\History.cs",
               "RelativeDocumentMoniker": "Models\\History.cs",
@@ -355,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -367,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Msg.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Models\\Msg.cs",
               "RelativeDocumentMoniker": "Models\\Msg.cs",
@@ -379,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Home.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\Home.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\Home.xaml.cs",
@@ -391,7 +392,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Local.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\Local.xaml",
               "RelativeDocumentMoniker": "Pages\\Local.xaml",
@@ -402,7 +403,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Local.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\Local.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\Local.xaml.cs",
@@ -414,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "AI.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\Pages\\AI.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\AI.xaml.cs",
