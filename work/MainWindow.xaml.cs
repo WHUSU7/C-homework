@@ -45,6 +45,7 @@ namespace work
         public MainWindow()
         {
             InitializeComponent();
+            App.mainWindow = this;
             window = this;
         }
 

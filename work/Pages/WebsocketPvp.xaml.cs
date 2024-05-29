@@ -29,7 +29,7 @@ namespace work.Pages
     {
         WebsocketService websocketService;
 
-      
+        private bool isAnimating = false;
 
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -203,8 +203,9 @@ namespace work.Pages
 
 
         //点击落子操作，与aixaml.cs逻辑类似
-        private  void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private  async void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (isAnimating) return; isAnimating = true;
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -230,9 +231,15 @@ namespace work.Pages
 
                 btn.Visibility = Visibility.Visible;
                 if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
+                if (Board.IsWin(x, y, int.Parse( App.AppMsg.turn)))
+                {
+                    Utils.end = true;
+                    App.isPvpWin = true;
+                   
+                }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+                await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (App.AppMsg.turn == "1")
@@ -264,7 +271,7 @@ namespace work.Pages
                 send(jsondata);
               
             }
-
+            isAnimating = false;
 
 
         }

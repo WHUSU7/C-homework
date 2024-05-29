@@ -146,7 +146,7 @@ namespace work.Pages
         //跳转到pvp页面
         public void jumpToPvp(object sender, RoutedEventArgs e)
         {
-           
+            Board.resetBoard("PVP");
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.pvp);
         }
 
@@ -184,6 +184,8 @@ namespace work.Pages
         {
             ChooseDifficultyWindow cdw = new ChooseDifficultyWindow();
             cdw.DifficultyChanged += chooseDifficutyChanged;
+            cdw.Owner = App.mainWindow;
+            cdw.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             cdw.ShowDialog();
         }
 
