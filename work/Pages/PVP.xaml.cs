@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static work.mainpage;
 
 namespace work.Pages
 {
@@ -25,8 +26,7 @@ namespace work.Pages
     {
 
         APIService apiService = new APIService();
-
-        public int[,] board = Board.getBoardInstance();
+		public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         
 
@@ -39,7 +39,8 @@ namespace work.Pages
             private string _backText;
             private string _ourSide;
             private string _oppSide;
-            public double CanvasWidth
+			
+			public double CanvasWidth
             {
                 get { return _canvasWidth; }
                 set
@@ -149,10 +150,12 @@ namespace work.Pages
             mdm.OppSide = timeLeft.ToString();
             timer.Start();
         }
+        //返回主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
-        }
+			Board.resetBoard("PVP");
+			mainpage.window.jumpToTargetPage(WindowsID.home);
+		}
         //开始匹配，涉及网络通信，匹配成功后，按钮更改
         public async void startToMatch(object sender, RoutedEventArgs e)
         {

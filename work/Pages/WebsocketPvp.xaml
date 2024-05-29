@@ -1,115 +1,127 @@
-﻿<Page x:Class="work.Pages.MainPage"
+﻿<Page x:Class="work.Pages.WebsocketPvp"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:work.Pages"
-     xmlns:work="clr-namespace:work"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainPage">
+      Title="PVP">
 
     <Page.Resources>
-        <Style TargetType="Button" x:Key="commonBtnStyle">
-            <EventSetter Event="Button.Click" Handler="CommonBtnClickHandler"/>
-            <!--<Setter Property="Width" Value="100"/>-->
-            <!--<Setter Property="Height" Value="100"/>-->
-            <!--<Setter Property="Background" Value="Yellow"/>-->
-            <Setter Property="Visibility" Value="Hidden"/>
-            
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                               BorderBrush="{TemplateBinding BorderBrush}"
-                               BorderThickness="{TemplateBinding BorderThickness}"
-                               CornerRadius="{Binding ActualWidth,ElementName=Button00}">
-                            <!-- 使边缘圆形 -->
-                            <ContentPresenter HorizontalAlignment="Center"
-                                             VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style x:Key="ctrlButton" TargetType="Button">
             <Setter Property="Background" Value="#E7E0F8"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                 BorderBrush="{TemplateBinding BorderBrush}"
-                 BorderThickness="{TemplateBinding BorderThickness}"
-                 CornerRadius="20">
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="20"
+                                Padding="{TemplateBinding Padding}"
+                                >
                             <ContentPresenter HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
+                                              VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="commonBtnStyle" TargetType="Button">
+            <EventSetter Event="Button.Click" Handler="CommonBtnClickHandler"/>
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="25"
+                                Width="50" Height="50">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <BitmapImage x:Key="chessBoardImage" UriSource="pack://application:,,,/Images/chessBoard.png" />
         <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
+        <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="5" BlurRadius="10" Color="Gray" />
     </Page.Resources>
 
-        <Grid Background="Ivory">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+    <Grid Background="#F0F0F0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Background="Aqua" x:Name="left"></TextBlock>
+        <TextBlock Grid.Row="1" Background="Aqua" Grid.Column="8" x:Name="right"></TextBlock>
+        <!--倒计时-->
+        <TextBlock Name="CountdownTextBlock1" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Text="{Binding OurSide}" Foreground="WhiteSmoke" Panel.ZIndex="10" FontSize="100" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Name="CountdownTextBlock2" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" Text="{Binding OppSide}" Foreground="WhiteSmoke" Panel.ZIndex="10" FontSize="100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="7" Content="Player vs Player" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="#4A8CCB"/>
+        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" Content="{Binding BackText, Mode=TwoWay, TargetNullValue=返回主页}" Style="{StaticResource ctrlButton}" Click="jumpBackToMain"/>
+        <Button Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="2" Content="{Binding MatchText, Mode=TwoWay, TargetNullValue=开始匹配}" Style="{StaticResource ctrlButton}" Click="startToMatch"/>
 
+        <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6">
 
-        <Button Grid.Column="3" Grid.Row="7" x:Name="HistoryBtn"  Content="历史记录"  Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
-        <Button Grid.Column="4" Grid.Row="7" x:Name="AIBtn"  Content="人机对战"  Click="jumpToAI" Style="{StaticResource ctrlButton}"/>
-        <Button Grid.Column="5" Grid.Row="7" x:Name="PeopleBtn"  Content="人人对战"  Click="jumpToPvp" Style="{StaticResource ctrlButton}"/>
-        
-      
+            <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#FF4A8CCB" Effect="{StaticResource DropShadowEffect}">
 
-        <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
-            <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
-                <Canvas  x:Name="myCanvas" Background="{StaticResource chessBoardBackground}" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
-               
-                    <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
-                        <Grid.RowDefinitions >
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                <Canvas x:Name="myCanvas"
+                        Background="{StaticResource chessBoardBackground}"
+                        MouseLeftButtonDown="myCanvas_MouseLeftButtonDown"
+                        SizeChanged="myCanvas_SizeChanged"
+                        Width="{Binding CanvasWidth}"
+                        Margin="112,0,112,0">
 
+                    <Grid Width="{Binding ActualWidth, ElementName=myCanvas}" Height="{Binding ActualHeight, ElementName=myCanvas}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+
                         <Button Grid.Column="0" Grid.Row="0"  x:Name="Button00" Style="{StaticResource commonBtnStyle}" />
                         <Button Grid.Column="1" Grid.Row="0" x:Name="Button01" Style="{StaticResource commonBtnStyle}" />
                         <Button Grid.Column="2" Grid.Row="0" x:Name="Button02" Style="{StaticResource commonBtnStyle}" />
@@ -158,9 +170,10 @@
                         <Button Grid.Column="5" Grid.Row="5"  x:Name="Button55" Style="{StaticResource commonBtnStyle}" />
                         <Button Grid.Column="6" Grid.Row="5" x:Name="Button56" Style="{StaticResource commonBtnStyle}" />
 
+
                     </Grid>
-               
-            </Canvas>
+
+                </Canvas>
             </Border>
         </Grid>
     </Grid>

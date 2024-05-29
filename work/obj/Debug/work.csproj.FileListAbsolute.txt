@@ -147,3 +147,12 @@ D:\Git\C-homework\C-homework\work\obj\Debug\work.csproj.CopyComplete
 D:\Git\C-homework\C-homework\work\obj\Debug\work.exe
 D:\Git\C-homework\C-homework\work\obj\Debug\work.pdb
 >>>>>>> master
+C:\Users\ctmik\C-homework\work\obj\Debug\mainpage.g.cs
+C:\Users\ctmik\C-homework\work\obj\Debug\Pages\Local.g.cs
+C:\Users\ctmik\C-homework\work\obj\Debug\mainpage.baml
+C:\Users\ctmik\C-homework\work\obj\Debug\Pages\Local.baml
+C:\Users\ctmik\C-homework\work\obj\Debug\Pages\Home.g.cs
+C:\Users\ctmik\C-homework\work\obj\Debug\Pages\Home.baml
+C:\Users\ctmik\C-homework\work\obj\Debug\Pages\Set.g.cs
+C:\Users\ctmik\C-homework\work\obj\Debug\Pages\Set.baml
+C:\Users\ctmik\C-homework\work\obj\Debug\Utilwindows\ChooseDifficultWindow.g.cs

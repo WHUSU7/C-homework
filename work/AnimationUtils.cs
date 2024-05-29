@@ -22,58 +22,58 @@ namespace work
             dakY.Duration = new Duration(TimeSpan.FromMilliseconds(1000));
             //添加关键帧
 
-            SplineDoubleKeyFrame startKf = new SplineDoubleKeyFrame();
-            //关键帧起始百分比（0-1）
-            startKf.KeyTime = KeyTime.FromPercent(0);
-            double startHeight = x * maxHeight * 0.142857;
-            //终点相对于元素本身的位置
-            startKf.Value = -startHeight;
+			SplineDoubleKeyFrame startKf = new SplineDoubleKeyFrame();
+			//关键帧起始百分比（0-1）
+			startKf.KeyTime = KeyTime.FromPercent(0);
+			double startHeight = x * maxHeight * 0.142857;
+			//终点相对于元素本身的位置
+			startKf.Value = -startHeight;
 
 
-            SplineDoubleKeyFrame endKf = new SplineDoubleKeyFrame();
-            endKf.KeyTime = KeyTime.FromPercent(1);
-            endKf.Value = 0;
-            KeySpline ks = new KeySpline();
-            ks.ControlPoint1 = new Point(0.42, 0);
-            ks.ControlPoint2 = new Point(0.58, 1);
-            endKf.KeySpline = ks;
+			SplineDoubleKeyFrame endKf = new SplineDoubleKeyFrame();
+			endKf.KeyTime = KeyTime.FromPercent(1);
+			endKf.Value = 0;
+			KeySpline ks = new KeySpline();
+			ks.ControlPoint1 = new Point(0.42, 0);
+			ks.ControlPoint2 = new Point(0.58, 1);
+			endKf.KeySpline = ks;
 
 
-            dakY.KeyFrames.Add(startKf);
-            dakY.KeyFrames.Add(endKf);
-            btn.RenderTransform = new TranslateTransform();
-            btn.RenderTransform.BeginAnimation(TranslateTransform.YProperty, dakY);
+			dakY.KeyFrames.Add(startKf);
+			dakY.KeyFrames.Add(endKf);
+			btn.RenderTransform = new TranslateTransform();
+			btn.RenderTransform.BeginAnimation(TranslateTransform.YProperty, dakY);
 
 
-        }
-
-
-
+		}
 
 
 
 
 
-        public static void ChessRotateAnimation(Button btn)
-        {
 
-            DoubleAnimationUsingKeyFrames rotateAnimation = new DoubleAnimationUsingKeyFrames();
-            rotateAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(2000));
 
-            // 动画开始时
-            DiscreteDoubleKeyFrame startFrame = new DiscreteDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)));
 
-            // 10秒后旋转600度（每秒60度）
-            LinearDoubleKeyFrame endFrame = new LinearDoubleKeyFrame(360, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(2)));
+		public static void ChessRotateAnimation(Button btn)
+		{
 
-            rotateAnimation.KeyFrames.Add(startFrame);
-            rotateAnimation.KeyFrames.Add(endFrame);
-            rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+			DoubleAnimationUsingKeyFrames rotateAnimation = new DoubleAnimationUsingKeyFrames();
+			rotateAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(2000));
 
-            btn.RenderTransform = new RotateTransform();
-            btn.RenderTransformOrigin = new Point(0.5, 0.5);
-            btn.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
-        }
+			// 动画开始时
+			DiscreteDoubleKeyFrame startFrame = new DiscreteDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)));
+
+			// 10秒后旋转600度（每秒60度）
+			LinearDoubleKeyFrame endFrame = new LinearDoubleKeyFrame(360, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(2)));
+
+			rotateAnimation.KeyFrames.Add(startFrame);
+			rotateAnimation.KeyFrames.Add(endFrame);
+			rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+
+			btn.RenderTransform = new RotateTransform();
+			btn.RenderTransformOrigin = new Point(0.5, 0.5);
+			btn.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+		}
 
         public static void ShowParticleEffect(Button btn, double x, double y, Canvas canvas)
         {
@@ -95,19 +95,19 @@ namespace work
                     particle.Width = particle.Height = 5;
                     particle.Fill = Brushes.White;
 
-                    // 将粒子添加到 Canvas 上
-                    canvas.Children.Add(particle);
+					// 将粒子添加到 Canvas 上
+					canvas.Children.Add(particle);
 
-                    // 设置粒子初始位置为按钮位置
+					// 设置粒子初始位置为按钮位置
 
-                    Canvas.SetLeft(particle, x);
-                    Canvas.SetTop(particle, y);
+					Canvas.SetLeft(particle, x);
+					Canvas.SetTop(particle, y);
 
-                    // 随机速度和方向
-                    double speed = 10;
-                    double angle = rand.Next(0, 360) * Math.PI / 180; // 不同的角度
-                    double dx = r * Math.Cos(angle);
-                    double dy = r * Math.Sin(angle);
+					// 随机速度和方向
+					double speed = 10;
+					double angle = rand.Next(0, 360) * Math.PI / 180; // 不同的角度
+					double dx = r * Math.Cos(angle);
+					double dy = r * Math.Sin(angle);
 
                     // 创建并设置粒子动画
                     DoubleAnimation animX = new DoubleAnimation(x, x + 3 * dx, TimeSpan.FromSeconds(0.3));
@@ -115,18 +115,18 @@ namespace work
                     animX.Completed += (s, e) => canvas.Children.Remove(particle); // 动画完成时移除粒子
                     animY.Completed += (s, e) => canvas.Children.Remove(particle); // 动画完成时移除粒子
 
-                    particle.BeginAnimation(Canvas.LeftProperty, animX);
-                    particle.BeginAnimation(Canvas.TopProperty, animY);
-                    // 渐隐动画
-                    DoubleAnimation opacityAnim = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1.5)); // 将持续时间延长以确保逐渐消失
-                    particle.BeginAnimation(Ellipse.OpacityProperty, opacityAnim);
-                }
-            }
-            else
-            {
-                // 处理找不到 Canvas 的情况
-            }
-        }
+					particle.BeginAnimation(Canvas.LeftProperty, animX);
+					particle.BeginAnimation(Canvas.TopProperty, animY);
+					// 渐隐动画
+					DoubleAnimation opacityAnim = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1.5)); // 将持续时间延长以确保逐渐消失
+					particle.BeginAnimation(Ellipse.OpacityProperty, opacityAnim);
+				}
+			}
+			else
+			{
+				// 处理找不到 Canvas 的情况
+			}
+		}
 
 
 
@@ -222,16 +222,16 @@ namespace work
                 Canvas.SetLeft(trailCircle, trailX);
                 Canvas.SetTop(trailCircle, trailY);
 
-                // 将新创建的圆形拖尾添加到列表中
-                trailCircles.Add(trailCircle);
+				// 将新创建的圆形拖尾添加到列表中
+				trailCircles.Add(trailCircle);
 
-                // 根据需要，限制圆形拖尾的数量，以免过多影响性能
-                if (trailCircles.Count > maxTrailCount)
-                {
-                    canvas.Children.Remove(trailCircles[0]); // 移除列表中的第一个圆形拖尾
-                    trailCircles.RemoveAt(0); // 从列表中移除第一个圆形拖尾
-                }
-            };
+				// 根据需要，限制圆形拖尾的数量，以免过多影响性能
+				if (trailCircles.Count > maxTrailCount)
+				{
+					canvas.Children.Remove(trailCircles[0]); // 移除列表中的第一个圆形拖尾
+					trailCircles.RemoveAt(0); // 从列表中移除第一个圆形拖尾
+				}
+			};
 
             // 开始定时器
             timer.Start();
@@ -260,5 +260,5 @@ namespace work
             };
         }
 
-    }
 }
+

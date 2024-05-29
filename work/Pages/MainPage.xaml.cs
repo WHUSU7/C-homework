@@ -40,7 +40,8 @@ namespace work.Pages
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
         public int nowTurn = 1;
-       
+        private bool isAnimating = false;
+
 
         //所有按钮的公共方法
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
@@ -52,9 +53,10 @@ namespace work.Pages
         }
 
         //点击棋盘canvas调用
-        private void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private async void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
+            if (isAnimating) return; // 如果动画正在进行，则返回
+            isAnimating = true;
             Point clickPoint = e.GetPosition(myCanvas);
 
             double canvasWidth = myCanvas.ActualWidth;
@@ -82,7 +84,7 @@ namespace work.Pages
                 if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
                 //AnimationUtils.ChessRotateAnimation(btn);
-                AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+               
 
                 //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
                 if (nowTurn == 1)
@@ -110,7 +112,8 @@ namespace work.Pages
             //MessageBox.Show($"pos:({x},{y})");
 
             //suggession();
-           
+            await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+            isAnimating = false;
         }
 
 
@@ -143,7 +146,7 @@ namespace work.Pages
         //跳转到pvp页面
         public void jumpToPvp(object sender, RoutedEventArgs e)
         {
-           
+            Board.resetBoard("PVP");
             MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.pvp);
         }
 
@@ -181,6 +184,8 @@ namespace work.Pages
         {
             ChooseDifficultyWindow cdw = new ChooseDifficultyWindow();
             cdw.DifficultyChanged += chooseDifficutyChanged;
+            cdw.Owner = App.mainWindow;
+            cdw.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             cdw.ShowDialog();
         }
 

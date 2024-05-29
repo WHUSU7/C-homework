@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using work.Models;
+using static work.mainpage;
 
 namespace work.Pages
 {
@@ -23,7 +24,7 @@ namespace work.Pages
     /// </summary>
     public partial class HistoryPage : Page, INotifyPropertyChanged
     {
-        private int a;
+		private int a;
         private APIService apiService = new APIService();
         public HistoryPage()
         {
@@ -42,8 +43,9 @@ namespace work.Pages
         //页面跳转
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
-        }
+
+			mainpage.window.jumpToTargetPage(WindowsID.home);
+		}
 
         //获取单条历史记录
         public async void getHistoryById(object sender, RoutedEventArgs e)
@@ -57,6 +59,7 @@ namespace work.Pages
         public async void getHistories(object sender, RoutedEventArgs e)
         {
             var history = await apiService.getHistories(App.user.id);
+           
             string str = "";
             foreach (string item in history) {
                 str += "     ";
@@ -69,7 +72,7 @@ namespace work.Pages
         //插入历史记录
         public async void insertHistory(object sender, RoutedEventArgs e) {
             //把这个替换成要插入的历史记录就行了
-            string str = "111";
+            string str = "1,";
             var isSuccess = await apiService.insertHistory(new History(-1,str),App.user.id);
             MessageBox.Show(isSuccess);
         } 

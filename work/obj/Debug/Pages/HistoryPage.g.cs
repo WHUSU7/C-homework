@@ -40,6 +40,22 @@ namespace work.Pages {
     /// </summary>
     public partial class HistoryPage : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
+        
+        #line 12 "..\..\..\Pages\HistoryPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ScrollViewer scrList;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 13 "..\..\..\Pages\HistoryPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.StackPanel layerList;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -71,36 +87,10 @@ namespace work.Pages {
             switch (connectionId)
             {
             case 1:
-            
-            #line 31 "..\..\..\Pages\HistoryPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.insertHistory);
-            
-            #line default
-            #line hidden
+            this.scrList = ((System.Windows.Controls.ScrollViewer)(target));
             return;
             case 2:
-            
-            #line 32 "..\..\..\Pages\HistoryPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.jumpBackToMain);
-            
-            #line default
-            #line hidden
-            return;
-            case 3:
-            
-            #line 33 "..\..\..\Pages\HistoryPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.getHistoryById);
-            
-            #line default
-            #line hidden
-            return;
-            case 4:
-            
-            #line 34 "..\..\..\Pages\HistoryPage.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.getHistories);
-            
-            #line default
-            #line hidden
+            this.layerList = ((System.Windows.Controls.StackPanel)(target));
             return;
             }
             this._contentLoaded = true;

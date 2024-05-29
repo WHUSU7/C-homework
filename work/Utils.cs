@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using work.Utilwindows;
 using static work.MainWindow;
 
 
@@ -62,7 +64,21 @@ namespace work
             MessageBox.Show(str.ToString());
         }
 
+
+        //显示是否要保存历史记录窗口
+        public static void showIsInsertHistoryWindow() { 
+        isInsertHistory isInsertHistory = new isInsertHistory();
+          
+                    isInsertHistory.Owner = App.mainWindow;
+            isInsertHistory.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+
+
+            isInsertHistory.ShowDialog();
         
+        }
+
+
 
     }
 

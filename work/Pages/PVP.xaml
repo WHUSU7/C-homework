@@ -9,51 +9,25 @@
       Title="PVP">
 
     <Page.Resources>
-        <Style x:Key="ctrlButton" TargetType="Button">
-            <Setter Property="Background" Value="#E7E0F8"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="20"
-                                Padding="{TemplateBinding Padding}"
-                                >
-                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="commonBtnStyle" TargetType="Button">
+        <!--棋盘按钮样式-->
+        <Style TargetType="Button" x:Key="commonBtnStyle">
             <EventSetter Event="Button.Click" Handler="CommonBtnClickHandler"/>
             <Setter Property="Visibility" Value="Hidden"/>
-            <Setter Property="IsHitTestVisible" Value="False"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="25"
-                                Width="50" Height="50">
+           BorderBrush="{TemplateBinding BorderBrush}"
+           BorderThickness="{TemplateBinding BorderThickness}"
+           CornerRadius="{Binding ActualWidth,ElementName=Button00}">
+                            <!-- 使边缘圆形 -->
                             <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
+                         VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-
         <BitmapImage x:Key="chessBoardImage" UriSource="pack://application:,,,/Images/chessBoard.png" />
         <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
         <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="5" BlurRadius="10" Color="Gray" />

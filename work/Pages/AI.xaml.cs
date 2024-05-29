@@ -15,30 +15,33 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using work.Utilwindows;
-using static work.Utilwindows.ChooseDifficultyWindow;
+using static work.mainpage;
+
 
 namespace work.Pages
 {
-    /// <summary>
-    /// AI.xaml 的交互逻辑
-    /// </summary>
-    public partial class AI : Page
-    {
-        MainDataModel mdm;
-        public AI()
-        {
-            InitializeComponent();
-            mdm = new MainDataModel();
-            this.DataContext = mdm;
-            App.AIInstance = this;
-		 //   suggession();
+	/// <summary>
+	/// AI.xaml 的交互逻辑
+	/// </summary>
+	public partial class AI : Page
+	{
+		MainDataModel mdm;
+		public AI()
+		{
+			InitializeComponent();
+			mdm = new MainDataModel();
+			this.DataContext = mdm;
+			App.AIInstance = this;
+			this.Loaded += (s, e) =>
+			{
+				suggession();
+			};
 		}
-        //难度
-        public static int difficulty=-1;
+		//难度
+		public static int difficulty = -1;
 
-        //落子计数器
-        public int tie = 0;
+		//落子计数器
+		public int tie = 0;
 
         public int[,] board = Board.getBoardInstance();
         //决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -58,17 +61,15 @@ namespace work.Pages
            
             Point clickPoint = e.GetPosition(myCanvas);
 
-            double canvasWidth = myCanvas.ActualWidth;
-            double canvasHeight = myCanvas.ActualHeight;
+			double canvasWidth = myCanvas.ActualWidth;
+			double canvasHeight = myCanvas.ActualHeight;
 
-             buttonWidthSize = canvasWidth * (0.142857);
-             buttonHeightSize = canvasHeight * (0.166667);
 
-            //获取当前点击的区域，并转换成对应按钮实例和坐标
-            int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
-            int y = Utils.getIndex(buttonWidthSize, clickPoint.X);
-            string targetBtn = "Button" + x.ToString() + y.ToString();
-            Button btn = (Button)FindName(targetBtn);
+			//获取当前点击的区域，并转换成对应按钮实例和坐标
+			int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
+			int y = Utils.getIndex(buttonWidthSize, clickPoint.X);
+			string targetBtn = "Button" + x.ToString() + y.ToString();
+			Button btn = (Button)FindName(targetBtn);
 
             //判断该点击处是否合法，合法再执行下面动画和显示
             bool isClickValid = Utils.isClickValid(x, y, board);
@@ -192,29 +193,30 @@ namespace work.Pages
                 }
                
 
-            }
-         
+			}
+
 			suggession();
 
 		}
 
 
-        //棋盘canvas尺寸变化时调用
-        private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            double canvasWidth = myCanvas.ActualWidth;
-            double canvasHeight = myCanvas.ActualHeight;
-            double myCanvasFatherGridHeight = myCanvasFatherGrid.ActualHeight;
+		//棋盘canvas尺寸变化时调用
+		private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+		{
+			double canvasWidth = myCanvas.ActualWidth;
+			double canvasHeight = myCanvas.ActualHeight;
+			double myCanvasFatherGridHeight = myCanvasFatherGrid.ActualHeight;
 
             mdm.CanvasWidth = myCanvasFatherGridHeight * 1.166667;
            
         }
+
+
         //跳转到主页
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            Board.resetBoard("MainPage");
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
-        }
+			mainpage.window.jumpToTargetPage(WindowsID.home);
+		}
         
 
         //Binding绑定的数据源
@@ -222,77 +224,77 @@ namespace work.Pages
         {
             private double _canvasWidth;
 
-            public double CanvasWidth
-            {
-                get { return _canvasWidth; }
-                set
-                {
-                    if (_canvasWidth != value)
-                    {
-                        _canvasWidth = value;
-                        App.AppCanvasShape.width = value;
-                        OnPropertyChanged(nameof(CanvasWidth));
-                    }
-                }
-            }
+			public double CanvasWidth
+			{
+				get { return _canvasWidth; }
+				set
+				{
+					if (_canvasWidth != value)
+					{
+						_canvasWidth = value;
+						App.AppCanvasShape.width = value;
+						OnPropertyChanged(nameof(CanvasWidth));
+					}
+				}
+			}
 
-            //元素改变时候触发的委托（监听）
-            public event PropertyChangedEventHandler PropertyChanged;
+			//元素改变时候触发的委托（监听）
+			public event PropertyChangedEventHandler PropertyChanged;
 
-            protected virtual void OnPropertyChanged(string propertyName)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+			protected virtual void OnPropertyChanged(string propertyName)
+			{
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
 
-		
-        //位置提示
+
+		//位置提示
 		public void suggession()
 		{
             
             for (int i = 0; i < 7; i++)
 			{
-				
-					for (int j = 5; j >= 0; j--)
+
+				for (int j = 5; j >= 0; j--)
+				{
+					if (board[j, i] == 0)
 					{
-						if (board[j, i] == 0)
+						string targetBt = "Button" + j.ToString() + i.ToString();
+						Button bt = (Button)FindName(targetBt);
+						bt.Visibility = Visibility.Visible;
+						// 创建 ImageBrush 对象
+						ImageBrush imageBrush = new ImageBrush();
+
+						// 设置 ImageBrush 的 ImageSource 属性为 GIF 图像的路径
+						imageBrush.ImageSource = new BitmapImage(new Uri(@"..\..\Images\circle4.gif", UriKind.Relative));
+						// 创建 RotateTransform 对象
+						RotateTransform rotateTransform = new RotateTransform();
+
+						// 将 RotateTransform 设置为 ImageBrush 的 Transform 属性
+						imageBrush.Transform = rotateTransform;
+						rotateTransform.CenterX = buttonWidthSize / 2;
+						rotateTransform.CenterY = buttonHeightSize / 2;
+
+						// 创建动画，使 RotateTransform 持续旋转
+						DoubleAnimation rotateAnimation = new DoubleAnimation
 						{
-							string targetBt = "Button" + j.ToString() + i.ToString();
-							Button bt = (Button)FindName(targetBt);
-							bt.Visibility = Visibility.Visible;
-                        // 创建 ImageBrush 对象
-                        ImageBrush imageBrush = new ImageBrush();
 
-                        // 设置 ImageBrush 的 ImageSource 属性为 GIF 图像的路径
-                        imageBrush.ImageSource = new BitmapImage(new Uri(@"..\..\Images\circle4.gif", UriKind.Relative));
-                        // 创建 RotateTransform 对象
-                        RotateTransform rotateTransform = new RotateTransform();
-                
-                        // 将 RotateTransform 设置为 ImageBrush 的 Transform 属性
-                        imageBrush.Transform = rotateTransform;
-                        rotateTransform.CenterX = buttonWidthSize/2;
-                        rotateTransform.CenterY = buttonHeightSize/2;
+							From = 0,
+							To = 360,
+							Duration = TimeSpan.FromSeconds(1), // 设置动画持续时间为1秒
+							RepeatBehavior = RepeatBehavior.Forever // 设置动画重复执行
+						};
 
-                        // 创建动画，使 RotateTransform 持续旋转
-                        DoubleAnimation rotateAnimation = new DoubleAnimation
-                        {
-                            
-                            From = 0,
-                            To = 360,
-                            Duration = TimeSpan.FromSeconds(1), // 设置动画持续时间为1秒
-                            RepeatBehavior = RepeatBehavior.Forever // 设置动画重复执行
-                        };
+						// 将动画应用到 RotateTransform 的 Angle 属性
+						rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
 
-                        // 将动画应用到 RotateTransform 的 Angle 属性
-                        rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+						// 将 ImageBrush 设置为按钮的背景
+						bt.Background = imageBrush;
 
-                        // 将 ImageBrush 设置为按钮的背景
-                        bt.Background = imageBrush;
-
-                        break;
-						}
+						break;
 					}
-				
+				}
+
 
 			}
 		}
@@ -305,7 +307,7 @@ namespace work.Pages
 
 		}
 
-      
-    }
+
+	}
 }
 

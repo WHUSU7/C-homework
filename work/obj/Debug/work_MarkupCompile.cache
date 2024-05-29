@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\ctmik\C-homework\work\App.xaml
-6796508083
+8824577754
 
-18101570159
+20218858192
 14-498037776
-MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\MainPage.xaml;Pages\PVP.xaml;Utilwindows\ChooseDifficultyWindow.xaml;
+mainpage.xaml;MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\Home.xaml;Pages\Local.xaml;Pages\PVP.xaml;Pages\Set.xaml;
 
 False
 
