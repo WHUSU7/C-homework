@@ -31,7 +31,7 @@ namespace work
 			local,
 			history,
 			ai,
-			pvp,
+			websocketpvp,
 			home,
 			set
 		};
@@ -39,7 +39,7 @@ namespace work
 		Frame history = new Frame() { Content = new Pages.HistoryPage() };
 		Frame local = new Frame() { Content = new Pages.Local() };
 		Frame ai = new Frame() { Content = new Pages.AI() };
-		Frame pvp = new Frame() { Content = new Pages.PVP() };
+		Frame websocketpvp = new Frame() { Content = new Pages.WebsocketPvp() };
 		Frame home =new Frame() { Content=new Pages.Home() };
 		Frame set=new Frame() { Content=new Pages.Set() };
 		public mainpage()
@@ -66,8 +66,8 @@ namespace work
 				case WindowsID.ai:
 					mainContent.Content = ai;
 					break;
-				case WindowsID.pvp:
-					mainContent.Content = pvp;
+				case WindowsID.websocketpvp:
+					mainContent.Content = websocketpvp;
 					break;
 				case WindowsID.home:
 					mainContent.Content = home;

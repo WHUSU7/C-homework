@@ -93,6 +93,7 @@
                     HorizontalAlignment="Center"  Click="change2login" Grid.RowSpan="2"  Visibility="Collapsed"/>
 
                 <Button Content="MAIN" Background="AliceBlue" Click="jumpToMain" Grid.Row="0" Grid.Column="0" />
+                
             </Grid>
         </Grid>
     </ContentControl>

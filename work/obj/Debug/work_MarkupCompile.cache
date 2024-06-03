@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ctmik\C-homework\work\obj\Debug\
+C:\Users\ctmik\Desktop\C-homework\work\obj\Debug\
 work
 none
 false
 DEBUG;TRACE
-C:\Users\ctmik\C-homework\work\App.xaml
-8824577754
+C:\Users\ctmik\Desktop\C-homework\work\App.xaml
+91509373075
 
-20218858192
-14-498037776
-mainpage.xaml;MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\Home.xaml;Pages\Local.xaml;Pages\PVP.xaml;Pages\Set.xaml;
+23970372872
+14-362125050
+mainpage.xaml;MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\Home.xaml;Pages\Local.xaml;Pages\Set.xaml;Pages\WebsocketPvp.xaml;Utilwindows\isInsertHistory.xaml;
 
-True
+False
 

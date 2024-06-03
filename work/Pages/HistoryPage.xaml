@@ -14,20 +14,15 @@
                 <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
                 <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
                 <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="历史记录" Style="{StaticResource ctrlButton}"/>
+                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
                 <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
                 <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
                 <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="历史记录" Style="{StaticResource ctrlButton}"/>
+                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
                 <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
                 <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
                 <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="历史记录" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="历史记录" Style="{StaticResource ctrlButton}"/>
-
+                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
             </StackPanel>
         </ScrollViewer>
        

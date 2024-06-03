@@ -50,7 +50,7 @@ namespace work.Pages
 		public void jumpToPvp(object sender, RoutedEventArgs e)
 		{
 
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.pvp);
+			mainpage.window.jumpToTargetPage(mainpage.WindowsID.websocketpvp);
 		}
 		//跳转到local页面
 		public void jumpToLocal(object sender, RoutedEventArgs e)

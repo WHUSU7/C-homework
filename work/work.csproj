@@ -65,6 +65,7 @@
       <DependentUpon>mainpage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CanvasShape.cs" />
+    <Compile Include="Models\Group.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\Msg.cs" />
     <Compile Include="Models\User.cs" />
@@ -80,13 +81,17 @@
     <Compile Include="Pages\Local.xaml.cs">
       <DependentUpon>Local.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PVP.xaml.cs">
-      <DependentUpon>PVP.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Set.xaml.cs">
       <DependentUpon>Set.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WebsocketPvp.xaml.cs">
+      <DependentUpon>WebsocketPvp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="Utilwindows\isInsertHistory.xaml.cs">
+      <DependentUpon>isInsertHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebsocketService.cs" />
     <Page Include="mainpage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,11 +124,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PVP.xaml">
+    <Page Include="Pages\Set.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Set.xaml">
+    <Page Include="Pages\WebsocketPvp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilwindows\isInsertHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,5 +173,6 @@
   <ItemGroup>
     <Resource Include="Images\user.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -144,6 +144,7 @@ namespace work
 			window.Close();
 			
 		}
+		
 		//窗口最小化和关闭
 		public void WindowMinimized(object sender, RoutedEventArgs e)
 		{
