@@ -62,7 +62,22 @@ namespace work
             MessageBox.Show(str.ToString());
         }
 
-        
+
+        //接受record字符串分割为字符串数组用于历史记录页面布局
+        public static string[] SplitStringIntoPairs(string input)
+        {
+            // 创建一个数组来存储每对字符
+            string[] pairs = new string[input.Length / 2];
+
+            // 循环遍历字符串，每次取两个字符
+            for (int i = 0; i < input.Length / 2; i += 1)
+            {
+                pairs[i] = input[2 * i].ToString() + input[2 * i + 1].ToString();
+            }
+
+            return pairs;
+        }
+
 
     }
 

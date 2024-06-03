@@ -18,6 +18,7 @@ namespace work
         public static MainPage MainPageInstance { get; set; }
         public static AI AIInstance { get; set; }
 		public static PVP PVPInstance { get; set; }
+        public static HistoryRecords history = new HistoryRecords("");
 
         public static User user = new User(0,"-1","-1","-1");
 

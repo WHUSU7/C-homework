@@ -16,7 +16,7 @@
             <!--<Setter Property="Height" Value="100"/>-->
             <!--<Setter Property="Background" Value="Yellow"/>-->
             <Setter Property="Visibility" Value="Hidden"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -56,25 +56,25 @@
         <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
     </Page.Resources>
 
-        <Grid Background="Ivory">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+    <Grid Background="Ivory">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
+        <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -83,13 +83,13 @@
         <Button Grid.Column="3" Grid.Row="7" x:Name="HistoryBtn"  Content="历史记录"  Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
         <Button Grid.Column="4" Grid.Row="7" x:Name="AIBtn"  Content="人机对战"  Click="jumpToAI" Style="{StaticResource ctrlButton}"/>
         <Button Grid.Column="5" Grid.Row="7" x:Name="PeopleBtn"  Content="人人对战"  Click="jumpToPvp" Style="{StaticResource ctrlButton}"/>
-        
-      
+
+
 
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
             <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
                 <Canvas  x:Name="myCanvas" Background="{StaticResource chessBoardBackground}" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
-               
+
                     <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
                         <Grid.RowDefinitions >
                             <RowDefinition></RowDefinition>
@@ -159,8 +159,8 @@
                         <Button Grid.Column="6" Grid.Row="5" x:Name="Button56" Style="{StaticResource commonBtnStyle}" />
 
                     </Grid>
-               
-            </Canvas>
+
+                </Canvas>
             </Border>
         </Grid>
     </Grid>

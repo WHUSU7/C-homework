@@ -9,28 +9,28 @@
       Title="HistoryPage">
 
     <Grid>
-       
-       
+
+
         <Grid >
-            
 
-             
 
-           
+
+
+
             <Grid.RowDefinitions>
-               
+
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400*"/>
                 <ColumnDefinition Width="400*"/>
-              
+
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="2">
-                <Button Background="Beige" Content="insert history" FontSize="50" Click="insertHistory"></Button>
+                <Button Background="Beige" Content="下一步" FontSize="50" Click="nextButton"></Button>
                 <Button Background="Beige" Content="click me to jump back to main" FontSize="50" Click="jumpBackToMain"></Button>
-                <Button Background="Beige" Content="load history" FontSize="50" Click="getHistoryById"></Button>
+                <Button Background="Beige" Content="上一步" FontSize="50" Click="lastButton"></Button>
                 <Button Background="Beige" Content="load all historys" FontSize="50" Click="getHistories"></Button>
             </StackPanel>
             <StackPanel Background="AliceBlue" Grid.Column="0" Grid.Row="1">
@@ -45,7 +45,7 @@
                         <Setter Property="TextAlignment" Value="Center"/>
                     </Style>
                 </StackPanel.Resources>
-                <TextBlock Text="{Binding Result[0]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
+                <Button Name="Button50"  Visibility="Collapsed" Width="200" Height="20"></Button>  
                 <TextBlock Text="{Binding Result[2]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
                 <TextBlock Text="{Binding Result[4]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
                 <TextBlock Text="{Binding Result[6]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
@@ -105,4 +105,5 @@
 
         </Grid>
     </Grid>
+
 </Page>

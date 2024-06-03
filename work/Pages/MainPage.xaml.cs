@@ -68,7 +68,6 @@ namespace work.Pages
             int y = Utils.getIndex(buttonWidthSize, clickPoint.X);
             string targetBtn = "Button" + x.ToString() + y.ToString();
             Button btn = (Button)FindName(targetBtn);
-
             //判断该点击处是否合法，合法再执行下面动画和显示
             bool isClickValid = Utils.isClickValid(x, y, board);
            
@@ -76,8 +75,7 @@ namespace work.Pages
             {
                 //历史记录获取坐标
                 GameService.Instance.getPosition(x, y);
-
-
+                App.history.addRecord(x.ToString()+y.ToString());
                 btn.Visibility = Visibility.Visible;
                 if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
                 // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);

@@ -63,6 +63,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="Models\CanvasShape.cs" />
     <Compile Include="Models\History.cs" />
+    <Compile Include="Models\HistoryRecords.cs" />
     <Compile Include="Models\Msg.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AI.xaml.cs">

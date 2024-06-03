@@ -143,3 +143,31 @@ D:\Git\C-homework\C-homework\work\obj\Debug\work.csproj.CoreCompileInputs.cache
 D:\Git\C-homework\C-homework\work\obj\Debug\work.csproj.CopyComplete
 D:\Git\C-homework\C-homework\work\obj\Debug\work.exe
 D:\Git\C-homework\C-homework\work\obj\Debug\work.pdb
+C:\Users\86191\Desktop\histroy page\work\bin\Debug\work.exe.config
+C:\Users\86191\Desktop\histroy page\work\bin\Debug\work.exe
+C:\Users\86191\Desktop\histroy page\work\bin\Debug\work.pdb
+C:\Users\86191\Desktop\histroy page\work\bin\Debug\Newtonsoft.Json.dll
+C:\Users\86191\Desktop\histroy page\work\bin\Debug\Newtonsoft.Json.xml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.csproj.AssemblyReference.cache
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\MainWindow.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\AI.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\HistoryPage.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\MainPage.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\PVP.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Utilwindows\ChooseDifficultyWindow.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\App.g.cs
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work_MarkupCompile.cache
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work_MarkupCompile.lref
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\MainWindow.baml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\AI.baml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\HistoryPage.baml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\MainPage.baml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Pages\PVP.baml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\Utilwindows\ChooseDifficultyWindow.baml
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.g.resources
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.Properties.Resources.resources
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.csproj.GenerateResource.cache
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.csproj.CoreCompileInputs.cache
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.csproj.CopyComplete
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.exe
+C:\Users\86191\Desktop\histroy page\work\obj\Debug\work.pdb

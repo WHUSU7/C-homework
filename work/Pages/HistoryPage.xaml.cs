@@ -15,6 +15,9 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using work.Models;
+using System.Globalization;
+using static work.Utilwindows.ChooseDifficultyWindow;
+using work.Utilwindows;
 
 namespace work.Pages
 {
@@ -23,7 +26,6 @@ namespace work.Pages
     /// </summary>
     public partial class HistoryPage : Page, INotifyPropertyChanged
     {
-        private int a;
         private APIService apiService = new APIService();
         public HistoryPage()
         {
@@ -72,15 +74,55 @@ namespace work.Pages
             string str = "111";
             var isSuccess = await apiService.insertHistory(new History(-1,str),App.user.id);
             MessageBox.Show(isSuccess);
-        } 
-
-
-
-
+        }
+        //分割字符串为字符数组，用于布局
+        private static int index = 0;    
+        public void nextButton(object sender, RoutedEventArgs e)
+        {
+            // 读取当前索引处的数组元素值
+          if(index<App.history.arrRecord.Length)
+            {
+                if (App.history.arrRecord[index] != null)
+                {
+                    string buttonName = App.history.arrRecord[index];
+                    Button targetButton = this.FindName("Button" + buttonName) as Button;
+                    if (targetButton != null)
+                    {
+                        targetButton.Visibility = Visibility.Visible;
+                    }
+                    index++;
+                }
+            }               
+          else
+            {
+                MessageBox.Show("已到最后一步");
+            }
+         
+        }
+                                                
+        public void lastButton(object sender,RoutedEventArgs e)
+        {
+            if (index > 0)
+                index--;
+            else
+                MessageBox.Show("已到第一步");
+           if(App.history.arrRecord[index]!=null)
+            {
+                string buttonName = App.history.arrRecord[index];
+                Button targetButton = this.FindName("Button" + buttonName) as Button;
+                if (targetButton != null)
+                {
+                    targetButton.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                MessageBox.Show("已到第一步");
+            }
+        }
     }
 
     }
-
 
     public class GameService
     {
@@ -114,5 +156,4 @@ namespace work.Pages
             Result.Add(moveDescription);
         }
     }
-
 
