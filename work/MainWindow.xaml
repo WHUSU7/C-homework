@@ -3,71 +3,98 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:work"
+        xmlns:local="clr-namespace:work"     
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
-
+        Title="登录"
+        WindowStartupLocation="CenterScreen"  Style="{DynamicResource WindowStyle}" >
     <ContentControl x:Name="mainContent">
-    <Grid Background="Ivory">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="13*" />
             </Grid.RowDefinitions>
-           
-            <Button Content="jump to Main" Background="AliceBlue" Click="jumpToMain"> </Button>
-            <Button Grid.Row="1" Content=" jumpToWebsocketPvp" Background="AliceBlue" Click=" jumpToWebsocketPvp"></Button>
-            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="Beige">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*" />
+                <ColumnDefinition Width="100*" />
+                
+            </Grid.ColumnDefinitions>
+            <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="1*" />
+
+                </Grid.ColumnDefinitions>
+                <Border Background="Transparent" Height="30" MouseLeftButtonDown="Border_MouseLeftButtonDown" Panel.ZIndex="1"/>
+                <StackPanel Grid.Column="1"  Orientation="Horizontal"
+                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Grid.ColumnSpan="2">
+                    <Button Style="{StaticResource TitleButtonStyle}" Content="-" Click="WindowMinimized" />
+                    <Button Style="{StaticResource TitleButtonStyle}" Content="×" Click="WindowClose" />
+                </StackPanel>
+            </Grid>
+            <Border Grid.Column="0" Grid.RowSpan="2" CornerRadius="10 0 0 10"
+                Background="{DynamicResource MainColor}">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="四子棋" FontSize="40" FontWeight="Bold" Foreground="#FFFAFA"
+                           FontFamily="Times New Roman" TextAlignment="Center" />
+                    <TextBlock Text="Powered By C#" FontSize="15" FontWeight="Bold" Foreground="#FFFAFA" />
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="2.5*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="*" />
+
                 </Grid.RowDefinitions>
-                <TextBlock Text="账号:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
-                <TextBox x:Name="nameInput" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="10" VerticalContentAlignment="Center"></TextBox>
 
-                <!-- Password Input -->
-                <TextBlock Name="passwordlabel" Text="密码:"  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10"/>
-                <PasswordBox x:Name="passwordInput" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Margin="10" VerticalContentAlignment="Center"></PasswordBox>
+                <TextBlock Name="nicknameLabel" Style="{StaticResource TextBlockStyle}" Text="用  户  名" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="2" Visibility="Collapsed" />
+                <TextBox Name="nicknameInput" Style="{StaticResource InputBoxStyle}" Width="180" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="2" Visibility="Collapsed" />
 
-                <!-- Ensure Password Input -->
-                <TextBlock Name ="ensurePasswordLabel" Text="确认密码:"  Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Visibility="Collapsed"/>
-                <PasswordBox x:Name="ensurepasswordInput" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Margin="10" VerticalContentAlignment="Center" Visibility="Collapsed"></PasswordBox>
 
-                <!-- Nickname Input -->
-                <TextBlock Name="nicknameLabel" Text="用户名:"  Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10" Visibility="Collapsed"/>
-                <TextBox x:Name="nicknameInput" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="10" VerticalContentAlignment="Center" Visibility="Collapsed"></TextBox>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlable" Text="账       号" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="3"/>
+                <TextBox Style="{StaticResource InputBoxStyle}" Width="180" Name="nameInput" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="3"/>
 
-                <!-- Buttons -->
-                <Button x:Name="login" Content="登录" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="10" Background="#C7EDCC" Click="Login"></Button>
-                <Button x:Name="register" Content="注册" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Margin="10" Background="#FDE6E0" Click="change2register"></Button>
-                <Button x:Name="back" Content="返回" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Margin="10" Background="#C7EDCC" Click="change2login" Visibility="Collapsed"></Button>
-                <Button x:Name="confirm" Content="确认" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Margin="10" Background="#FDE6E0" Click="Register" Visibility="Collapsed"></Button>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name ="ensurePasswordLabel" Text="确认密码"  Grid.Column="1" Grid.Row="8" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0 0 0 0" Visibility="Collapsed"/>
+                <PasswordBox Style="{StaticResource InputBoxStyle}" Width="180" Name="ensurepasswordInput" Grid.Column="2" Grid.Row="8" VerticalContentAlignment="Center" Visibility="Collapsed"/>
+
+                <TextBlock Name="passwordlabel" Style="{StaticResource TextBlockStyle}" Text="密       码" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="6"/>
+                <PasswordBox x:Name="passwordInput" Style="{StaticResource InputBoxStyle}" Width="180" Grid.Column="2" Grid.Row="6"/>
+
+                <!--Buttons-->
+                <Button Grid.Column="2" Grid.Row="9" Grid.RowSpan="2" Content="登     录" Style="{StaticResource ButtonStyle}" Height="30"
+                    VerticalAlignment="Center" Name="login" Click="Login" />
+
+                <Button Name="register" Grid.Column="3" Grid.Row="11" Content="注册" Style="{StaticResource TransparentButtonStyle}"
+                    HorizontalAlignment="Center"  Click="change2register" Width="32"  Grid.RowSpan="2"/>
+
+                <Button Grid.Column="2" Grid.Row="10" Grid.RowSpan="2" Content="注     册" Style="{StaticResource ButtonStyle}" Height="30"
+                    VerticalAlignment="Center"  Name="confirm" Click="Register" Visibility="Collapsed"/>
+
+                <Button Name="back" Grid.Column="3" Grid.Row="11" Content="返回" Style="{StaticResource TransparentButtonStyle}"
+                    HorizontalAlignment="Center"  Click="change2login" Grid.RowSpan="2"  Visibility="Collapsed"/>
+
+                <Button Content="MAIN" Background="AliceBlue" Click="jumpToMain" Grid.Row="0" Grid.Column="0" />
+                
             </Grid>
- </Grid>
+        </Grid>
     </ContentControl>
 </Window>

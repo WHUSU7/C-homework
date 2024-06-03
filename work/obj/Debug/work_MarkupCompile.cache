@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-\\Mac\Home\Downloads\C-homework\work\obj\Debug\
+C:\Users\ly\Desktop\work\obj\Debug\
 work
 none
 false
 DEBUG;TRACE
-\\Mac\Home\Downloads\C-homework\work\App.xaml
-8-1327432920
+C:\Users\ly\Desktop\work\App.xaml
+91509373075
 
-22-1964665113
-14-1305296252
-MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\MainPage.xaml;Pages\PVP.xaml;Pages\WebsocketPvp.xaml;Utilwindows\ChooseDifficultyWindow.xaml;Utilwindows\isInsertHistory.xaml;
+23970372872
+14363317349
+mainpage.xaml;MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\Home.xaml;Pages\Local.xaml;Pages\Set.xaml;Pages\WebsocketPvp.xaml;Utilwindows\isInsertHistory.xaml;
 
 False
 

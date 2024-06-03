@@ -9,100 +9,22 @@
       Title="HistoryPage">
 
     <Grid>
+        <ScrollViewer Template="{StaticResource MyScrollViewer}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" x:Name="scrList" Margin="0" VerticalScrollBarVisibility="Auto" Height="350" Width="400">
+            <StackPanel Orientation="Vertical" Name="layerList" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="250" >
+                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
+                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
+                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
+                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
+                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
+                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
+                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
+                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
+                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
+                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
+                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
+                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
+            </StackPanel>
+        </ScrollViewer>
        
-       
-        <Grid >
-            
-
-             
-
-           
-            <Grid.RowDefinitions>
-               
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400*"/>
-                <ColumnDefinition Width="400*"/>
-              
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.ColumnSpan="2">
-                <Button Background="Beige" Content="insert history" FontSize="50" Click="insertHistory"></Button>
-                <Button Background="Beige" Content="click me to jump back to main" FontSize="50" Click="jumpBackToMain"></Button>
-                <Button Background="Beige" Content="load history" FontSize="50" Click="getHistoryById"></Button>
-                <Button Background="Beige" Content="load all historys" FontSize="50" Click="getHistories"></Button>
-            </StackPanel>
-            <StackPanel Background="AliceBlue" Grid.Column="0" Grid.Row="1">
-                <StackPanel.Resources>
-                    <Style x:Key="统一TextBlock高度" TargetType="{x:Type TextBlock}">
-                        <Setter Property="Height" Value="17"/>
-                        <!-- 设置统一的高度 -->
-                        <!-- 可以设置其他统一的属性，如字体大小、颜色等 -->
-                        <Setter Property="FontSize" Value="12"/>
-                        <Setter Property="Foreground" Value="Black"/>
-                        <!-- 如果需要居中对齐文本，可以设置TextAlignment为Center -->
-                        <Setter Property="TextAlignment" Value="Center"/>
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Text="{Binding Result[0]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[2]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[4]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[6]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[8]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[10]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[12]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[14]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[16]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[18]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[20]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[22]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[24]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[26]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[28]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[30]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[32]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[34]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[36]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[38]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[40]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-            </StackPanel>
-
-            <StackPanel Background="Aquamarine" Grid.Column="1" Grid.Row="1">
-                <StackPanel.Resources>
-                    <Style x:Key="统一TextBlock高度" TargetType="{x:Type TextBlock}">
-                        <Setter Property="Height" Value="17"/>
-                        <!-- 设置统一的高度 -->
-                        <!-- 可以设置其他统一的属性，如字体大小、颜色等 -->
-                        <Setter Property="FontSize" Value="12"/>
-                        <Setter Property="Foreground" Value="Black"/>
-                        <!-- 如果需要居中对齐文本，可以设置TextAlignment为Center -->
-                        <Setter Property="TextAlignment" Value="Center"/>
-                    </Style>
-                </StackPanel.Resources>
-                <TextBlock Text="{Binding Result[1]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[3]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[5]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[7]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[9]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[11]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[13]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[15]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[17]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[19]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[21]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[23]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[25]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[27]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[29]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[31]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[33]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[35]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[37]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[39]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-                <TextBlock Text="{Binding Result[41]}" TextAlignment="Center" Style="{StaticResource 统一TextBlock高度}"/>
-            </StackPanel>
-
-        </Grid>
     </Grid>
 </Page>

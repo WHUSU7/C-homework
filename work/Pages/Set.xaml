@@ -1,0 +1,37 @@
+﻿<Page x:Class="work.Pages.Set"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:work.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Set">
+    <Grid Background="Ivory">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="更新用户名" Click="resetName" Name="ResetName"/>
+        <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="更换背景图" Click="resetBackground" Name="ResetBackground"/>
+        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="更换头像" Click="resetHeadImage" Name="ResetHeadImage"/>
+        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="返回主页" Click="jumpBackToMain" Name="returnToMain"/>
+   
+    </Grid>
+</Page>
+

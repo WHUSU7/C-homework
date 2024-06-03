@@ -61,6 +61,9 @@
     <Compile Include="AnimationUtils.cs" />
     <Compile Include="APIService.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="mainpage.xaml.cs">
+      <DependentUpon>mainpage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\CanvasShape.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\History.cs" />
@@ -72,23 +75,27 @@
     <Compile Include="Pages\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Pages\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PVP.xaml.cs">
-      <DependentUpon>PVP.xaml</DependentUpon>
+    <Compile Include="Pages\Local.xaml.cs">
+      <DependentUpon>Local.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Set.xaml.cs">
+      <DependentUpon>Set.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\WebsocketPvp.xaml.cs">
       <DependentUpon>WebsocketPvp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
-    <Compile Include="Utilwindows\ChooseDifficultyWindow.xaml.cs">
-      <DependentUpon>ChooseDifficultyWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Utilwindows\isInsertHistory.xaml.cs">
       <DependentUpon>isInsertHistory.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebsocketService.cs" />
+    <Page Include="mainpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -109,19 +116,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\MainPage.xaml">
+    <Page Include="Pages\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PVP.xaml">
+    <Page Include="Pages\Local.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Set.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\WebsocketPvp.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Utilwindows\ChooseDifficultyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\chessBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

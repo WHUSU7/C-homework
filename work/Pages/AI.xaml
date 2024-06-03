@@ -11,10 +11,6 @@
     <Page.Resources>
         <Style TargetType="Button" x:Key="commonBtnStyle">
             <EventSetter Event="Button.Click" Handler="CommonBtnClickHandler"/>
-
-            <!--<Setter Property="Width" Value="100"/>-->
-            <!--<Setter Property="Height" Value="100"/>-->
-            <!--<Setter Property="Background" Value="Yellow"/>-->
             <Setter Property="Visibility" Value="Hidden"/>
             <Setter Property="IsHitTestVisible" Value="False"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -33,26 +29,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="ctrlButton" TargetType="Button">
-            <Setter Property="Background" Value="#E7E0F8"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="20">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                      VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+       
         <BitmapImage x:Key="chessBoardImage" UriSource="pack://application:,,,/Images/chessBoard.png" />
         <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
     </Page.Resources>
@@ -84,8 +61,7 @@
 
         <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="7" Content="PK with AI"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
         <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
-        <Button Grid.Column="4" Grid.Row="7" Content="上一步" Click="lastStep" Style="{StaticResource ctrlButton}" />
-        <Button Grid.Column="5" Grid.Row="7" Content="下一步" Click="nextStep" Style="{StaticResource ctrlButton}"/>
+        <Button Grid.Column="5" Grid.Row="7" Content="悔    棋" Click="regret" Style="{StaticResource ctrlButton}"/>
 
 
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
@@ -96,7 +72,7 @@
                          SizeChanged="myCanvas_SizeChanged" 
                          Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}"
                          Width="{Binding CanvasWidth}">
-               
+
                     <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
                         <Grid.RowDefinitions >
                             <RowDefinition></RowDefinition>
@@ -169,8 +145,8 @@
 
 
                     </Grid>
-               
-            </Canvas>
+
+                </Canvas>
             </Border>
         </Grid>
     </Grid>

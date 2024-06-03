@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using work.Models;
+using static work.mainpage;
 
 namespace work.Pages
 {
@@ -23,7 +24,7 @@ namespace work.Pages
     /// </summary>
     public partial class HistoryPage : Page, INotifyPropertyChanged
     {
-        private int a;
+		private int a;
         private APIService apiService = new APIService();
         public HistoryPage()
         {
@@ -42,8 +43,9 @@ namespace work.Pages
         //页面跳转
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
-            MainWindow.window.jumpToTargetPage(MainWindow.WindowsID.main);
-        }
+
+			mainpage.window.jumpToTargetPage(WindowsID.home);
+		}
 
         //获取单条历史记录
         public async void getHistoryById(object sender, RoutedEventArgs e)

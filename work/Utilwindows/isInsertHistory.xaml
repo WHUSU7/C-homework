@@ -42,12 +42,12 @@
             <Grid.RowDefinitions>
 
 
-              
+
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-            
+
             </Grid.RowDefinitions>
             <TextBlock x:Name="Title" Text="要保存这场对战的历史记录吗？" FontSize="20" Grid.Row="1" Grid.ColumnSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
             <Button x:Name="easyBtn" Background="#C7EDCC" Content="确认" Click="confirm" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="18" FontSize="20"></Button>

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace work.Models
 {
-    public class Group
-    {
-        public int id;
-        public string name;
+	public class Group
+	{
+		public int id;
+		public string name;
 
-        public Group(int id, string name)
-        {
-            this.id = id;
-            this.name = name;
-        }
+		public Group(int id, string name)
+		{
+			this.id = id;
+			this.name = name;
+		}
 
 
-    }
+	}
 }
