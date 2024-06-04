@@ -9,22 +9,64 @@
       Title="HistoryPage">
 
     <Grid>
-        <ScrollViewer Template="{StaticResource MyScrollViewer}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" x:Name="scrList" Margin="0" VerticalScrollBarVisibility="Auto" Height="350" Width="400">
-            <StackPanel Orientation="Vertical" Name="layerList" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="250" >
-                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人机对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="人人对战" Style="{StaticResource ctrlButton}"/>
-                <Button Content="本地对战" Style="{StaticResource ctrlButton}"/>
-                <Button Grid.Column="3" Grid.Row="7" Content="返回主页"  Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
-            </StackPanel>
-        </ScrollViewer>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <!-- 定义三列 -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 第一个按钮 -->
+            <Button Grid.Column="0" Name="back" Content="返回" Click="jumpBackToMain" />
+
+            <!-- 第二个按钮 -->
+            <Button Grid.Column="1" Name="next" Content="下一步" Click="nextButton" />
+
+            <!-- 第三个按钮 -->
+            <Button Grid.Column="2" Name="last" Content="上一步" Click="lastButton" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 历史记录列表 -->
+            <ListBox x:Name="historyListBox" ItemsSource="{Binding MoveRecords}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" Command="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.SelectCommand}" CommandParameter="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <!-- 棋盘区域和下一步按钮等其他界面元素 -->
+            <Grid Name="ChessboardGrid" Grid.Column="1">
+                <!-- 定义6行7列 -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <!-- ... -->
+        </Grid>
     </Grid>
 </Page>
