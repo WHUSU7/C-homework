@@ -243,7 +243,7 @@ namespace work
             dakY.Completed += (s, e) =>
             {
                 timer.Stop(); // 停止定时器
-
+                ShowParticleEffect(btn, mx, my, canvas);
                 foreach (Ellipse trailCircle in trailCircles)
                 {
                     // 创建圆形拖尾的淡出动画

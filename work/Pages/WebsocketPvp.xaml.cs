@@ -125,7 +125,7 @@ namespace work.Pages
 		public WebsocketPvp()
 		{
 
-			InitializeComponent();
+			//InitializeComponent();
 			mdm = new MainDataModel();
 			this.DataContext = mdm;
 			App.WebsocketPVPInstance = this;
