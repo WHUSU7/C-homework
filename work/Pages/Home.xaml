@@ -74,7 +74,7 @@
             <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1">
             <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="120" >
             <Ellipse.Fill>
-                <ImageBrush ImageSource="../Images/user.png" />
+                        <ImageBrush x:Name="UserImageBrush" ImageSource="../Images/user.png" />
             </Ellipse.Fill>
             </Ellipse>
             </Viewbox>

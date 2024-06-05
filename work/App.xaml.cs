@@ -19,7 +19,7 @@ namespace work
 		public static MainWindow mainWindow { get; set; }
 		public static mainpage MainPageInstance { get; set; }
         public static AI AIInstance { get; set; }
-
+        public static Home HomeInstance { get; set; }
         public static Local LocalInstance { get; set; }
 
         public static User user = new User(0,"-1","-1","-1");

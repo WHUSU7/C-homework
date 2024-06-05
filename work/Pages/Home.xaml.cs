@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,12 @@ namespace work.Pages
 	{
 		public Home()
 		{
+			App.HomeInstance = this;
 			InitializeComponent();
+            EnsureSaveDirectoryExists();
+            LoadLastImage();
 
-		}
+        }
 		private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
 		{
 			Button btn = sender as Button;
@@ -95,5 +99,35 @@ namespace work.Pages
 			Difficult.Visibility = Difficult.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			Return.Visibility = Return.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 		}
-	}
+
+        //从本地选择图片并保存
+        private const string SaveDirectory = "../Images";
+        private const string ConfigFilePath = "../Settings/config.txt";
+        private void EnsureSaveDirectoryExists()
+        {
+            // 创建保存目录如果不存在
+            if (!Directory.Exists(SaveDirectory))
+            {
+                Directory.CreateDirectory(SaveDirectory);
+            }
+        }
+        private void LoadLastImage()
+        {
+            if (File.Exists(ConfigFilePath))
+            {
+                string savedImagePath = File.ReadAllText(ConfigFilePath);
+                if (File.Exists(savedImagePath))
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(savedImagePath, UriKind.Absolute);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+
+                    UserImageBrush.ImageSource = bitmap;
+                }
+            }
+        }
+
+    }
 }

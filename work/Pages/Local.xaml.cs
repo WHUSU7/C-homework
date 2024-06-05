@@ -54,21 +54,26 @@ namespace work.Pages
 		//点击棋盘canvas调用
 		private async void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
-			if (isAnimating) return; // 如果动画正在进行，则返回
+            Point clickPoint = e.GetPosition(myCanvas);
+
+            double canvasWidth = myCanvas.ActualWidth;
+            double canvasHeight = myCanvas.ActualHeight;
+
+            double buttonWidthSize = canvasWidth * (0.142857);
+            double buttonHeightSize = canvasHeight * (0.166667);
+            int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
+            int y = Utils.getIndex(buttonWidthSize, clickPoint.X);
+
+            string targetBtn = "Button" + x.ToString() + y.ToString();
+            Button btn = (Button)FindName(targetBtn);
+            int column = Grid.GetColumn(btn);
+            int row = Grid.GetRow(btn);
+			double mx = clickPoint.X;
+            double my = clickPoint.Y;
+
+            Utils.ShowClickCircle(myCanvas, btn, mx, my);
+            if (isAnimating) return; // 如果动画正在进行，则返回
 			isAnimating = true;
-			Point clickPoint = e.GetPosition(myCanvas);
-
-			double canvasWidth = myCanvas.ActualWidth;
-			double canvasHeight = myCanvas.ActualHeight;
-
-			double buttonWidthSize = canvasWidth * (0.142857);
-			double buttonHeightSize = canvasHeight * (0.166667);
-
-			//获取当前点击的区域，并转换成对应按钮实例和坐标
-			int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
-			int y = Utils.getIndex(buttonWidthSize, clickPoint.X);
-			string targetBtn = "Button" + x.ToString() + y.ToString();
-			Button btn = (Button)FindName(targetBtn);
 
 			//判断该点击处是否合法，合法再执行下面动画和显示
 			bool isClickValid = Utils.isClickValid(x, y, board);
@@ -104,14 +109,9 @@ namespace work.Pages
 					btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
 					nowTurn = 1;
 				}
+                await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+            }
 
-			}
-			// MessageBox.Show($"(x,y):({clickPoint.X},{clickPoint.Y})");
-			// MessageBox.Show($"width,height:({canvasWidth},{canvasHeight})");Bl
-			//MessageBox.Show($"pos:({x},{y})");
-
-			//suggession();
-			await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
 			isAnimating = false;
 		}
 

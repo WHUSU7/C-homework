@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
+using System.Windows.Shapes;
 using work.Utilwindows;
 using static work.MainWindow;
-
+using System.Windows.Input;
 
 namespace work
 {
@@ -47,7 +50,48 @@ namespace work
             }
 
         }
+        //点击动画
+        public static void ShowClickCircle(Canvas myCanvas,Button btn,double x,double y)
+        {
 
+            // 创建点击动画的圆
+            var clickCircle = new Ellipse
+            {
+                Width = btn.ActualWidth,
+                Height = btn.ActualWidth,
+                Fill = new SolidColorBrush(Color.FromArgb(128, 255, 255, 255)), // 半透明白色
+                Opacity = 0.5
+            };
+
+            // 将圆添加到 Canvas 上
+            myCanvas.Children.Add(clickCircle);
+
+            // 设置圆的初始位置为按钮位置
+            Canvas.SetLeft(clickCircle, x - clickCircle.Width / 2);
+            Canvas.SetTop(clickCircle, y - clickCircle.Height / 2);
+
+            // 动态调整位置的方法
+            void AdjustPosition(object sender, EventArgs e)
+            {
+                Canvas.SetLeft(clickCircle, x - clickCircle.Width / 2);
+                Canvas.SetTop(clickCircle, y - clickCircle.Height / 2);
+            }
+
+            // 扩散动画
+            DoubleAnimation expandAnim = new DoubleAnimation(clickCircle.Width, clickCircle.Width * 3, TimeSpan.FromSeconds(0.5));
+            expandAnim.CurrentTimeInvalidated += (s, e) => AdjustPosition(s, e);
+            expandAnim.Completed += (s, e) => myCanvas.Children.Remove(clickCircle); // 动画完成时移除圆
+
+            // 不透明度动画
+            DoubleAnimation opacityAnim = new DoubleAnimation(0.5, 0, TimeSpan.FromSeconds(0.5));
+
+            // 开始动画
+            clickCircle.BeginAnimation(Ellipse.WidthProperty, expandAnim);
+            clickCircle.BeginAnimation(Ellipse.HeightProperty, expandAnim);
+            clickCircle.BeginAnimation(Ellipse.OpacityProperty, opacityAnim);
+
+
+        }
         //输出board当前的值
         public static void PrintBoard(int[,] board)
         {
@@ -92,6 +136,8 @@ namespace work
 
             return pairs;
         }
+
+        
 
 
 

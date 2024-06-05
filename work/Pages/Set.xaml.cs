@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,9 +40,56 @@ namespace work.Pages
 
 		private void resetHeadImage(object sender, RoutedEventArgs e)
 		{
+            // 创建文件选择对话框
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
 
-		}
-		public void jumpBackToMain(object sender, RoutedEventArgs e)
+            // 显示对话框并检查用户是否选择了文件
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // 获取用户选择的文件路径
+                string selectedFileName = openFileDialog.FileName;
+
+                // 创建新的位图图像
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(selectedFileName);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+                ImageBrush image = (ImageBrush)App.HomeInstance.FindName("UserImageBrush");
+                // 将位图图像设置为 Ellipse 的填充
+                image.ImageSource = bitmap;
+       
+                // 保存图片到/bin/Image下
+                string savedFilePath = SaveImageToDirectory(selectedFileName);
+
+                // 保存图片路径到/bin/Settings/config.txt
+                SaveImagePathToConfig(savedFilePath);
+            }
+        }
+        private const string SaveDirectory = "../Images";
+        private const string ConfigFilePath = "../Settings/config.txt";
+        private string SaveImageToDirectory(string selectedFilePath)
+        {
+            // 获取文件名
+            string fileName = System.IO.Path.GetFileName(selectedFilePath);
+
+            // 目标路径
+            string targetPath = System.IO.Path.Combine(SaveDirectory, fileName);
+
+            // 确保路径是绝对路径
+            targetPath = System.IO.Path.GetFullPath(targetPath);
+            // 复制文件到目标路径
+            File.Copy(selectedFilePath, targetPath, true);
+
+            return targetPath;
+        }
+
+        private void SaveImagePathToConfig(string imagePath)
+        {
+            File.WriteAllText(ConfigFilePath, imagePath);
+        }
+        public void jumpBackToMain(object sender, RoutedEventArgs e)
 		{
 			mainpage.window.jumpToTargetPage(WindowsID.home);
 		}
