@@ -18,20 +18,21 @@ using work.Models;
 namespace work
 {
 	//与后端进行网络通信
-	public class APIService
+	public  class APIService
 	{
 
 		public int[,] board = Board.getBoardInstance();
 
 
-		private static readonly HttpClient client = new HttpClient();
+		private readonly HttpClient client = new HttpClient();
 
-		public APIService()
+		public  APIService()
 		{
 			//base api
 			//虚拟机上要用物理机可用端口的ip代替本地地址，如en0的inet
 			//物理机上直接127.0.0.1：4523即可
-			client.BaseAddress = new Uri("http://192.168.43.254:8000/m1/4020303-0-default/fourchess/");
+			
+            client.BaseAddress = new Uri("http://192.168.43.254:8000/m1/4020303-0-default/fourchess/");
 			client.DefaultRequestHeaders.Add("Accept", "application/json");
 		}
 
@@ -96,6 +97,7 @@ namespace work
 			var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
 			var response = await client.PostAsync("login", content);
+			Console.WriteLine(response);
 			if (response.IsSuccessStatusCode)
 			{
 				string res = await response.Content.ReadAsStringAsync();
@@ -151,106 +153,106 @@ namespace work
 
 		//发送消息
 		//turn是开始对局的时候返回的数，作为双方身份的唯一标识
-		public async Task<string> clientSendMsg(Msg msg, int userid)
-		{
-			var json = JsonConvert.SerializeObject(msg);
-			var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-			var response = await client.PostAsync($"{userid}/clientSendMsg", content);
-			if (response.IsSuccessStatusCode)
-			{
-				string res = await response.Content.ReadAsStringAsync();
-				var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
-				string isSuccess = jsonObject["isSuccess"].ToString();
-				return isSuccess;
+		//public async Task<string> clientSendMsg(Msg msg, int userid)
+		//{
+		//	var json = JsonConvert.SerializeObject(msg);
+		//	var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+		//	var response = await client.PostAsync($"{userid}/clientSendMsg", content);
+		//	if (response.IsSuccessStatusCode)
+		//	{
+		//		string res = await response.Content.ReadAsStringAsync();
+		//		var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+		//		string isSuccess = jsonObject["isSuccess"].ToString();
+		//		return isSuccess;
 
-			}
-			return "";
-		}
+		//	}
+		//	return "";
+		//}
 		//接收消息
-		public async void clientGetMsg(int userid)
-		{
+		//public async void clientGetMsg(int userid)
+		//{
 
-			var response = await client.GetAsync($"{userid}/clientGetMsg");
-			if (response.IsSuccessStatusCode)
-			{
-				string res = await response.Content.ReadAsStringAsync();
+		//	var response = await client.GetAsync($"{userid}/clientGetMsg");
+		//	if (response.IsSuccessStatusCode)
+		//	{
+		//		string res = await response.Content.ReadAsStringAsync();
 
-				var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
-				string msg = jsonObject["msg"].ToString();
-				string turn = jsonObject["turn"].ToString();
+		//		var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+		//		string msg = jsonObject["msg"].ToString();
+		//		string turn = jsonObject["turn"].ToString();
 
-				App.AppMsg.msg = msg;
-				App.AppMsg.turn = turn;
-				//执行同步（按钮显示等）
-				int x = (int)msg[0] - '0';
-				int y = (int)msg[1] - '0';
+		//		App.AppMsg.msg = msg;
+		//		App.AppMsg.turn = turn;
+		//		//执行同步（按钮显示等）
+		//		int x = (int)msg[0] - '0';
+		//		int y = (int)msg[1] - '0';
 
-				Button btn = (Button)App.WebsocketPVPInstance.FindName("Button" + msg);
+		//		Button btn = (Button)App.WebsocketPVPInstance.FindName("Button" + msg);
 
 				//历史记录获取坐标
-				GameService.Instance.getPosition(x, y);
+				//GameService.Instance.getPosition(x, y);
 
-				btn.Visibility = Visibility.Visible;
-				if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
+				//btn.Visibility = Visibility.Visible;
+				//if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
 
-				AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
+				// AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
 
 				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-				if (App.AppMsg.turn == "1")
-				{
-					BitmapImage bitmap = new BitmapImage();
-					bitmap.BeginInit();
-					bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
-					// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
-					bitmap.EndInit();
+				//if (App.AppMsg.turn == "1")
+				//{
+				//	BitmapImage bitmap = new BitmapImage();
+				//	bitmap.BeginInit();
+				//	bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+				//	// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+				//	bitmap.EndInit();
 					// 创建 ImageBrush 并设置其 ImageSource
-					ImageBrush imageBrush = new ImageBrush();
-					imageBrush.ImageSource = bitmap;
-					btn.Background = imageBrush;
-				}
-				else
-				{
-					btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+				//	ImageBrush imageBrush = new ImageBrush();
+				//	imageBrush.ImageSource = bitmap;
+				//	btn.Background = imageBrush;
+				//}
+				//else
+				//{
+				//	btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
 
-				}
+				//}
 
 				//同步完成后把turn取反
-				if (App.AppMsg.turn == "1")
-				{
-					App.AppMsg.turn = "-1";
-				}
-				else
-				{
-					App.AppMsg.turn = "1";
-				}
+		//		if (App.AppMsg.turn == "1")
+		//		{
+		//			App.AppMsg.turn = "-1";
+		//		}
+		//		else
+		//		{
+		//			App.AppMsg.turn = "1";
+		//		}
 
-				clientGetMsg(userid);
-			}
-			else if ((int)response.StatusCode == 400)
-			{
+		//		clientGetMsg(userid);
+		//	}
+		//	else if ((int)response.StatusCode == 400)
+		//	{
 
-				clientGetMsg(userid);
-			}
+		//		clientGetMsg(userid);
+		//	}
 
-		}
+		//}
 		//开始pvp
-		public async Task<string> createPvp(int userid)
-		{
+		//public async Task<string> createPvp(int userid)
+		//{
 
-			var response = await client.GetAsync($"{userid}/createPvp");
-			if (response.IsSuccessStatusCode)
-			{
-				string res = await response.Content.ReadAsStringAsync();
+		//	var response = await client.GetAsync($"{userid}/createPvp");
+		//	if (response.IsSuccessStatusCode)
+		//	{
+		//		string res = await response.Content.ReadAsStringAsync();
 				// var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
 				// string turn = jsonObject["turn"].ToString();
-				App.AppMsg.turn = res;
+			//	App.AppMsg.turn = res;
 
-				return res;
+			//	return res;
 
-			}
-			return "";
+			//}
+			//return "";
 
-		}
+		//}
 
 	}
 }

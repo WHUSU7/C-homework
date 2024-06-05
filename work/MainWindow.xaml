@@ -70,7 +70,7 @@
                 <TextBox Name="nicknameInput" Style="{StaticResource InputBoxStyle}" Width="180" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="2" Visibility="Collapsed" />
 
 
-                <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlable" Text="账       号" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="3"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlabel" Text="账       号" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="3"/>
                 <TextBox Style="{StaticResource InputBoxStyle}" Width="180" Name="nameInput" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="3"/>
 
                 <TextBlock Style="{StaticResource TextBlockStyle}" Name ="ensurePasswordLabel" Text="确认密码"  Grid.Column="1" Grid.Row="8" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0 0 0 0" Visibility="Collapsed"/>

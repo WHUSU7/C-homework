@@ -24,7 +24,7 @@ namespace work
 
         public static User user = new User(0,"-1","-1","-1");
 
-        public static Msg AppMsg = new Msg("empty","0");
+        public static Msg AppMsg = new Msg("empty","0","0",true);
 
         public static CanvasShape AppCanvasShape= new CanvasShape(0,0);
 		public static WebsocketPvp WebsocketPVPInstance { get; set; }

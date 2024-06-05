@@ -119,6 +119,9 @@ namespace work.Pages
 		MainDataModel mdm;
 		private DispatcherTimer timer;
 		private int timeLeft;
+		private bool TimerFlag;
+		private bool leftTimerFlag=false;
+		private bool rightTimerFlag=false;
 		public WebsocketPvp()
 		{
 
@@ -130,13 +133,26 @@ namespace work.Pages
 			timer.Interval = TimeSpan.FromSeconds(1);
 			timer.Tick += Timer_Tick;
 			websocketService = new WebsocketService();
+			TimerFlag = false;
 		}
 
+        // 刷新界面内容,目前会有bug，并不能实现全部刷新，后续完善
+        private void WebsocketPvp_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeComponent();
+            mdm = new MainDataModel();
+            this.DataContext = mdm;
+            App.WebsocketPVPInstance = this;
+           // timer = new DispatcherTimer();
+            //timer.Interval = TimeSpan.FromSeconds(1);
+            //timer.Tick += Timer_Tick;
+            websocketService = new WebsocketService();
+            TimerFlag = false;
+        }
 
 
-
-		//通过websocket链接后端
-		public async void connect()
+        //通过websocket链接后端
+        public async void connect()
 		{
 			Uri serverUri = new Uri($"ws://192.168.43.254:8000/fourchess/?param={App.AppPublicGroup.id}");
 			await websocketService.ConnectAsync(serverUri);
@@ -158,11 +174,21 @@ namespace work.Pages
 		//落子倒计时
 		private void Timer_Tick(object sender, EventArgs e)
 		{
-			if (timeLeft > 0)
+
+			if (!TimerFlag) {
+				return;
+			}
+
+			if (timeLeft > 0 && leftTimerFlag)
 			{
 				timeLeft--;
 				mdm.OurSide = timeLeft.ToString();
 			}
+			else if(timeLeft > 0 && rightTimerFlag)
+            {
+                timeLeft--;
+                mdm.OppSide = timeLeft.ToString();
+            }
 			else
 			{
 				timer.Stop();
@@ -180,19 +206,79 @@ namespace work.Pages
 			timeLeft = 9;
 			mdm.OppSide = timeLeft.ToString();
 			timer.Start();
+        }
+		private void resetTime() {
+            timeLeft = 9;
+            mdm.OppSide = timeLeft.ToString();
+            mdm.OurSide = timeLeft.ToString();
+        }
+		//要在接收到信息后才能调用，也就是WebsocketService里面调用
+		public void setTimerAndClick()
+		{
+
+            //当前是我方落子，把倒计时设为对方并给我方加一层限制，不允许再次落子
+            App.AppMsg.isDropChess = false;
+            if (App.AppMsg.receiveTurn == App.AppMsg.turn)
+			{
+				//我方为左侧倒计时
+				if (App.AppMsg.turn == "1") {
+					resetTime();
+					rightTimerFlag=true;
+					leftTimerFlag = false;
+					timer.Start();
+				}
+                //我方为右侧倒计时
+               else if (App.AppMsg.turn == "-1")
+                {
+					resetTime();
+                    rightTimerFlag = false;
+                    leftTimerFlag = true;
+                    timer.Start();
+                }
+
+            }
+			//当前不是我方落子，倒计时设为我方，解除我方的落子限制
+			else if (App.AppMsg.receiveTurn != App.AppMsg.turn)
+			{
+				App.AppMsg.isDropChess = true;
+                //我方为左侧倒计时
+                if (App.AppMsg.turn == "1")
+                {
+                    resetTime();
+                    rightTimerFlag = false;
+                    leftTimerFlag = true;
+                    timer.Start();
+                }
+                //我方为右侧倒计时
+                else if (App.AppMsg.turn == "-1")
+                {
+                    resetTime();
+                    rightTimerFlag = true;
+                    leftTimerFlag = false;
+                    timer.Start();
+                }
+            }
 		}
 		public void jumpBackToMain(object sender, RoutedEventArgs e)
+
 		{
+			Board.resetBoard("PVP");
 			mainpage.window.jumpToTargetPage(WindowsID.home);
 		}
 		//开始匹配，涉及网络通信，匹配成功后，按钮更改
 		public void startToMatch(object sender, RoutedEventArgs e)
 		{
+			TimerFlag = true;
 			mdm.MatchText = "匹配中";
 			mdm.BackText = "终止对局并返回主页";
 			//match();匹配函数
 			mdm.MatchText = "正在对局";
-
+			if (App.AppMsg.turn=="1") {
+				leftTimerFlag = true;
+			}
+			else { 
+				rightTimerFlag = true;
+			}
 			connect();
 
 
@@ -206,6 +292,10 @@ namespace work.Pages
 		//点击落子操作，与aixaml.cs逻辑类似
 		private async void myCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
+			if (!App.AppMsg.isDropChess) {
+				MessageBox.Show("当前不是你的回合哦，请耐心等待！");
+				return;
+			}
 			if (isAnimating) return; isAnimating = true;
 			Point clickPoint = e.GetPosition(myCanvas);
 

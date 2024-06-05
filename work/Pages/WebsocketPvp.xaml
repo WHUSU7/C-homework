@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:work.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PVP">
+      Title="PVP"
+      Loaded="WebsocketPvp_Loaded"
+      >
 
     <Page.Resources>
         <Style x:Key="ctrlButton" TargetType="Button">
