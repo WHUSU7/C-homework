@@ -44,7 +44,7 @@ namespace work
 				MessageBox.Show("用户名或密码不能为空");
 				return;
 			}
-			User u = new User(-1, nameInput.Text, passwordInput.Password, nicknameInput.Text);
+			User u = new User(-1, nameInput.Text, passwordInput.Password, "");
 			var result = await apiService.login(u);
 			if (result > 0)
 			{
@@ -111,7 +111,7 @@ namespace work
 			back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			
-			Grid.SetRow(nameInputlable, 4);
+			Grid.SetRow(nameInputlabel, 4);
 			Grid.SetRow(nameInput, 4);
 
 		}
@@ -129,7 +129,7 @@ namespace work
 			back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			
-			Grid.SetRow(nameInputlable, 3);
+			Grid.SetRow(nameInputlabel, 3);
 			Grid.SetRow(nameInput, 3);
 
 		}

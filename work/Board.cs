@@ -59,7 +59,7 @@ namespace work
 							break;
 						case "PVP":
 							string PtargetBtn = "Button" + i.ToString() + j.ToString();
-							Button Pbtn = (Button)App.AIInstance.FindName(PtargetBtn);
+							Button Pbtn = (Button)App.WebsocketPVPInstance.FindName(PtargetBtn);
 							Pbtn.Visibility = Visibility.Hidden;
 							break;
 
