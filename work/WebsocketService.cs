@@ -81,7 +81,7 @@ namespace work
 						//双重解析后的坐标和轮次
 						string position = text["Message"].ToString();
 						string Turn = text["Turn"].ToString();
-						App.AppMsg.turn = Turn;
+						App.AppMsg.receiveTurn = Turn;
 						//执行同步（按钮显示等）
 						int x = (int)position[0] - '0';
 						int y = (int)position[1] - '0';
@@ -92,12 +92,12 @@ namespace work
 						//GameService.Instance.getPosition(x, y);
 
 						btn.Visibility = Visibility.Visible;
-						if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
+						if (Turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
 
 						await AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
 
 						//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-						if (App.AppMsg.turn == "1")
+						if (Turn == "1")
 						{
 							BitmapImage bitmap = new BitmapImage();
 							bitmap.BeginInit();
@@ -129,13 +129,8 @@ namespace work
 							}
 
 						}
-
-
-						//渲染界面之后再把turn置反
-						if (Turn == "1") { App.AppMsg.turn = "-1"; }
-						else if (Turn == "-1") { App.AppMsg.turn = "1"; }
-
-
+						
+						App.WebsocketPVPInstance.setTimerAndClick();
 
 
 

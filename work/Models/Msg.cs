@@ -11,10 +11,14 @@ namespace work.Models
 
         public string msg;
         public string turn;
-        public Msg(string msg, string turn)
+        public string receiveTurn;
+        public bool isDropChess;
+        public Msg(string msg, string turn, string receiveTurn, bool isDropChess)
         {
             this.msg = msg;
             this.turn = turn;
+            this.receiveTurn = receiveTurn;
+            this.isDropChess = isDropChess;
         }
     }
 }
