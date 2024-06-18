@@ -31,12 +31,25 @@ namespace work
 		public MainWindow()
 		{
 			InitializeComponent();
-			window = this;
+            this.Loaded += MainWindow_Loaded;
+
+            window = this;
 		}
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            // 获取窗口的位置和尺寸
+            App.AppMainWindowPosition.mainWindowWidth = this.Width;
+            App.AppMainWindowPosition.mainWindowLeft = this.Left;
+            App.AppMainWindowPosition.mainWindowTop = this.Top;
+            App.AppMainWindowPosition.mainWindowHeight = this.Height;
 
+        
 
-		//登录
-		public async void Login(object sender, RoutedEventArgs e)
+            
+        }
+
+        //登录
+        public async void Login(object sender, RoutedEventArgs e)
 		{
 
 			if (nameInput.Text == "" || passwordInput.Password == "")

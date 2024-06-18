@@ -112,14 +112,33 @@ namespace work
         //显示是否要保存历史记录窗口
         public static void showIsInsertHistoryWindow() { 
         isInsertHistory isInsertHistory = new isInsertHistory();
-          
-                    isInsertHistory.Owner = App.mainWindow;
-            isInsertHistory.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-
-
+          isInsertHistory.Left = App.AppMainWindowPosition.mainWindowLeft + App.AppMainWindowPosition.mainWindowWidth / 2 - isInsertHistory.Width/2; // 中心位置
+          isInsertHistory.Top = App.AppMainWindowPosition.mainWindowTop + App.AppMainWindowPosition.mainWindowHeight / 2 -isInsertHistory.Height/2; // 中心位置
             isInsertHistory.ShowDialog();
         
+        }
+        //显示胜利窗口
+        public static void showWinWindow()
+        {
+            showWin sw  = new showWin();
+
+            sw.Left = App.AppMainWindowPosition.mainWindowLeft + App.AppMainWindowPosition.mainWindowWidth / 2 - sw.Width/2;  // 中心位置
+            sw.Top = App.AppMainWindowPosition.mainWindowTop + App.AppMainWindowPosition.mainWindowHeight / 2 -sw.Height/2; // 中心位置
+       
+         sw.ShowDialog();
+
+        }
+        //显示失败窗口
+        public static void showLoseWindow()
+        {
+            showLose sl = new showLose();
+
+            sl.Left = App.AppMainWindowPosition.mainWindowLeft + App.AppMainWindowPosition.mainWindowWidth / 2 - sl.Width / 2;  // 中心位置
+            sl.Top = App.AppMainWindowPosition.mainWindowTop + App.AppMainWindowPosition.mainWindowHeight / 2 - sl.Height / 2; // 中心位置
+
+            sl.ShowDialog();
+
         }
 
         //接受record字符串分割为字符串数组用于历史记录页面布局

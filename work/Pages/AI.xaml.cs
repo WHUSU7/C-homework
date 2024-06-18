@@ -90,7 +90,7 @@ namespace work.Pages
 				if (Board.IsWin(x, y, 1))
 				{
 					Utils.end = true;
-					MessageBox.Show("YOU Win!");
+					Utils.showWinWindow();
 					Utils.showIsInsertHistoryWindow();
 				}
 
