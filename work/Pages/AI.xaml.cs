@@ -26,6 +26,7 @@ namespace work.Pages
 	public partial class AI : Page
 	{
 		MainDataModel mdm;
+		List<Tuple<int,int>> Step = new List<Tuple<int,int>>();
 		public AI()
 		{
 			InitializeComponent();
@@ -53,7 +54,6 @@ namespace work.Pages
 		{
 			Button btn = sender as Button;
 
-			//MessageBox.Show("sdfs");
 
 		}
 		double buttonWidthSize, buttonHeightSize;
@@ -72,12 +72,15 @@ namespace work.Pages
 
             string targetBtn = "Button" + x.ToString() + y.ToString();
             Button btn = (Button)FindName(targetBtn);
-            int column = Grid.GetColumn(btn);
-            int row = Grid.GetRow(btn);
-            double mx = clickPoint.X;
-            double my = clickPoint.Y;
-
-            Utils.ShowClickCircle(myCanvas, btn, mx, my);
+			if (btn != null)
+            {
+                int column = Grid.GetColumn(btn);
+                int row = Grid.GetRow(btn);
+                double mx = clickPoint.X;
+                double my = clickPoint.Y;
+                Utils.ShowClickCircle(myCanvas, btn, mx, my);
+            }
+           
             if (isAnimating) return;
 			isAnimating = true;
 
@@ -87,13 +90,7 @@ namespace work.Pages
 			{
 				btn.Visibility = Visibility.Visible;
 				board[x, y] = 1;
-				if (Board.IsWin(x, y, 1))
-				{
-					Utils.end = true;
-					Utils.showWinWindow();
-					Utils.showIsInsertHistoryWindow();
-				}
-
+				Step.Add(new Tuple<int, int>(x,y));
 				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
 				BitmapImage bitmap = new BitmapImage();
 				bitmap.BeginInit();
@@ -105,10 +102,18 @@ namespace work.Pages
 				imageBrush.ImageSource = bitmap;
 				btn.Background = imageBrush;
 				await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+                if (Board.IsWin(x, y, 1))
+                {
+               //     Utils.end = true;
+                    Utils.showWinWindow();
+                    Utils.showIsInsertHistoryWindow();
+                    isAnimating = false;
+                    Board.resetBoard("AI");
+					return;
+                }
 
-
-				//选择难度级别（后续考虑动态选择困难难度）
-				switch (AI.difficulty)
+                //选择难度级别（后续考虑动态选择困难难度）
+                switch (AI.difficulty)
 				{
 					case -1:
 						AImove = true;
@@ -127,7 +132,7 @@ namespace work.Pages
 				tie += 1;
 				if (tie == 21)
 				{
-					Utils.end = true;
+				//	Utils.end = true;
 					MessageBox.Show("平局");
 					Utils.showIsInsertHistoryWindow();
 				}
@@ -144,7 +149,7 @@ namespace work.Pages
 		private async Task SimpleAIPlay(int x, double canvasHeight)
 		{
 			if (!AImove) return;
-			Tuple<int, int> aiMove = Board.NextMove(nowTurn);
+			Tuple<int, int> aiMove = Board.NextMove(-1);
 			if (aiMove != null)
 			{
 				int aiX = aiMove.Item1;
@@ -154,19 +159,24 @@ namespace work.Pages
 				Button aiBtn = (Button)FindName(aiTargetBtn);
 				if (aiBtn != null)
 				{
-					aiBtn.Visibility = Visibility.Visible;
+                    Step.Add(new Tuple<int, int>(aiX, aiY));
+                    aiBtn.Visibility = Visibility.Visible;
 					board[aiX, aiY] = -1;
 					aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
 
 					await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
-					nowTurn = -1;
+					nowTurn = 1;
 
 					if (Board.IsWin(aiX, aiY, -1))
 					{
 
-						MessageBox.Show("AI Win!");
-						Utils.showIsInsertHistoryWindow();
-					}
+                     //   Utils.end = true;
+                        Utils.showLoseWindow();
+                        Utils.showIsInsertHistoryWindow();
+                        isAnimating = false;
+                        Board.resetBoard("AI");
+                        return;
+                    }
 				}
 				else
 				{
@@ -183,8 +193,9 @@ namespace work.Pages
 		private async Task DifficultAIPlay(int x, double canvasHeight)
 		{
 			if (!AImove) return;
-			Tuple<int, int> aiMove = Board.showMove();
-			if (aiMove != null)
+			//Tuple<int, int> aiMove = Board.showMove();
+            Tuple<int, int> aiMove = Board.NextMove(-1);
+            if (aiMove != null)
 			{
 				int aiX = aiMove.Item1;
 				int aiY = aiMove.Item2;
@@ -197,13 +208,17 @@ namespace work.Pages
 					board[aiX, aiY] = -1;
 					aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
 					await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
-					nowTurn = -1;
+					nowTurn = 1;
 
 					if (Board.IsWin(aiX, aiY, -1))
 					{
-						Utils.showIsInsertHistoryWindow();
-						MessageBox.Show("AI Win!");
-					}
+                   //     Utils.end = true;
+                        Utils.showLoseWindow();
+                        Utils.showIsInsertHistoryWindow();
+                        isAnimating = false;
+                        Board.resetBoard("AI");
+                        return;
+                    }
 				}
 				else
 				{
@@ -236,7 +251,33 @@ namespace work.Pages
 		}
 		public void regret(object sender, RoutedEventArgs e)
 		{
-
+			if (Step.Count() > 0)
+			{
+                Tuple<int, int> lastElement = Step.Last();
+                string targetBtn = "Button" + lastElement.Item1.ToString() + lastElement.Item2.ToString();
+                Button btn = (Button)FindName(targetBtn);
+				btn.Visibility = Visibility.Hidden;
+				board[lastElement.Item1, lastElement.Item2] = 0;
+				if (lastElement.Item1 > 0)
+				{
+                    string tb = "Button" + (lastElement.Item1-1).ToString() + lastElement.Item2.ToString();
+                    Button b1 = (Button)FindName(tb);
+                    b1.Visibility = Visibility.Hidden;
+                }
+                Step.RemoveAt(Step.Count - 1);
+                Tuple<int, int> secondlast = Step.Last();
+                string tBtn = "Button" + secondlast.Item1.ToString() + secondlast.Item2.ToString();
+                Button btn1 = (Button)FindName(tBtn);
+                if (secondlast.Item1 > 0)
+                {
+                    string tb2 = "Button" + (secondlast.Item1 - 1).ToString() + secondlast.Item2.ToString();
+                    Button b2 = (Button)FindName(tb2);
+                    b2.Visibility = Visibility.Hidden;
+                }
+                board[secondlast.Item1, secondlast.Item2] = 0;
+                btn1.Visibility = Visibility.Hidden;
+				suggession();
+            }
 		}
 
 
