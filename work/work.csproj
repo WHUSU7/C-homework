@@ -67,6 +67,7 @@
     <Compile Include="Models\CanvasShape.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\History.cs" />
+    <Compile Include="Models\mainWindowPositon.cs" />
     <Compile Include="Models\Msg.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AI.xaml.cs">
@@ -90,6 +91,12 @@
     <Compile Include="Utils.cs" />
     <Compile Include="Utilwindows\isInsertHistory.xaml.cs">
       <DependentUpon>isInsertHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilwindows\showLose.xaml.cs">
+      <DependentUpon>showLose.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utilwindows\showWin.xaml.cs">
+      <DependentUpon>showWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebsocketService.cs" />
     <Page Include="mainpage.xaml">
@@ -136,6 +143,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Utilwindows\showLose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilwindows\showWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -173,6 +188,11 @@
   <ItemGroup>
     <Resource Include="Images\user.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\winningImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loseImage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
