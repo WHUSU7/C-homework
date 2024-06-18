@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,9 +31,8 @@ namespace work.Pages
 			mdm = new MainDataModel();
 			this.DataContext = mdm;
 			App.LocalInstance = this;
-			//suggession();
 
-		}
+        }
 
 
 
@@ -59,8 +59,8 @@ namespace work.Pages
             double canvasWidth = myCanvas.ActualWidth;
             double canvasHeight = myCanvas.ActualHeight;
 
-            double buttonWidthSize = canvasWidth * (0.142857);
-            double buttonHeightSize = canvasHeight * (0.166667);
+             buttonWidthSize = canvasWidth * (0.142857);
+            buttonHeightSize = canvasHeight * (0.166667);
             int x = Utils.getIndex(buttonHeightSize, clickPoint.Y);
             int y = Utils.getIndex(buttonWidthSize, clickPoint.X);
 
@@ -102,18 +102,46 @@ namespace work.Pages
 					ImageBrush imageBrush = new ImageBrush();
 					imageBrush.ImageSource = bitmap;
 					btn.Background = imageBrush;
-					nowTurn = -1;
+                    
 				}
 				else
 				{
 					btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-					nowTurn = 1;
+
+                   
 				}
                 await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+				if (nowTurn == 1)
+				{
+                    if (Board.IsWin(x, y, 1))
+                    {
+                        MessageBox.Show("PLAYER1 WIN!");
+                        Utils.showIsInsertHistoryWindow();
+                        Board.resetBoard("Local");
+                        isAnimating = false;
+                        return;
+                    }
+                    nowTurn = -1;
+                }
+				else
+				{
+                    if (Board.IsWin(x, y, -1))
+                    {
+                        MessageBox.Show("PLAYER2 WIN");
+                        Utils.showIsInsertHistoryWindow();
+                        isAnimating = false;
+                        nowTurn = 1;
+                        Board.resetBoard("Local");
+                        return;
+                    }
+                    nowTurn = 1;
+                }
+        
             }
 
 			isAnimating = false;
-		}
+            suggession();
+        }
 
 		public void jumpBackToMain(object sender, RoutedEventArgs e)
 		{
@@ -160,7 +188,61 @@ namespace work.Pages
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		private double buttonWidthSize;
+		private double buttonHeightSize;
+        public void suggession()
+        {
+            double canvasWidth = myCanvas.ActualWidth;
+            double canvasHeight = myCanvas.ActualHeight;
+            buttonWidthSize = canvasWidth * (0.142857);
+            buttonHeightSize = canvasHeight * (0.166667);
+            for (int i = 0; i < 7; i++)
+            {
 
-	}
+                for (int j = 5; j >= 0; j--)
+                {
+                    if (board[j, i] == 0)
+                    {
+                        string targetBt = "Button" + j.ToString() + i.ToString();
+                        Button bt = (Button)FindName(targetBt);
+                        bt.Visibility = Visibility.Visible;
+                        // 创建 ImageBrush 对象
+                        ImageBrush imageBrush = new ImageBrush();
+
+                        // 设置 ImageBrush 的 ImageSource 属性为 GIF 图像的路径
+                        imageBrush.ImageSource = new BitmapImage(new Uri(@"..\..\Images\circle4.gif", UriKind.Relative));
+                        // 创建 RotateTransform 对象
+                        RotateTransform rotateTransform = new RotateTransform();
+
+                        // 将 RotateTransform 设置为 ImageBrush 的 Transform 属性
+                        imageBrush.Transform = rotateTransform;
+                        rotateTransform.CenterX = buttonWidthSize / 2;
+                        rotateTransform.CenterY = buttonHeightSize / 2;
+
+                        // 创建动画，使 RotateTransform 持续旋转
+                        DoubleAnimation rotateAnimation = new DoubleAnimation
+                        {
+
+                            From = 0,
+                            To = 360,
+                            Duration = TimeSpan.FromSeconds(1), // 设置动画持续时间为1秒
+                            RepeatBehavior = RepeatBehavior.Forever // 设置动画重复执行
+                        };
+
+                        // 将动画应用到 RotateTransform 的 Angle 属性
+                        rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+
+                        // 将 ImageBrush 设置为按钮的背景
+                        bt.Background = imageBrush;
+
+                        break;
+                    }
+                }
+
+
+            }
+        }
+
+    }
 
 }

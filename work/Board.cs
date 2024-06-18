@@ -310,7 +310,7 @@ namespace work
 						//如果获胜了，直接下
 						if (opponentWinningMove)
 						{
-							return Tuple.Create(row, col); // 返回下一步需要堵上的位置
+							return Tuple.Create(row, col); 
 						}
 					}
 				}

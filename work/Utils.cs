@@ -38,6 +38,8 @@ namespace work
         public static bool isClickValid(int x, int y, int[,] board)
         {
             if (end) { return false; }
+            if(x<0||x>5) { return false; }
+            if (y<0||y>6) { return false; };
             if (board[x, y] != 0) { return false; }
             if (x == 5) { return true; }
             else
