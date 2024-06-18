@@ -278,3 +278,7 @@ D:\Git\C-homework\C-homework\work\obj\Debug\work.pdb
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\showWin.baml
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\showLose.g.cs
 \\Mac\Home\Downloads\C-homework\work\obj\Debug\Utilwindows\showLose.baml
+D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showLose.g.cs
+D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showWin.g.cs
+D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showLose.baml
+D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showWin.baml
