@@ -31,10 +31,7 @@ namespace work.Pages
 			mdm = new MainDataModel();
 			this.DataContext = mdm;
 			App.LocalInstance = this;
-            this.Loaded += (s, e) =>
-            {
-                suggession();
-            };
+
         }
 
 
