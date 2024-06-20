@@ -123,17 +123,22 @@ namespace work
 			register.Visibility = register.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			
-			Grid.SetRow(nameInputlabel, 4);
-			Grid.SetRow(nameInput, 4);
+			nameInputlabel_login.Visibility = nameInputlabel_login.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            passwordlabel_login.Visibility = passwordlabel_login.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 
-		}
+            passwordlabelStack.Visibility = passwordlabelStack.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            nameInputStack.Visibility = nameInputStack.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            Grid.SetRow(nameInput, 4);
+
+        }
 		public void change2login(object sender, RoutedEventArgs e)
 		{
 			nameInput.Text = "";
 			passwordInput.Password = "";
-			// 切换 ensurepasswordInput 和 nicknameInput 的可见性
-			ensurepasswordInput.Visibility = ensurepasswordInput.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            // 切换 ensurepasswordInput 和 nicknameInput 的可见性
+            passwordlabelStack.Visibility = passwordlabelStack.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            nameInputStack.Visibility = nameInputStack.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            ensurepasswordInput.Visibility = ensurepasswordInput.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			ensurePasswordLabel.Visibility = ensurePasswordLabel.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			nicknameInput.Visibility = nicknameInput.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			nicknameLabel.Visibility = nicknameLabel.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
@@ -141,8 +146,9 @@ namespace work
 			register.Visibility = register.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			back.Visibility = back.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
 			confirm.Visibility = confirm.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			
-			Grid.SetRow(nameInputlabel, 3);
+            nameInputlabel_login.Visibility = nameInputlabel_login.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            passwordlabel_login.Visibility = passwordlabel_login.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
+            
 			Grid.SetRow(nameInput, 3);
 
 		}

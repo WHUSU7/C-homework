@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:work.Utilwindows"
         mc:Ignorable="d"
         Title="isInsertHistory" Height="250" Width="400">
-    <Grid Background="Ivory">
+    <Window.Resources>
+        <BitmapImage x:Key="winningImage" UriSource="pack://application:,,,/Images/winningImage.png" />
+        <ImageBrush x:Key="winningImageBackground" ImageSource="{StaticResource winningImage}"/>
+    </Window.Resources>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -27,8 +31,10 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-
-        <Grid Background="AliceBlue" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="6" Grid.RowSpan="6">
+        <Canvas Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="{StaticResource winningImageBackground}">
+        </Canvas>
+        
+        <Grid Background="AliceBlue" Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="6" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -40,23 +46,13 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-
-
-
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
 
             </Grid.RowDefinitions>
-            <TextBlock x:Name="Title" Text="要保存这场对战的历史记录吗？" FontSize="20" Grid.Row="1" Grid.ColumnSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-            <Button x:Name="easyBtn" Background="#C7EDCC" Content="确认" Click="confirm" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="18" FontSize="20"></Button>
-            <Button x:Name="difficultBtn" Background="#FDE6E0" Content="取消" Click="cancel" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Grid.RowSpan="2" Margin="18" FontSize="20"></Button>
-
-
-
-
-
+            <TextBlock x:Name="Title" Text="是否保存这场对战的历史记录？" FontSize="20" Grid.Row="0" Grid.ColumnSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <Button x:Name="easyBtn" Background="#C7EDCC" Content="是" Click="confirm" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" Margin="8" FontSize="20"></Button>
+            <Button x:Name="difficultBtn" Background="#FDE6E0" Content="否" Click="cancel" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" Margin="8" FontSize="20"></Button>
 
         </Grid>
 
