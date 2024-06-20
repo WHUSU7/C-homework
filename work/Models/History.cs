@@ -10,11 +10,14 @@ namespace work.Models
     {
         public int id;
         public string content;
-
-        public History(int id, string content)
+        public string matchTime;
+        public string matchType;
+        public History(int id, string content, string matchTime, string matchType)
         {
             this.id = id;
             this.content = content;
+            this.matchTime = matchTime;
+            this.matchType = matchType;
         }
     }
 }

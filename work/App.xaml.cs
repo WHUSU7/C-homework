@@ -22,7 +22,7 @@ namespace work
         public static Home HomeInstance { get; set; }
         public static Local LocalInstance { get; set; }
 
-        public static User user = new User(0, "-1", "-1", "-1");
+        public static User user = new User(1, "-1", "-1", "-1");
 
         public static Msg AppMsg = new Msg("empty", "0", "0", true);
 
