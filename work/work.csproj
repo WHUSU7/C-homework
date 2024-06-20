@@ -196,7 +196,7 @@
     <Resource Include="Images\loseImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\icon3.png" />
+    <Resource Include="Images\WHU.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

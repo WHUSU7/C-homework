@@ -35,9 +35,9 @@
             <Border Grid.Column="0" Grid.RowSpan="2" CornerRadius="10 0 0 10"
                 Background="{DynamicResource MainColor}">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="四子棋" FontSize="40" FontWeight="Bold" Foreground="#FFFAFA"
+                    <TextBlock Text="珞珈争霸" FontSize="40" FontWeight="Bold" Foreground="#FFFAFA"
                            FontFamily="Times New Roman" TextAlignment="Center" />
-                    <TextBlock Text="Powered By C#" FontSize="15" FontWeight="Bold" Foreground="#FFFAFA" />
+                    <TextBlock HorizontalAlignment="Center" Text="Powered By C#" FontSize="15" FontWeight="Bold" Foreground="#FFFAFA" />
                 </StackPanel>
             </Border>
 
@@ -68,15 +68,23 @@
 
                 <TextBlock Name="nicknameLabel" Style="{StaticResource TextBlockStyle}" Text="用  户  名" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="2" Visibility="Collapsed" />
                 <TextBox Name="nicknameInput" Style="{StaticResource InputBoxStyle}" Width="180" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="2" Visibility="Collapsed" />
-
-
-                <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlabel" Text="账       号" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="3"/>
+                <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlabel_login" Text="账       号" Visibility="Collapsed" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="4"/>
+                <TextBlock Name="passwordlabel_login" Style="{StaticResource TextBlockStyle}" Text="密       码"  Visibility="Collapsed" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="6"/>
+                <StackPanel Name="nameInputStack" Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+                    <TextBlock Text="&#xe632;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="{DynamicResource MainColor}" VerticalAlignment="Stretch"/>
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Name="nameInputlabel" Text="账  号" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="5 0 0 0" />
+                </StackPanel>
+                
                 <TextBox Style="{StaticResource InputBoxStyle}" Width="180" Name="nameInput" TextChanged="nameInput_TextChanged" Grid.Column="2" Grid.Row="3"/>
 
                 <TextBlock Style="{StaticResource TextBlockStyle}" Name ="ensurePasswordLabel" Text="确认密码"  Grid.Column="1" Grid.Row="8" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="0 0 0 0" Visibility="Collapsed"/>
                 <PasswordBox Style="{StaticResource InputBoxStyle}" Width="180" Name="ensurepasswordInput" Grid.Column="2" Grid.Row="8" VerticalContentAlignment="Center" Visibility="Collapsed"/>
 
-                <TextBlock Name="passwordlabel" Style="{StaticResource TextBlockStyle}" Text="密       码" VerticalAlignment="Stretch" Margin="0 0 0 0" Grid.Column="1" Grid.Row="6"/>
+                <StackPanel Name="passwordlabelStack" Orientation="Horizontal" Grid.Column="1" Grid.Row="6">
+                    <TextBlock Text="&#xe601;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="{DynamicResource MainColor}" VerticalAlignment="Stretch"/>
+                    <TextBlock Name="passwordlabel" Style="{StaticResource TextBlockStyle}" Text="密  码" VerticalAlignment="Stretch" Margin="5 0 0 0" />
+                </StackPanel>
+
                 <PasswordBox x:Name="passwordInput" Style="{StaticResource InputBoxStyle}" Width="180" Grid.Column="2" Grid.Row="6"/>
 
                 <!--Buttons-->
