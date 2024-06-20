@@ -15,96 +15,52 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using work.Models;
-using static work.mainpage;
+using System.Globalization;
+using work.Utilwindows;
 using work;
 using System.Collections;
+using System.Windows.Media.Animation;
+using static work.mainpage;
 
 namespace work.Pages
 {
-    /// <summary>
     /// HistoryPage.xaml 的交互逻辑
-    /// </summary>
     public partial class HistoryPage : Page, INotifyPropertyChanged
     {
 
-        public ObservableCollection<MoveRecord> MoveRecords { get; set; }
+        //public ObservableCollection<MoveRecord> MoveRecords { get; set; }
         public MoveRecord CurrentRecord { get; set; }
         private APIService apiService = new APIService();
-        public ArrayList overallRecord = new ArrayList();
-        private int index=0;
-        public ICommand SelectCommand { get; private set; }
+        public static int index = 0;
+        // public ICommand SelectCommand { get;  set; }
+        public CombinedViewModel combine;
         public HistoryPage()
         {
             InitializeComponent();
-            InitializeMoveRecords();
-            InitializeChessboard();
-            SelectCommand = new RelayCommand<MoveRecord>(OnMoveRecordSelected);
-            this.DataContext =this; // 设置数据上下文为当前窗口实例
+            combine = new CombinedViewModel();
+            combine.HistoryViewModel.ClearChessboardAction = ClearChessboard;
+            this.DataContext = combine;
+            this.Loaded  += HistoryPage_Loaded;           
+        }
+        private void HistoryPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            myLoad();
+        }
+            private void myLoad()
+        {
+            combine.HistoryViewModel.CurrentRecord.MoveString = App.TemphistoryFromMain;
+
+        }
+        //棋盘canvas尺寸变化时调用
+        private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double canvasWidth = myCanvas.ActualWidth;
+            double canvasHeight = myCanvas.ActualHeight;
+            double myCanvasFatherGridHeight = myCanvasFatherGrid.ActualHeight;
+            combine.MainDataModel.CanvasWidth = myCanvasFatherGrid.ActualHeight * 1.166667;
+
         }
 
-        //初始化棋盘
-        private void InitializeChessboard()
-        {
-            for (int row = 0; row < 6; row++)
-            {
-                for (int col = 0; col < 7; col++)
-                {
-                    Button button = new Button();
-                    button.Name = $"Button{row}{col}";
-                    button.Background = Brushes.Transparent;
-                    //button.Click += Button_Click;
-                    Grid.SetRow(button, row);
-                    Grid.SetColumn(button, col);
-                    ChessboardGrid.Children.Add(button);
-                    this.RegisterName(button.Name, button);
-                }
-            }
-        }
-        //棋盘点击方法
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            if (button != null)
-            {
-                button.Background = Brushes.Black;
-            }
-        }
-
-
-        //初始化总历史记录收集器
-        private void InitializeMoveRecords()
-        {
-            MoveRecords = new ObservableCollection<MoveRecord>();
-
-            overallRecord.Add("505152");
-            overallRecord.Add("535455");
-            overallRecord.Add("564636261606");
-            if (overallRecord != null)
-            {
-                foreach (string move in overallRecord)
-                {
-                    MoveRecords.Add(new MoveRecord { MoveString = move });
-                }
-            }
-        }
-
-        //点击条目触发，锁定单条历史记录条目
-        private void OnMoveRecordSelected(MoveRecord moveRecord)
-        {
-            //清空棋盘内容
-            foreach (var child in ChessboardGrid.Children)
-            {
-                if (child is Button button)
-                {
-                    button.Background = Brushes.Transparent;
-                }
-            }
-            if (moveRecord != null)
-            {
-                CurrentRecord = moveRecord;
-                index = 0; // 重置步骤索引
-            }
-        }    
 
         // INotifyPropertyChanged 接口的实现
         public event PropertyChangedEventHandler PropertyChanged;
@@ -112,20 +68,22 @@ namespace work.Pages
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        //清空棋盘方法
 
         //页面跳转
         public void jumpBackToMain(object sender, RoutedEventArgs e)
         {
+            ClearChessboard();
+            index = 0;
             mainpage.window.jumpToTargetPage(WindowsID.home);
         }
 
         //获取单条历史记录
         public async void getHistoryById(object sender, RoutedEventArgs e)
         {
-            var history =  await apiService.getSingleHistory(1);
+            var history = await apiService.getSingleHistory(1);
             MessageBox.Show(history);
-                
+
         }
 
         //获取所有历史记录
@@ -133,40 +91,79 @@ namespace work.Pages
         {
             var history = await apiService.getHistories(App.user.id);
             string str = "";
-            foreach (string item in history) {
-                overallRecord.Add(item);
+            foreach (string item in history)
+            {
+                combine.HistoryViewModel.overallRecord.Add(item);
             }
             MessageBox.Show(str);
-
         }
 
-        
+
         //插入历史记录
-        public async void insertHistory(object sender, RoutedEventArgs e) {
+        public async void insertHistory(object sender, RoutedEventArgs e)
+        {
             //把这个替换成要插入的历史记录就行了
             string str = "1,";
-            var isSuccess = await apiService.insertHistory(new History(-1,str),App.user.id);
+            var isSuccess = await apiService.insertHistory(new History(-1, str), App.user.id);
             MessageBox.Show(isSuccess);
         }
-
-
-        //渲染方法:下一步
-        public void nextButton(object sender, RoutedEventArgs e)
+        //清空棋盘棋子
+        public void ClearChessboard()
         {
-            // 读取当前索引处的数组元素值
-            if (CurrentRecord != null)
+            foreach (var child in ChessboardGrid.Children)
             {
-                if (index < CurrentRecord.Moves.Length)
+                if (child is Button button)
+                {
+                    button.Background = Brushes.Transparent;
+                }
+            }
+        }
+        private bool isAnimating = false;
+        //渲染方法:下一步
+        public async void nextButton(object sender, RoutedEventArgs e)
+        {
+            if (isAnimating) return; // 如果动画正在进行，则返回
+            isAnimating = true;
+            // 读取当前索引处的数组元素值
+            
+            if (combine.HistoryViewModel.CurrentRecord != null)
+            {
+                if (index < combine.HistoryViewModel.CurrentRecord.Moves.Length)
                 {
 
-                    if (CurrentRecord.Moves[index] != null)
+                    if (combine.HistoryViewModel.CurrentRecord.Moves[index] != null)
                     {
-                        string buttonName = CurrentRecord.Moves[index];
+                        string buttonName = combine.HistoryViewModel.CurrentRecord.Moves[index];
                         Button targetButton = this.FindName("Button" + buttonName) as Button;
-                        if (targetButton != null)
+                        //棋子渲染，两种类型的棋子
+                        if (targetButton != null && (index % 2 == 0))
                         {
-                            targetButton.Background = Brushes.Black;
+                            targetButton.Visibility = Visibility.Visible;
+                            BitmapImage bitmap = new BitmapImage();
+                            bitmap.BeginInit();
+                            bitmap.UriSource = new Uri(@"..\..\Images\chess2.gif", UriKind.RelativeOrAbsolute);
+                            // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                            bitmap.EndInit();
+                            // 创建 ImageBrush 并设置其 ImageSource
+                            ImageBrush imageBrush = new ImageBrush();
+                            imageBrush.ImageSource = bitmap;
+                            targetButton.Background = imageBrush;
+                            char s = buttonName[0];
+                            int x = s - '0';
+                            double canvasHeight = myCanvas.ActualHeight;
+                            await AnimationUtils.allAnimation(targetButton, x, canvasHeight, myCanvas);
+
                         }
+                        else if (targetButton != null && index % 2 == 1)
+                        {
+                            targetButton.Visibility = Visibility.Visible;
+                            targetButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                            char s = buttonName[0];
+                            int x = s - '0';
+                            double canvasHeight = myCanvas.ActualHeight;
+                            await AnimationUtils.allAnimation(targetButton, x, canvasHeight, myCanvas);
+                        }
+
                         index++;
                     }
                 }
@@ -175,21 +172,24 @@ namespace work.Pages
                     MessageBox.Show("已到最后一步");
                 }
             }
-                                    
+            isAnimating = false;
+
         }
         //渲染方法:上一步                                        
-        public void lastButton(object sender,RoutedEventArgs e)
+        public void lastButton(object sender, RoutedEventArgs e)
         {
-            if(CurrentRecord!=null)
+            if (isAnimating) return; // 如果动画正在进行，则返回
+            isAnimating = true;
+            if (combine.HistoryViewModel.CurrentRecord != null)
             {
                 if (index > 0)
                 {
                     index--;
-                    if (index < CurrentRecord.Moves.Length)
+                    if (index < combine.HistoryViewModel.CurrentRecord.Moves.Length)
                     {
-                        if (CurrentRecord.Moves[index] != null)
+                        if (combine.HistoryViewModel.CurrentRecord.Moves[index] != null)
                         {
-                            string buttonName = CurrentRecord.Moves[index];
+                            string buttonName = combine.HistoryViewModel.CurrentRecord.Moves[index];
                             Button targetButton = this.FindName("Button" + buttonName) as Button;
                             if (targetButton != null)
                             {
@@ -206,82 +206,237 @@ namespace work.Pages
 
                 else
                     MessageBox.Show("已到第一步");
-            }                      
+            }
+            isAnimating = false;
         }
-    }
 
-    }
-
-    public class GameService
-    {
-        private static GameService _instance;
-        public ObservableCollection<string> Result { get; } = new ObservableCollection<string>();
-
-        private GameService() { }
-
-        public static GameService Instance
+        private void ChessPieceButton_Click(object sender, RoutedEventArgs e)
         {
-            get
+            // 切换按钮的可见性
+            string targetBtn = "Button00";
+            Button btn = (Button)FindName(targetBtn);
+            btn.Visibility = Visibility.Visible;
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(@"..\..\Images\chess2.gif", UriKind.RelativeOrAbsolute);
+            // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+            bitmap.EndInit();
+            // 创建 ImageBrush 并设置其 ImageSource
+            ImageBrush imageBrush = new ImageBrush();
+            imageBrush.ImageSource = bitmap;
+            btn.Background = imageBrush;
+
+        }
+        //Binding绑定的数据源
+        public class MainDataModel : INotifyPropertyChanged
+        {
+            private double _canvasWidth;
+
+            public double CanvasWidth
             {
-                if (_instance == null)
+                get { return _canvasWidth; }
+                set
                 {
-                    _instance = new GameService();
+                    if (_canvasWidth != value)
+                    {
+                        _canvasWidth = value;
+                        App.AppCanvasShape.width = value;
+                        OnPropertyChanged(nameof(CanvasWidth));
+                    }
                 }
-                return _instance;
+            }
+
+            //元素改变时候触发的委托（监听）
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        int turn = 0;
-        public static string[] historyStep = new string[42];
 
-        public void getPosition(int x, int y)
+        public class HistoryViewModel : INotifyPropertyChanged
         {
-            // ... 你的逻辑 ...
-            historyStep[turn] = "{x},{y}";
-            turn++;
-            string moveDescription = (turn % 2 != 0)
-                ? $"白子落子位置为{x},{y}"
-                : $"黑子落子位置为{x},{y}";
-            Result.Add(moveDescription);
+            public ObservableCollection<MoveRecord> MoveRecords { get; set; }
+            public MoveRecord CurrentRecord { get; set; }
+            public ICommand SelectCommand { get; set; }
+            public ArrayList overallRecord = new ArrayList();
+            public Action ClearChessboardAction { get; set; }
+            //命令类监听
+            public class RelayCommand<T> : ICommand
+            {
+                private readonly Action<T> _execute;
+                private readonly Predicate<T> _canExecute;
+
+                public RelayCommand(Action<T> execute, Predicate<T> canExecute = null)
+                {
+                    _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+                    _canExecute = canExecute;
+                }
+
+                public bool CanExecute(object parameter) => _canExecute == null || _canExecute((T)parameter);
+
+                public event EventHandler CanExecuteChanged
+                {
+                    add { CommandManager.RequerySuggested += value; }
+                    remove { CommandManager.RequerySuggested -= value; }
+                }
+
+                public void Execute(object parameter) => _execute((T)parameter);
+            }
+
+            public HistoryViewModel()
+            {
+                MoveRecords = new ObservableCollection<MoveRecord>();
+                SelectCommand = new RelayCommand<MoveRecord>(OnMoveRecordSelected);
+                CurrentRecord=new MoveRecord();
+                InitializeMoveRecords();
+            }
+
+            public void InitializeMoveRecords()
+            {
+                // 初始化 MoveRecords 的逻辑
+                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
+                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
+                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
+                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
+                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
+                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
+                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
+                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
+                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
+                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
+                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
+                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
+                if (overallRecord != null)
+                {
+                    foreach (string move in overallRecord)
+                    {
+                        MoveRecords.Add(new MoveRecord { MoveString = move });
+                    }
+                }
+            }
+            //清空棋盘操作
+
+            // 调用 Action 的方法
+            public void RequestClearChessboard()
+            {
+                ClearChessboardAction?.Invoke();
+            }
+
+            public void OnMoveRecordSelected(MoveRecord moveRecord)
+            {
+                MessageBox.Show("成功选中");
+                if (moveRecord != null)
+                {
+                    
+                    CurrentRecord = moveRecord;
+                    App.TemphistoryFromMain = moveRecord.MoveString;
+                    MessageBox.Show(CurrentRecord.MoveString);
+                    index = 0; // 重置步骤索引
+                    RequestClearChessboard();
+                    mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);//跳转
+                }
+                // 清空棋盘
+            }
+
+            // 事件，用于通知 View 清空棋盘
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+
+
+        public class CombinedViewModel : INotifyPropertyChanged
+        {
+            public MainDataModel MainDataModel { get; set; }
+            public HistoryViewModel HistoryViewModel { get; set; }
+
+            public CombinedViewModel()
+            {
+                MainDataModel = new MainDataModel();
+                HistoryViewModel = new HistoryViewModel();
+                SelectCommand = HistoryViewModel.SelectCommand;
+            }
+            public ICommand SelectCommand { get; }
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual void OnPropertyChanged(string propertyName)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+
+
+    }
+
+}
+
+public class GameService
+{
+    private static GameService _instance;
+    public ObservableCollection<string> Result { get; } = new ObservableCollection<string>();
+
+    private GameService() { }
+
+    public static GameService Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new GameService();
+            }
+            return _instance;
         }
     }
+    int turn = 0;
+    public static string[] historyStep = new string[42];
+
+    public void getPosition(int x, int y)
+    {
+        // ... 你的逻辑 ...
+        historyStep[turn] = "{x},{y}";
+        turn++;
+        string moveDescription = (turn % 2 != 0)
+            ? $"白子落子位置为{x},{y}"
+            : $"黑子落子位置为{x},{y}";
+        Result.Add(moveDescription);
+    }
+}
 
 
 //该类用于获取后台传来的历史记录arraylist并将其拆解为可用于布局的各个元素
-    public class MoveRecord
-    {
-        public string MoveString { get; set; }
+public class MoveRecord
+{
+    public string MoveString { get; set; }
+
     // 属性Moves将使用全局方法SplitIntoPairs来获取拆解后的坐标数组
-        public string[] Moves
+    public string[] Moves
+    {
+        get
         {
-            get
-            {
             // 调用全局方法SplitIntoPairs来拆解字符串
             return Utils.SplitStringIntoPairs(MoveString);
-            }
         }
     }
-
-//命令类
-public class RelayCommand<T> : ICommand
-{
-    private readonly Action<T> _execute;
-    private readonly Predicate<T> _canExecute;
-
-    public RelayCommand(Action<T> execute, Predicate<T> canExecute = null)
+    public MoveRecord()
     {
-        _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-        _canExecute = canExecute;
+        MoveString = "";
     }
-
-    public bool CanExecute(object parameter) => _canExecute == null || _canExecute((T)parameter);
-
-    public event EventHandler CanExecuteChanged
-    {
-        add { CommandManager.RequerySuggested += value; }
-        remove { CommandManager.RequerySuggested -= value; }
-    }
-
-    public void Execute(object parameter) => _execute((T)parameter);
+        
+        
 }
+
+
+
+
+
 
 

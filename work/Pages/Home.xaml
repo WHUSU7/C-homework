@@ -7,85 +7,283 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
-    
-    <Grid Background="Ivory">
-            <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
 
-        </Grid.ColumnDefinitions>
+    <Page.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                             
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MoveRecordButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#FFADD8E6"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ListBoxTemplate" TargetType="{x:Type ListBox}">
+            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="10">
+                <!-- 设置圆角半径为 10 -->
+                <ScrollViewer Padding="{TemplateBinding Padding}">
+                    <ItemsPresenter/>
+                </ScrollViewer>
+            </Border>
+        </ControlTemplate>
+
+        <Style x:Key="ContentStyle"  
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"  
+                    Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+    </Page.Resources>
+    <Viewbox>
+        <Grid Width="800" Height="450">
             <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <Grid Grid.ColumnSpan="1" Grid.RowSpan="8" Background="#a8d8ea"></Grid>
-            
-            <Button Grid.Column="2" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" x:Name="AIBtn"  Content="人机对战"  Click="jumpToAI" Style="{StaticResource ctrlButton}"/>
-            <Button Grid.Column="4" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" x:Name="PeopleBtn"  Content="人人对战" Click="jumpToPvp" Style="{StaticResource ctrlButton}"/>
-            <Button Grid.Column="2" Grid.Row="4" Grid.RowSpan="3" Grid.ColumnSpan="2" x:Name="LocalBtn"  Content="本地对战"  Click="jumpToLocal" Style="{StaticResource ctrlButton}"/>
-            <Button Grid.Column="4" Grid.Row="4" Grid.RowSpan="3" Grid.ColumnSpan="2" x:Name="HistoryBtn"  Content="历史记录"  Click="jumpToHistory" Style="{StaticResource ctrlButton}"/>
-
-        <Button Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" x:Name="Easy"  Content="简    单"  Click="easyAi" Style="{StaticResource ctrlButton}" Visibility="Collapsed"/>
-        <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" Grid.RowSpan="2" x:Name="Difficult"  Content="困    难"  Click="difficultAi" Style="{StaticResource ctrlButton}" Visibility="Collapsed"/>
-        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" Grid.RowSpan="2" x:Name="Return"  Content="返    回"  Click="returnback" Style="{StaticResource ctrlButton}" Visibility="Collapsed"/>
-        <!--边框部分-->
-        <Grid Grid.Column="0" Grid.Row="5" Grid.RowSpan="3" Grid.ColumnSpan="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="13*"/>
+                <RowDefinition Height="59*"/>
             </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="8*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3.5*"/>
             </Grid.ColumnDefinitions>
-            <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="2">
-            <Button  x:Name="Logout"  Content="退出登录" Click="logout" FontSize="20" Style="{StaticResource ctrlButton}" Background="#71c9ce" Width="100" Height="40"/>
-            </Viewbox>
-            <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1">
-                <Button  x:Name="Setting"  Content="设    置" Click="setting" FontSize="20" Style="{StaticResource ctrlButton}" Background="#71c9ce" Width="100" Height="40"/>
-            </Viewbox>
+
+            <TextBlock Text="BlueBox" FontWeight="Bold" FontSize="16" Foreground="#3DD0FB" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <UniformGrid Columns="2" Grid.Column="1" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="15 0 0 0"/>
+
+                <StackPanel HorizontalAlignment="Right" Margin="0 0 15 0">
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Image Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                            </Image.Clip>
+                        </Image>
+
+                        <TextBlock Text="&#xe62f;" Foreground="#959595" FontSize="24" Margin="15 0 0 0" VerticalAlignment="Center" FontFamily="./Fonts/#iconfont"  />
+                        <TextBlock Text="&#xea97;" Foreground="#959595" FontSize="26" Margin="15 0 15 0" VerticalAlignment="Center" FontFamily="./Fonts/#iconfont"  />
+                        <TextBlock Text="&#xe607;" Foreground="#959595" FontSize="22" VerticalAlignment="Center" FontFamily="./Fonts/#iconfont"  />
+                    </StackPanel>
+                </StackPanel>
+            </UniformGrid>
+
+
+            <StackPanel  Grid.Row="1" Margin="10 10 0 10" Orientation="Horizontal">
+                <Image Name="UserImageBrush" Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
+                    <Image.Clip>
+                        <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                    </Image.Clip>
+                </Image>
+                <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
+                    <TextBlock Text="Naved Mirza" Foreground="#4F5050"/>
+                    <TextBlock Text="Admin" Foreground="#959595"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,30">
+                <Button Width="177" Height="40" Name="Setting"  Content="设    置" Click="setting" Background="#3DD0FB" BorderBrush="#3DD0FB"  Foreground="White" FontSize="16" HorizontalAlignment="Left"/>
+                <Button Width="177" Height="40" Name="Logout"  Content="退出登录" Click="logout" Background="#3DD0FB" BorderBrush="#3DD0FB"  Foreground="White" FontSize="16" HorizontalAlignment="Left"/>
+
+            </StackPanel>
+
+            <Grid Grid.Row="1" Grid.Column="1" Background="#F5F6FA" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Foreground="#959595" Margin="15 0 0 0" ><Run Text="Mode "/><Run Language="zh-cn" Text="S"/><Run Text="election"/></TextBlock>
+
+                <UniformGrid Grid.Row="1" Columns="3">
+
+                    <Border Margin="15" CornerRadius="5">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                                <GradientStop Offset="0" Color="#FF8C69"/>
+                                <GradientStop Offset="1" Color="#FF7000"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <Grid Name="InteractiveGrid"
+              MouseEnter="InteractiveGrid_MouseEnter" MouseLeave="InteractiveGrid_MouseLeave">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="&#xe6cf;" FontFamily="Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                            <TextBlock Text="Stock Total" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                            <TextBlock Text="人机对战" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+                            <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                                <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                                <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+
+                            </Canvas>
+                            <Button Grid.Row="0" 
+                                Grid.RowSpan="2" Content="简单" Foreground="White" Name="Button1"
+                                Click="easyAi" Visibility="Collapsed" Background="Transparent"
+                                Style="{StaticResource RoundedButtonStyle}"/>
+
+                            <Button Grid.Row="2"
+                                Grid.RowSpan="2" Content="困难" Foreground="White" Name="Button2"
+                                Click="difficultAi" Visibility="Collapsed" Background="Transparent"
+                                Style="{StaticResource RoundedButtonStyle}"/>
+                        </Grid>
+
+
+                    </Border>
+
+                    <Border Margin="15" CornerRadius="5">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                                <GradientStop Offset="0" Color="#FFD700"/>
+                                <GradientStop Offset="1" Color="#FFC100"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="&#xe602;" FontFamily="Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                            <TextBlock Text="Total Proflt" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                            <TextBlock Text="在线对战" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+
+                            <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                                <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                                <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+                            </Canvas>
+                            <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Name="PeopleBtn" Click="jumpToPvp" Visibility="Visible" Style="{StaticResource RoundedButtonStyle}"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Margin="15" CornerRadius="5" >
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                                <GradientStop Offset="0" Color="#00CED1"/>
+                                <GradientStop Offset="1" Color="#59E6B5"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="&#xe634;" FontFamily="Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                            <TextBlock Text="Unique Visitors" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                            <TextBlock Text="本地对战" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+
+                            <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                                <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                                <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+                            </Canvas>
+                            <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Name="LocalBtn"  Click="jumpToLocal" Style="{StaticResource RoundedButtonStyle}"/>
+                        </Grid>
+                    </Border>
+
+
+                </UniformGrid>
+
+                <Border Background="White" Grid.Row="2" CornerRadius="10" Margin="15"/>
+
+                <Grid Grid.Row="2" Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Margin="15 0 0 0" VerticalAlignment="Center" FontSize="11" Foreground="#959595">
+        <Run Language="zh-cn" Text="History Table"/>
+                    </TextBlock>
+                    <!-- Insert Elements Here -->
+                    <Grid Grid.Row="1" Margin="0 10 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Header Row -->
+                        <TextBlock Grid.Column="0" Text="Name" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="1" Text="Email" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="2" Text="Address" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="3" Text="UserType" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="4" Text="Level" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+
+                        <!-- Data Row (Example) -->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Email}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Address}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
+                        <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding UserType}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
+                        <Button Grid.Row="1" Grid.Column="4" Width="75" Height="25" BorderThickness="0" Content="{Binding Status}" Foreground="White" Background="{Binding BackColor}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+
+                </Grid>
+
+                <!-- ListBox for MoveRecords -->
+                <ListBox Grid.Row="2" x:Name="historyListBox" ItemsSource="{Binding HistoryViewModel.MoveRecords}" Background="White" BorderBrush="Gray" BorderThickness="0" Template="{StaticResource ListBoxTemplate}" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding MoveString}" Command="{Binding DataContext.HistoryViewModel.SelectCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Style="{StaticResource MoveRecordButtonStyle}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+
+
         </Grid>
-        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" Grid.RowSpan="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="10*"/>
-                <RowDefinition Height="5*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="8*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1">
-            <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="120" >
-            <Ellipse.Fill>
-                        <ImageBrush x:Name="UserImageBrush" ImageSource="../Images/user.png" />
-            </Ellipse.Fill>
-            </Ellipse>
-            </Viewbox>
-            <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="2">
-                <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Top" Text="超级无敌暴龙战士" FontSize="20" Foreground="White"/>
-            </Viewbox>
-        </Grid>
-
-        
-    </Grid>
-
-   
-
+    </Viewbox>
 </Page>

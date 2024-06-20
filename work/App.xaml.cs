@@ -34,5 +34,7 @@ namespace work
         public static Models.Group AppPublicGroup = new Models.Group(1, "appGroup");
 
         public static Models.mainWindowPositon AppMainWindowPosition = new Models.mainWindowPositon(1,1,1,1);
+
+        public static string TemphistoryFromMain = "";
 	}
 }

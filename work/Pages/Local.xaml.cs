@@ -140,7 +140,7 @@ namespace work.Pages
             }
 
 			isAnimating = false;
-            suggession();
+         //   suggession();
         }
 
 		public void jumpBackToMain(object sender, RoutedEventArgs e)

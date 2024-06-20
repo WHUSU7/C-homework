@@ -7,10 +7,79 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HistoryPage">
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="commonBtnStyle">
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Setter Property="IsHitTestVisible" Value="False"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                           BorderBrush="{TemplateBinding BorderBrush}"
+                           BorderThickness="{TemplateBinding BorderThickness}"
+                           CornerRadius="{Binding ActualWidth,ElementName=Button00}">
+                            <!-- 使边缘圆形 -->
+                            <ContentPresenter HorizontalAlignment="Center"
+                                         VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <BitmapImage x:Key="chessBoardImage" UriSource="pack://application:,,,/Images/chessBoard.png" />
+        <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
 
+
+
+        <Style x:Key="MoveRecordButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#FFADD8E6"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="MinHeight" Value="60"/>
+        </Style>
+
+        <ControlTemplate x:Key="ListBoxTemplate" TargetType="{x:Type ListBox}">
+            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="10">
+                <!-- 设置圆角半径为 10 -->
+                <ScrollViewer Padding="{TemplateBinding Padding}">
+                    <ItemsPresenter/>
+                </ScrollViewer>
+            </Border>
+        </ControlTemplate>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -22,51 +91,116 @@
             </Grid.ColumnDefinitions>
 
             <!-- 第一个按钮 -->
-            <Button Grid.Column="0" Name="back" Content="返回" Click="jumpBackToMain" />
-
+            <Button Grid.Column="0" Name="back" Content="返回" Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
             <!-- 第二个按钮 -->
-            <Button Grid.Column="1" Name="next" Content="下一步" Click="nextButton" />
-
+            <Button Grid.Column="1" Name="next" Content="下一步" Click="nextButton" Style="{StaticResource ctrlButton}"/>
             <!-- 第三个按钮 -->
-            <Button Grid.Column="2" Name="last" Content="上一步" Click="lastButton" />
+            <Button Grid.Column="2" Name="last" Content="上一步" Click="lastButton" Style="{StaticResource ctrlButton}"/>
         </Grid>
-
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- 历史记录列表 -->
-            <ListBox x:Name="historyListBox" ItemsSource="{Binding MoveRecords}">
+            <ListBox x:Name="historyListBox" ItemsSource="{Binding HistoryViewModel.MoveRecords}"  Background="LightYellow" BorderBrush="Gray" BorderThickness="0"  Template="{StaticResource ListBoxTemplate}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Button Content="{Binding}" Command="{Binding RelativeSource={RelativeSource AncestorType=ListBox}, Path=DataContext.SelectCommand}" CommandParameter="{Binding}" />
+                        <Button Content="{Binding MoveString}" Command="{Binding DataContext.SelectCommand, 
+                                RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Style="{StaticResource MoveRecordButtonStyle}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <!-- 棋盘区域和下一步按钮等其他界面元素 -->
-            <Grid Name="ChessboardGrid" Grid.Column="1">
-                <!-- 定义6行7列 -->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
+                <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+                    <Canvas  x:Name="myCanvas"  
+                     Background="{StaticResource chessBoardBackground}"
+                        
+                         SizeChanged="myCanvas_SizeChanged" 
+                         Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}"
+                         Width="{Binding MainDataModel.CanvasWidth, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+
+                        <Grid x:Name="ChessboardGrid" Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
+                            <Grid.RowDefinitions >
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Grid.Row="0" x:Name="Button00" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="1" Grid.Row="0" x:Name="Button01" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="2" Grid.Row="0" x:Name="Button02" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="3" Grid.Row="0" x:Name="Button03" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="4" Grid.Row="0" x:Name="Button04" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="5" Grid.Row="0" x:Name="Button05" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="6" Grid.Row="0" x:Name="Button06" Style="{StaticResource commonBtnStyle}" />
+
+                            <Button Grid.Column="0" Grid.Row="1" x:Name="Button10" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="1" Grid.Row="1" x:Name="Button11" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="2" Grid.Row="1" x:Name="Button12" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="3" Grid.Row="1" x:Name="Button13" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="4" Grid.Row="1" x:Name="Button14" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="5" Grid.Row="1" x:Name="Button15" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="6" Grid.Row="1" x:Name="Button16" Style="{StaticResource commonBtnStyle}" />
+
+                            <Button Grid.Column="0" Grid.Row="2" x:Name="Button20" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="1" Grid.Row="2" x:Name="Button21" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="2" Grid.Row="2" x:Name="Button22" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="3" Grid.Row="2" x:Name="Button23" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="4" Grid.Row="2" x:Name="Button24" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="5" Grid.Row="2" x:Name="Button25" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="6" Grid.Row="2" x:Name="Button26" Style="{StaticResource commonBtnStyle}" />
+
+                            <Button Grid.Column="0" Grid.Row="3" x:Name="Button30" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="1" Grid.Row="3" x:Name="Button31" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="2" Grid.Row="3" x:Name="Button32" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="3" Grid.Row="3" x:Name="Button33" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="4" Grid.Row="3" x:Name="Button34" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="5" Grid.Row="3" x:Name="Button35" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="6" Grid.Row="3" x:Name="Button36" Style="{StaticResource commonBtnStyle}" />
+
+                            <Button Grid.Column="0" Grid.Row="4" x:Name="Button40" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="1" Grid.Row="4" x:Name="Button41" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="2" Grid.Row="4" x:Name="Button42" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="3" Grid.Row="4" x:Name="Button43" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="4" Grid.Row="4" x:Name="Button44" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="5" Grid.Row="4" x:Name="Button45" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="6" Grid.Row="4" x:Name="Button46" Style="{StaticResource commonBtnStyle}" />
+
+                            <Button Grid.Column="0" Grid.Row="5" x:Name="Button50" Style="{StaticResource commonBtnStyle}"  />
+                            <Button Grid.Column="1" Grid.Row="5" x:Name="Button51" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="2" Grid.Row="5" x:Name="Button52" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="3" Grid.Row="5" x:Name="Button53" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="4" Grid.Row="5" x:Name="Button54" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="5" Grid.Row="5" x:Name="Button55" Style="{StaticResource commonBtnStyle}" />
+                            <Button Grid.Column="6" Grid.Row="5" x:Name="Button56" Style="{StaticResource commonBtnStyle}" />
+
+
+
+
+                        </Grid>
+
+                    </Canvas>
+                </Border>
             </Grid>
             <!-- ... -->
         </Grid>
     </Grid>
+
+
 </Page>

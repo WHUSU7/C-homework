@@ -10,95 +10,122 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace work.Pages
 {
-	/// <summary>
-	/// Home.xaml 的交互逻辑
-	/// </summary>
-	public partial class Home : Page
-	{
-		public Home()
-		{
-			App.HomeInstance = this;
-			InitializeComponent();
+    /// <summary>
+    /// Home.xaml 的交互逻辑
+    /// </summary>
+    public partial class Home : Page
+    {
+        public HistoryPage HistoryPage { get; set; }
+        public Home()
+        {
+            App.HomeInstance = this;
+            InitializeComponent();
             EnsureSaveDirectoryExists();
             LoadLastImage();
+            HistoryPage = new HistoryPage();
+            this.DataContext = HistoryPage.combine;
 
         }
-		private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
-		{
-			Button btn = sender as Button;
-			// MessageBox.Show(btn.Name);
+        private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
+        {
+            Button btn = sender as Button;
+            // MessageBox.Show(btn.Name);
 
 
-		}
-		//退出登录页面
-		public void logout(object sender, RoutedEventArgs e)
-		{			
-			MainWindow mainWindow = new MainWindow();
-			mainWindow.Show();
-			mainpage.window.Close();
-		}
-		//跳转到设置页面
-		public void setting(object sender, RoutedEventArgs e)
-		{
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.set);
-		}
-		
-		
-		//跳转到pvp页面
-		public void jumpToPvp(object sender, RoutedEventArgs e)
-		{
+        }
 
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.websocketpvp);
-		}
-		//跳转到local页面
-		public void jumpToLocal(object sender, RoutedEventArgs e)
-		{
+        //模糊效果
+        private void InteractiveGrid_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Button1.Visibility = Visibility.Visible;
+            Button2.Visibility = Visibility.Visible;
+            ApplyBlurEffect(InteractiveGrid, true);
+        }
 
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.local);
-		}
-		//跳转到history页面
-		public void jumpToHistory(object sender, RoutedEventArgs e)
-		{
+        private void InteractiveGrid_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            Button1.Visibility = Visibility.Collapsed;
+            Button2.Visibility = Visibility.Collapsed;
+            ApplyBlurEffect(InteractiveGrid, false);
+        }
 
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);
-		}
-		public void easyAi(object sender, RoutedEventArgs e)
-		{
-			AI.difficulty = -1;
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.ai);
-		}
-		public void difficultAi(object sender, RoutedEventArgs e)
-		{
-			AI.difficulty = 1;
-			mainpage.window.jumpToTargetPage(mainpage.WindowsID.ai);
-		}
-		//ai难度选择
-		public void jumpToAI(object sender, RoutedEventArgs e)
-		{
-			AIBtn.Visibility = AIBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			LocalBtn.Visibility = LocalBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			PeopleBtn.Visibility = PeopleBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			HistoryBtn.Visibility = HistoryBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Easy.Visibility = Easy.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Difficult.Visibility = Difficult.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Return.Visibility = Return.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-		}
-		public void returnback(object sender, RoutedEventArgs e)
-		{
-			AIBtn.Visibility = AIBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			LocalBtn.Visibility = LocalBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			PeopleBtn.Visibility = PeopleBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			HistoryBtn.Visibility = HistoryBtn.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Easy.Visibility = Easy.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Difficult.Visibility = Difficult.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-			Return.Visibility = Return.Visibility == Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
-		}
+        private void ApplyBlurEffect(Panel panel, bool applyBlur)
+        {
+            foreach (UIElement element in panel.Children)
+            {
+                if (!(element is Button))
+                {
+                    if (applyBlur)
+                    {
+                        BlurEffect blur = new BlurEffect
+                        {
+                            Radius = 6
+                        };
+                        element.Effect = blur;
+                    }
+                    else
+                    {
+                        element.Effect = null;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        //退出登录页面
+        public void logout(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            mainpage.window.Close();
+        }
+        //跳转到设置页面
+        public void setting(object sender, RoutedEventArgs e)
+        {
+            mainpage.window.jumpToTargetPage(mainpage.WindowsID.set);
+        }
+
+
+        //跳转到pvp页面
+        public void jumpToPvp(object sender, RoutedEventArgs e)
+        {
+
+            mainpage.window.jumpToTargetPage(mainpage.WindowsID.websocketpvp);
+        }
+        //跳转到local页面
+        public void jumpToLocal(object sender, RoutedEventArgs e)
+        {
+
+            mainpage.window.jumpToTargetPage(mainpage.WindowsID.local);
+        }
+        //跳转到history页面
+        //public void jumpToHistory(object sender, RoutedEventArgs e)
+        //{
+
+        //	mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);
+        //}
+        //ai难度选择
+        public void easyAi(object sender, RoutedEventArgs e)
+        {
+            AI.difficulty = -1;
+            mainpage.window.jumpToTargetPage(mainpage.WindowsID.ai);
+        }
+        public void difficultAi(object sender, RoutedEventArgs e)
+        {
+            AI.difficulty = 1;
+            mainpage.window.jumpToTargetPage(mainpage.WindowsID.ai);
+        }
+
 
         //从本地选择图片并保存
         private const string SaveDirectory = "../Images";
@@ -124,7 +151,7 @@ namespace work.Pages
                     bitmap.CacheOption = BitmapCacheOption.OnLoad;
                     bitmap.EndInit();
 
-                    UserImageBrush.ImageSource = bitmap;
+                    UserImageBrush.Source = bitmap;
                 }
             }
         }

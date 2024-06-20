@@ -282,3 +282,4 @@ D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showLose.g.cs
 D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showWin.g.cs
 D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showLose.baml
 D:\Git\C-homework\C-homework\work\obj\Debug\Utilwindows\showWin.baml
+D:\Git\C-homework\C-homework\work\obj\Debug\GeneratedInternalTypeHelper.g.cs
