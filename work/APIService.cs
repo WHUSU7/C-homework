@@ -52,18 +52,24 @@ namespace work
 
 		}
 		//获取目标用户的所有历史记录
-		public async Task<List<string>> getHistories(int userid)
+		public async Task<List<History>> getHistories(int userid)
 		{
 
 			var response = await client.GetAsync($"{userid}/histories");
 			//取到的是所有属性的字符串
 			string json = await response.Content.ReadAsStringAsync();
-			//做格式转换并通过key的方式取某个属性
-			var jsonObject = JsonConvert.DeserializeObject<JArray>(json);
-			List<string> historyArray = new List<string>();
+			
+            //做格式转换并通过key的方式取某个属性
+            //var jsonObject = JsonConvert.DeserializeObject<JArray>(json);
+            List<History> historyArray = new List<History>();
+            json = json.Replace("Infinity", "null"); 
+            var jsonObject = JsonConvert.DeserializeObject<JArray>(json);
+           
 			foreach (JObject item in jsonObject)
 			{
-				historyArray.Add(item["content"].ToString());
+				History history = new History((int)item["id"], item["content"].ToString(), item["matchTime"].ToString(), item["matchType"].ToString());
+				historyArray.Add(history);
+            
 			}
 
 			return historyArray;

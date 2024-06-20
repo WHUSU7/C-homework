@@ -37,19 +37,22 @@ namespace work.Pages
         public HistoryPage()
         {
             InitializeComponent();
+            
             combine = new CombinedViewModel();
             combine.HistoryViewModel.ClearChessboardAction = ClearChessboard;
             this.DataContext = combine;
-            this.Loaded  += HistoryPage_Loaded;           
+            this.Loaded  += HistoryPage_Loaded;
+          
         }
         private void HistoryPage_Loaded(object sender, RoutedEventArgs e)
         {
+            getHistories();
             myLoad();
         }
             private void myLoad()
         {
             combine.HistoryViewModel.CurrentRecord.MoveString = App.TemphistoryFromMain;
-
+        
         }
         //棋盘canvas尺寸变化时调用
         private void myCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -87,25 +90,29 @@ namespace work.Pages
         }
 
         //获取所有历史记录
-        public async void getHistories(object sender, RoutedEventArgs e)
+        public async void getHistories()
         {
-            var history = await apiService.getHistories(App.user.id);
-            string str = "";
-            foreach (string item in history)
+            var historyList = await apiService.getHistories(App.user.id);
+         
+            foreach (History item in historyList)
             {
-                combine.HistoryViewModel.overallRecord.Add(item);
+                combine.HistoryViewModel.MoveRecords.Add(new MoveRecord { MoveString = item.content });
+             
+
             }
-            MessageBox.Show(str);
+
         }
 
 
         //插入历史记录
-        public async void insertHistory(object sender, RoutedEventArgs e)
+        public async void insertHistory()
         {
-            //把这个替换成要插入的历史记录就行了
-            string str = "1,";
-            var isSuccess = await apiService.insertHistory(new History(-1, str), App.user.id);
-            MessageBox.Show(isSuccess);
+            //把这个替换成要插入的历史记录就行了,需求参数为时间，对战类型，落子内容
+            string content = " "; //历史记录内容
+            string matchTime = " "; //历史记录时间
+            string matchType = " ";//历史记录类型
+            var isSuccess = await apiService.insertHistory(new History(-1, content,matchTime,matchType), App.user.id);
+          
         }
         //清空棋盘棋子
         public void ClearChessboard()
@@ -296,25 +303,10 @@ namespace work.Pages
             public void InitializeMoveRecords()
             {
                 // 初始化 MoveRecords 的逻辑
+                
                 MoveRecords.Add(new MoveRecord { MoveString = "505152" });
-                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
-                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
-                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
-                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
-                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
-                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
-                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
-                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
-                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
-                MoveRecords.Add(new MoveRecord { MoveString = "535455" });
-                MoveRecords.Add(new MoveRecord { MoveString = "564636261606" });
-                if (overallRecord != null)
-                {
-                    foreach (string move in overallRecord)
-                    {
-                        MoveRecords.Add(new MoveRecord { MoveString = move });
-                    }
-                }
+
+             
             }
             //清空棋盘操作
 
