@@ -105,7 +105,8 @@ namespace work.Pages
                 if (Board.IsWin(x, y, 1))
                 {
                //     Utils.end = true;
-                    Utils.showWinWindow();
+                 //   Utils.showWinWindow();
+					App.isWin = true;
                     Utils.showIsInsertHistoryWindow();
                     isAnimating = false;
                     Board.resetBoard("AI");
@@ -171,7 +172,8 @@ namespace work.Pages
 					{
 
                      //   Utils.end = true;
-                        Utils.showLoseWindow();
+                    //    Utils.showLoseWindow();
+                        App.isWin = false;
                         Utils.showIsInsertHistoryWindow();
                         isAnimating = false;
                         Board.resetBoard("AI");
@@ -212,8 +214,9 @@ namespace work.Pages
 
 					if (Board.IsWin(aiX, aiY, -1))
 					{
-                   //     Utils.end = true;
-                        Utils.showLoseWindow();
+                   //   Utils.end = true;
+                   //    Utils.showLoseWindow();
+                        App.isWin = false;
                         Utils.showIsInsertHistoryWindow();
                         isAnimating = false;
                         Board.resetBoard("AI");

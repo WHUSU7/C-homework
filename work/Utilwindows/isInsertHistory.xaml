@@ -5,56 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:work.Utilwindows"
         mc:Ignorable="d"
-        Title="isInsertHistory" Height="250" Width="400">
+        Title="是否保存历史记录" Height="500" Width="500" WindowStartupLocation="CenterScreen" Background="#f0f4f8" BorderBrush="#2c3e50" BorderThickness="2">
     <Window.Resources>
-        <BitmapImage x:Key="winningImage" UriSource="pack://application:,,,/Images/winningImage.png" />
-        <ImageBrush x:Key="winningImageBackground" ImageSource="{StaticResource winningImage}"/>
+        <ImageBrush x:Key="dynamicImageBrush" ImageSource="{Binding DynamicImageSource, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderBrush" Value="#34495e"/>
+            <Setter Property="BorderThickness" Value="2"/>
+          
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Foreground" Value="#34495e"/>
+        </Style>
     </Window.Resources>
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Canvas Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="{StaticResource winningImageBackground}">
-        </Canvas>
-        
-        <Grid Background="AliceBlue" Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="6" Grid.RowSpan="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+        <Canvas Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="4" Background="{StaticResource dynamicImageBrush}" Margin="10" />
 
-            </Grid.RowDefinitions>
-            <TextBlock x:Name="Title" Text="是否保存这场对战的历史记录？" FontSize="20" Grid.Row="0" Grid.ColumnSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-            <Button x:Name="easyBtn" Background="#C7EDCC" Content="是" Click="confirm" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" Margin="8" FontSize="20"></Button>
-            <Button x:Name="difficultBtn" Background="#FDE6E0" Content="否" Click="cancel" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" Margin="8" FontSize="20"></Button>
-
-        </Grid>
-
+        <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6" Grid.RowSpan="3" Margin="10" CornerRadius="15" Background="#e8f6f3" BorderBrush="#3498db" BorderThickness="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="Title" Text="是否保存这场对战的历史记录？" FontSize="22" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10" />
+                <Button x:Name="easyBtn" Background="#2ecc71" Content="是" Click="confirm" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="4" Margin="8" FontSize="20" Foreground="White" />
+                <Button x:Name="difficultBtn" Background="#e74c3c" Content="否" Click="cancel" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Margin="8" FontSize="20" Foreground="White" />
+            </Grid>
+        </Border>
     </Grid>
 </Window>

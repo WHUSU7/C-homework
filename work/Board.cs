@@ -508,7 +508,7 @@ namespace work
 			return null;
 		}
 		//MAX_DEPTH 搜索的最大深度，可调节难度，深度越大难度越大
-		public const int MAX_DEPTH = 5;
+		public const int MAX_DEPTH = 7;
 		private static int aiMove()
 		{
 			return miniMax(board, MAX_DEPTH, 0 - int.MaxValue, int.MaxValue, COMPUTER).Item2;

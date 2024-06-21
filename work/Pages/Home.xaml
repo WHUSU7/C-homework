@@ -139,7 +139,7 @@
 
                 <UniformGrid Grid.Row="1" Columns="3">
 
-                    <Border Margin="15" CornerRadius="5">
+                    <Border  Name="border1" Margin="15" CornerRadius="5" MouseEnter="InteractiveGrid_MouseEnter" MouseLeave="InteractiveGrid_MouseLeave">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
                                 <GradientStop Offset="0" Color="#FF8C69"/>
@@ -147,8 +147,7 @@
                             </LinearGradientBrush>
                         </Border.Background>
 
-                        <Grid Name="InteractiveGrid"
-              MouseEnter="InteractiveGrid_MouseEnter" MouseLeave="InteractiveGrid_MouseLeave">
+                        <Grid Name="InteractiveGrid">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*"/>
                                 <RowDefinition/>
@@ -168,26 +167,28 @@
                             </Canvas>
                             <Button Grid.Row="0" 
                                 Grid.RowSpan="2" Content="简单" Foreground="White" Name="Button1"
-                                Click="easyAi" Visibility="Collapsed" Background="Transparent"
+                                Click="easyAi" Visibility="Collapsed" Background="Transparent" FontSize="20" FontWeight="ExtraBold"
                                 Style="{StaticResource RoundedButtonStyle}"/>
 
                             <Button Grid.Row="2"
                                 Grid.RowSpan="2" Content="困难" Foreground="White" Name="Button2"
-                                Click="difficultAi" Visibility="Collapsed" Background="Transparent"
+                                Click="difficultAi" Visibility="Collapsed" Background="Transparent" FontSize="20" FontWeight="ExtraBold"
                                 Style="{StaticResource RoundedButtonStyle}"/>
-                        </Grid>
+                        
+            </Grid>
 
 
                     </Border>
 
-                    <Border Margin="15" CornerRadius="5">
+                    <Border Name="border2" Margin="15" CornerRadius="5" MouseEnter="Border_MouseEnter"
+                  MouseLeave="Border_MouseLeave">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
                                 <GradientStop Offset="0" Color="#FFD700"/>
                                 <GradientStop Offset="1" Color="#FFC100"/>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Grid>
+                        <Grid Name="Grid2">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*"/>
                                 <RowDefinition/>
@@ -205,18 +206,19 @@
                                 <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
                                 <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
                             </Canvas>
-                            <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Name="PeopleBtn" Click="jumpToPvp" Visibility="Visible" Style="{StaticResource RoundedButtonStyle}"/>
+                            <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Name="PvpBtn"  Click="jumpToPvp" Style="{StaticResource RoundedButtonStyle}"/>
                         </Grid>
                     </Border>
 
-                    <Border Margin="15" CornerRadius="5" >
+                    <Border Margin="15" Name="border3" CornerRadius="5" MouseEnter="Border_MouseEnter"
+                  MouseLeave="Border_MouseLeave">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
                                 <GradientStop Offset="0" Color="#00CED1"/>
                                 <GradientStop Offset="1" Color="#59E6B5"/>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <Grid>
+                        <Grid Name="Grid3">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*"/>
