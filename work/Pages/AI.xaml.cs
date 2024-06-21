@@ -88,7 +88,8 @@ namespace work.Pages
 			bool isClickValid = Utils.isClickValid(x, y, board);
 			if (isClickValid)
 			{
-				btn.Visibility = Visibility.Visible;
+                GameService.Instance.getPosition(x, y);
+                btn.Visibility = Visibility.Visible;
 				board[x, y] = 1;
 				Step.Add(new Tuple<int, int>(x,y));
 				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
@@ -107,6 +108,8 @@ namespace work.Pages
                //     Utils.end = true;
                  //   Utils.showWinWindow();
 					App.isWin = true;
+                    GameService.Instance.winOrfail(true);//传递胜负参数
+                    GameService.Instance.getCompeteType("人机对战");//传递对局类型参数
                     Utils.showIsInsertHistoryWindow();
                     isAnimating = false;
                     Board.resetBoard("AI");
@@ -155,11 +158,13 @@ namespace work.Pages
 			{
 				int aiX = aiMove.Item1;
 				int aiY = aiMove.Item2;
-				string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
+             
+                string aiTargetBtn = "Button" + aiX.ToString() + aiY.ToString();
 
 				Button aiBtn = (Button)FindName(aiTargetBtn);
 				if (aiBtn != null)
 				{
+                    GameService.Instance.getPosition(aiX, aiY);
                     Step.Add(new Tuple<int, int>(aiX, aiY));
                     aiBtn.Visibility = Visibility.Visible;
 					board[aiX, aiY] = -1;
@@ -174,6 +179,9 @@ namespace work.Pages
                      //   Utils.end = true;
                     //    Utils.showLoseWindow();
                         App.isWin = false;
+                        GameService.Instance.winOrfail(false);//传递胜负参数
+                        GameService.Instance.getCompeteType("人机对战");//传递对局类型参数
+                     //注意，这个GameService必须在showIsInsertHistoryWindow前面
                         Utils.showIsInsertHistoryWindow();
                         isAnimating = false;
                         Board.resetBoard("AI");
@@ -206,7 +214,8 @@ namespace work.Pages
 				Button aiBtn = (Button)FindName(aiTargetBtn);
 				if (aiBtn != null)
 				{
-					aiBtn.Visibility = Visibility.Visible;
+                    GameService.Instance.getPosition(aiX, aiY);
+                    aiBtn.Visibility = Visibility.Visible;
 					board[aiX, aiY] = -1;
 					aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
 					await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
@@ -217,6 +226,8 @@ namespace work.Pages
                    //   Utils.end = true;
                    //    Utils.showLoseWindow();
                         App.isWin = false;
+                        GameService.Instance.winOrfail(false);//传递胜负参数
+                        GameService.Instance.getCompeteType("人机对战");//传递对局类型参数
                         Utils.showIsInsertHistoryWindow();
                         isAnimating = false;
                         Board.resetBoard("AI");

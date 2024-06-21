@@ -317,6 +317,7 @@ namespace work.Pages
 
 			if (isClickValid)
 			{
+				
 				//历史记录获取坐标
 				//GameService.Instance.getPosition(x, y);
 

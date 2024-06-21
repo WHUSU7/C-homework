@@ -40,6 +40,7 @@ namespace work
 
 		public static void resetBoard(string target)
 		{
+			GameService.Instance.clearData();
 			for (int i = 0; i < board.GetLength(0); i++)
 			{
 				for (int j = 0; j < board.GetLength(1); j++)

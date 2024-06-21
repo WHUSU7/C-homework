@@ -21,6 +21,7 @@ using work;
 using System.Collections;
 using System.Windows.Media.Animation;
 using static work.mainpage;
+using System.Runtime.Remoting.Channels;
 
 namespace work.Pages
 {
@@ -42,7 +43,7 @@ namespace work.Pages
             combine.HistoryViewModel.ClearChessboardAction = ClearChessboard;
             this.DataContext = combine;
             this.Loaded  += HistoryPage_Loaded;
-          
+            App.HistoryPageInstance = this;
         }
         private void HistoryPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -93,7 +94,8 @@ namespace work.Pages
         public async void getHistories()
         {
             var historyList = await apiService.getHistories(App.user.id);
-         
+ 
+
             foreach (History item in historyList)
             {
                 combine.HistoryViewModel.MoveRecords.Add(new MoveRecord { MoveString = item.content });
@@ -104,16 +106,24 @@ namespace work.Pages
         }
 
 
+      
+
         //插入历史记录
-        public async void insertHistory()
+        public  async void insertHistory()
         {
+            // 获取当前时间
+            DateTime currentTime = DateTime.Now;
+         
             //把这个替换成要插入的历史记录就行了,需求参数为时间，对战类型，落子内容
-            string content = " "; //历史记录内容
-            string matchTime = " "; //历史记录时间
-            string matchType = " ";//历史记录类型
-            var isSuccess = await apiService.insertHistory(new History(-1, content,matchTime,matchType), App.user.id);
-          
+            string content = GameService.Instance.singleHistory; //历史记录内容
+            string matchTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"); //历史记录时间
+            string matchType = GameService.Instance.competeType;//历史记录类型
+            string isWin = Utils.judgeIsWin(GameService.Instance.singleHistory);
+            await apiService.insertHistory(new History(-1, content,matchTime,matchType,isWin), App.user.id);
+            //每次进入都要清空
+            GameService.Instance.clearData();
         }
+
         //清空棋盘棋子
         public void ClearChessboard()
         {
@@ -374,7 +384,8 @@ public class GameService
 {
     private static GameService _instance;
     public ObservableCollection<string> Result { get; } = new ObservableCollection<string>();
-
+    public string singleHistory = null;//单条历史记录信息(最后一位0/1表示胜负，其余每两位表示坐标)
+    public string competeType = null;//表示本局对局类型
     private GameService() { }
 
     public static GameService Instance
@@ -388,28 +399,39 @@ public class GameService
             return _instance;
         }
     }
-    int turn = 0;
-    public static string[] historyStep = new string[42];
 
     public void getPosition(int x, int y)
     {
-        // ... 你的逻辑 ...
-        historyStep[turn] = "{x},{y}";
-        turn++;
-        string moveDescription = (turn % 2 != 0)
-            ? $"白子落子位置为{x},{y}"
-            : $"黑子落子位置为{x},{y}";
-        Result.Add(moveDescription);
+       
+        singleHistory += x.ToString();
+        singleHistory += y.ToString();
+    }
+    public void winOrfail(bool flag)
+    {
+        if (flag)
+            singleHistory += '1';
+        else
+            singleHistory += '0';
+    }
+    public void getCompeteType(string type)
+    {
+        competeType = type;
+    }
+    public void clearData()
+    {
+        singleHistory = null;
+        competeType = null;
     }
 }
-
 
 //该类用于获取后台传来的历史记录arraylist并将其拆解为可用于布局的各个元素
 public class MoveRecord
 {
     public string MoveString { get; set; }
-
+    
+   
     // 属性Moves将使用全局方法SplitIntoPairs来获取拆解后的坐标数组
+
     public string[] Moves
     {
         get
@@ -418,14 +440,7 @@ public class MoveRecord
             return Utils.SplitStringIntoPairs(MoveString);
         }
     }
-    public MoveRecord()
-    {
-        MoveString = "";
-    }
-        
-        
 }
-
 
 
 

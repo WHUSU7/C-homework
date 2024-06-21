@@ -22,7 +22,9 @@ namespace work
         public static Home HomeInstance { get; set; }
         public static Local LocalInstance { get; set; }
 
-        public static User user = new User(1, "-1", "-1", "-1");
+        public static HistoryPage HistoryPageInstance { get; set; }
+
+        public static User user = new User(1, "atb", "-1", "-1");
 
         public static Msg AppMsg = new Msg("empty", "0", "0", true);
 
@@ -36,6 +38,7 @@ namespace work
         public static Models.mainWindowPositon AppMainWindowPosition = new Models.mainWindowPositon(1,1,1,1);
 
         public static string TemphistoryFromMain = "";
+
         public static bool isWin;
 	}
 }

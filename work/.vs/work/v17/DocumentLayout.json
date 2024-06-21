@@ -3,28 +3,70 @@
   "WorkspaceRootPath": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\home.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\websocketpvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\websocketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\websocketpvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\set.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\home.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\historypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\ai.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\models\\profilepicturepath.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\set.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\models\\mainwindowpositon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\models\\canvasshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\isinserthistory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\models\\history.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -33,19 +75,10 @@
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\animationutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\set.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\showlose.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\showwin.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\showlose.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
@@ -57,9 +90,6 @@
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\models\\mainwindowpositon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\models\\msg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -67,15 +97,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\images\\winningimage.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\isinserthistory.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\ai.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\utilwindows\\isinserthistory.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\ai.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
@@ -90,40 +111,16 @@
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\images\\oip-c1.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\pages\\websocketpvp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\mac\\home\\downloads\\c-homework\\work\\websocketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\websocketpvp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\local.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\local.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\set.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\pages\\historypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\models\\canvasshape.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4DBDD1D2-6592-4026-A5FA-66AD752C07C5}|work.csproj|\\\\Mac\\Home\\Downloads\\C-homework\\work\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ctmik\\C-homework\\work\\obj\\Debug\\Pages\\Home.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -148,7 +145,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -156,13 +153,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "HistoryPage.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
               "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml.cs",
               "RelativeToolTip": "Pages\\HistoryPage.xaml.cs",
-              "ViewState": "AQIAABgBAAAAAAAAAIAjwPgAAAAtAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAEA6wDEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-26T17:12:29.052Z",
               "EditorCaption": ""
@@ -170,6 +167,70 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "AI.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\AI.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml.cs",
+              "RelativeToolTip": "Pages\\AI.xaml.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAEAxwGAAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:21:30.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebsocketPvp.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\WebsocketPvp.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml.cs",
+              "RelativeToolTip": "Pages\\WebsocketPvp.xaml.cs",
+              "ViewState": "AQIAAJIAAAAAAAAAAIAzwJwAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T12:07:38.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WebsocketPvp.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml",
+              "RelativeDocumentMoniker": "Pages\\WebsocketPvp.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml",
+              "RelativeToolTip": "Pages\\WebsocketPvp.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-03T12:07:20.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "APIService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\APIService.cs",
+              "RelativeDocumentMoniker": "APIService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\APIService.cs",
+              "RelativeToolTip": "APIService.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAIA+wBgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T12:08:40.03Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WebsocketService.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\WebsocketService.cs",
+              "RelativeDocumentMoniker": "WebsocketService.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\WebsocketService.cs",
+              "RelativeToolTip": "WebsocketService.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAvwEYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T12:03:44.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "App.config",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.config",
               "RelativeDocumentMoniker": "App.config",
@@ -182,58 +243,297 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AnimationUtils.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\AnimationUtils.cs",
-              "RelativeDocumentMoniker": "AnimationUtils.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\AnimationUtils.cs",
-              "RelativeToolTip": "AnimationUtils.cs",
-              "ViewState": "AQIAAPgAAAAAAAAAAAAAAA0BAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T15:41:13.451Z",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-26T15:57:28.097Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Msg.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Msg.cs",
-              "RelativeDocumentMoniker": "Models\\Msg.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Msg.cs",
-              "RelativeToolTip": "Models\\Msg.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAMA7wBQAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:07:54.993Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "User.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:07:57.675Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml.cs",
               "RelativeDocumentMoniker": "App.xaml.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml.cs",
               "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAhwBgAAAAsAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAACBCwBMAAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-26T16:00:00.897Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
+              "Title": "Set.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml",
+              "RelativeDocumentMoniker": "Pages\\Set.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml",
+              "RelativeToolTip": "Pages\\Set.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-28T15:29:04.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Set.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\Set.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml.cs",
+              "RelativeToolTip": "Pages\\Set.xaml.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAbwD8AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T16:11:42.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Home.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Home.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\Home.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Home.xaml.cs",
+              "RelativeToolTip": "Pages\\Home.xaml.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAIA7wEAAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T06:03:10.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "mainWindowPositon.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\mainWindowPositon.cs",
+              "RelativeDocumentMoniker": "Models\\mainWindowPositon.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\mainWindowPositon.cs",
+              "RelativeToolTip": "Models\\mainWindowPositon.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAwBMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T02:33:51.019Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CanvasShape.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\CanvasShape.cs",
+              "RelativeDocumentMoniker": "Models\\CanvasShape.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\CanvasShape.cs",
+              "RelativeToolTip": "Models\\CanvasShape.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T16:07:59.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProfilePicturePath.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\ProfilePicturePath.cs",
+              "RelativeDocumentMoniker": "Models\\ProfilePicturePath.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\ProfilePicturePath.cs",
+              "RelativeToolTip": "Models\\ProfilePicturePath.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIA0wA0AAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-21T08:12:18.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "mainpage.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainpage.xaml",
+              "RelativeDocumentMoniker": "mainpage.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainpage.xaml",
+              "RelativeToolTip": "mainpage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-26T16:26:38.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "winningImage.png",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\winningImage.png",
+              "RelativeDocumentMoniker": "Images\\winningImage.png",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\winningImage.png",
+              "RelativeToolTip": "Images\\winningImage.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-18T02:31:09.026Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "showWin.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml.cs",
+              "RelativeDocumentMoniker": "Utilwindows\\showWin.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml.cs",
+              "RelativeToolTip": "Utilwindows\\showWin.xaml.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAIA2wB0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:45:59.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "showLose.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showLose.xaml",
+              "RelativeDocumentMoniker": "Utilwindows\\showLose.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showLose.xaml",
+              "RelativeToolTip": "Utilwindows\\showLose.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-18T03:03:40.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "showWin.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml",
+              "RelativeDocumentMoniker": "Utilwindows\\showWin.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml",
+              "RelativeToolTip": "Utilwindows\\showWin.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-06-18T01:45:46.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HistoryPage.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml",
+              "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml",
+              "RelativeToolTip": "Pages\\HistoryPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-26T15:58:15.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "History.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\History.cs",
+              "RelativeDocumentMoniker": "Models\\History.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\History.cs",
+              "RelativeToolTip": "Models\\History.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAIwBEAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T16:07:49.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Utils.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utils.cs",
+              "RelativeDocumentMoniker": "Utils.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utils.cs",
+              "RelativeToolTip": "Utils.cs",
+              "ViewState": "AQIAAJgAAAAAAAAAAIAywKQAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T12:00:52.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "isInsertHistory.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\isInsertHistory.xaml.cs",
+              "RelativeDocumentMoniker": "Utilwindows\\isInsertHistory.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\isInsertHistory.xaml.cs",
+              "RelativeToolTip": "Utilwindows\\isInsertHistory.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADYAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T01:42:49.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Group.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Group.cs",
+              "RelativeDocumentMoniker": "Models\\Group.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Group.cs",
+              "RelativeToolTip": "Models\\Group.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T12:10:17.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Local.xaml.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Local.xaml.cs",
+              "RelativeDocumentMoniker": "Pages\\Local.xaml.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Local.xaml.cs",
+              "RelativeToolTip": "Pages\\Local.xaml.cs",
+              "ViewState": "AQIAAGwAAAAAAAAAAIAvwHcAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:53:00.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "chessBoard.png",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\chessBoard.png",
+              "RelativeDocumentMoniker": "Images\\chessBoard.png",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\chessBoard.png",
+              "RelativeToolTip": "Images\\chessBoard.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-18T01:49:12.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "user.png",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\user.png",
+              "RelativeDocumentMoniker": "Images\\user.png",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\user.png",
+              "RelativeToolTip": "Images\\user.png",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-18T01:49:10.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "OIP-C1.jpg",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\OIP-C1.jpg",
+              "RelativeDocumentMoniker": "Images\\OIP-C1.jpg",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\OIP-C1.jpg",
+              "RelativeToolTip": "Images\\OIP-C1.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-06-18T01:49:08.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Board.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Board.cs",
+              "RelativeDocumentMoniker": "Board.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Board.cs",
+              "RelativeToolTip": "Board.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAEA6wCsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:00:10.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-05-26T15:56:22.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
@@ -246,175 +546,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Home.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Home.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\Home.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Home.xaml.cs",
-              "RelativeToolTip": "Pages\\Home.xaml.cs",
-              "ViewState": "AQIAAIQAAAAAAAAAAIAswC0AAAADAAAA",
+              "DocumentIndex": 29,
+              "Title": "Msg.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Msg.cs",
+              "RelativeDocumentMoniker": "Models\\Msg.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Msg.cs",
+              "RelativeToolTip": "Models\\Msg.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAMA7wBQAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T06:03:10.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-28T16:07:54.993Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-26T15:56:22.257Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Home.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Home.xaml",
-              "RelativeDocumentMoniker": "Pages\\Home.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Home.xaml",
-              "RelativeToolTip": "Pages\\Home.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-27T05:58:57.803Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "APIService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\APIService.cs",
-              "RelativeDocumentMoniker": "APIService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\APIService.cs",
-              "RelativeToolTip": "APIService.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAkwEYAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:08:40.03Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "mainpage.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainpage.xaml",
-              "RelativeDocumentMoniker": "mainpage.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\mainpage.xaml",
-              "RelativeToolTip": "mainpage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-26T16:26:38.391Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "showLose.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showLose.xaml",
-              "RelativeDocumentMoniker": "Utilwindows\\showLose.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showLose.xaml",
-              "RelativeToolTip": "Utilwindows\\showLose.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-18T03:03:40.768Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "showWin.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml",
-              "RelativeDocumentMoniker": "Utilwindows\\showWin.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml",
-              "RelativeToolTip": "Utilwindows\\showWin.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-18T01:45:46.644Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "winningImage.png",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\winningImage.png",
-              "RelativeDocumentMoniker": "Images\\winningImage.png",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\winningImage.png",
-              "RelativeToolTip": "Images\\winningImage.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-06-18T02:31:09.026Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "mainWindowPositon.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\mainWindowPositon.cs",
-              "RelativeDocumentMoniker": "Models\\mainWindowPositon.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\mainWindowPositon.cs",
-              "RelativeToolTip": "Models\\mainWindowPositon.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAwBMAAAAvAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T02:33:51.019Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "History.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\History.cs",
-              "RelativeDocumentMoniker": "Models\\History.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\History.cs",
-              "RelativeToolTip": "Models\\History.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAIAvwBIAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:07:49.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Set.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\Set.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml.cs",
-              "RelativeToolTip": "Pages\\Set.xaml.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAD4v08AAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:11:42.059Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "showWin.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml.cs",
-              "RelativeDocumentMoniker": "Utilwindows\\showWin.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showWin.xaml.cs",
-              "RelativeToolTip": "Utilwindows\\showWin.xaml.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAIA2wB0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T01:45:59.659Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Group.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Group.cs",
-              "RelativeDocumentMoniker": "Models\\Group.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\Group.cs",
-              "RelativeToolTip": "Models\\Group.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvxIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:10:17.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Utils.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utils.cs",
-              "RelativeDocumentMoniker": "Utils.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utils.cs",
-              "RelativeToolTip": "Utils.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAtwHQAAACbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:00:52.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "showLose.xaml.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\showLose.xaml.cs",
               "RelativeDocumentMoniker": "Utilwindows\\showLose.xaml.cs",
@@ -426,31 +570,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "isInsertHistory.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\isInsertHistory.xaml.cs",
-              "RelativeDocumentMoniker": "Utilwindows\\isInsertHistory.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\isInsertHistory.xaml.cs",
-              "RelativeToolTip": "Utilwindows\\isInsertHistory.xaml.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAMA7wBwAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-18T01:42:49.521Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AI.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\AI.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml.cs",
-              "RelativeToolTip": "Pages\\AI.xaml.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAA9wFwAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T16:21:30.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 32,
               "Title": "AI.xaml",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\AI.xaml",
               "RelativeDocumentMoniker": "Pages\\AI.xaml",
@@ -461,145 +581,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "WebsocketPvp.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\WebsocketPvp.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml.cs",
-              "RelativeToolTip": "Pages\\WebsocketPvp.xaml.cs",
-              "ViewState": "AQIAAOQAAAAAAAAAAAAAwO8AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:07:38.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "WebsocketService.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\WebsocketService.cs",
-              "RelativeDocumentMoniker": "WebsocketService.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\WebsocketService.cs",
-              "RelativeToolTip": "WebsocketService.cs",
-              "ViewState": "AQIAAHsAAAAAAAAAAIAiwIMAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T12:03:44.088Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "HistoryPage.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml",
-              "RelativeDocumentMoniker": "Pages\\HistoryPage.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\HistoryPage.xaml",
-              "RelativeToolTip": "Pages\\HistoryPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-26T15:58:15.098Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 22,
-              "Title": "isInsertHistory.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\isInsertHistory.xaml",
-              "RelativeDocumentMoniker": "Utilwindows\\isInsertHistory.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Utilwindows\\isInsertHistory.xaml",
-              "RelativeToolTip": "Utilwindows\\isInsertHistory.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-18T01:47:26.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "chessBoard.png",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\chessBoard.png",
-              "RelativeDocumentMoniker": "Images\\chessBoard.png",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\chessBoard.png",
-              "RelativeToolTip": "Images\\chessBoard.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-06-18T01:49:12.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "user.png",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\user.png",
-              "RelativeDocumentMoniker": "Images\\user.png",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\user.png",
-              "RelativeToolTip": "Images\\user.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-06-18T01:49:10.924Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "OIP-C1.jpg",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\OIP-C1.jpg",
-              "RelativeDocumentMoniker": "Images\\OIP-C1.jpg",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Images\\OIP-C1.jpg",
-              "RelativeToolTip": "Images\\OIP-C1.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2024-06-18T01:49:08.154Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Local.xaml.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Local.xaml.cs",
-              "RelativeDocumentMoniker": "Pages\\Local.xaml.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Local.xaml.cs",
-              "RelativeToolTip": "Pages\\Local.xaml.cs",
-              "ViewState": "AQIAAGwAAAAAAAAAAIAvwHcAAAATAAAA",
+              "Title": "User.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T16:53:00.95Z"
+              "WhenOpened": "2024-05-28T16:07:57.675Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "WebsocketPvp.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml",
-              "RelativeDocumentMoniker": "Pages\\WebsocketPvp.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\WebsocketPvp.xaml",
-              "RelativeToolTip": "Pages\\WebsocketPvp.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-06-03T12:07:20.073Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Set.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml",
-              "RelativeDocumentMoniker": "Pages\\Set.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Set.xaml",
-              "RelativeToolTip": "Pages\\Set.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-28T15:29:04.432Z"
+              "DocumentIndex": 23,
+              "Title": "AnimationUtils.cs",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\AnimationUtils.cs",
+              "RelativeDocumentMoniker": "AnimationUtils.cs",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\AnimationUtils.cs",
+              "RelativeToolTip": "AnimationUtils.cs",
+              "ViewState": "AQIAAPgAAAAAAAAAAAAAAA0BAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T15:41:13.451Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 37,
-              "Title": "CanvasShape.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\CanvasShape.cs",
-              "RelativeDocumentMoniker": "Models\\CanvasShape.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Models\\CanvasShape.cs",
-              "RelativeToolTip": "Models\\CanvasShape.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:07:59.047Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Board.cs",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Board.cs",
-              "RelativeDocumentMoniker": "Board.cs",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Board.cs",
-              "RelativeToolTip": "Board.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAD0v0oAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T16:00:10.907Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
               "Title": "Local.xaml",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\Pages\\Local.xaml",
               "RelativeDocumentMoniker": "Pages\\Local.xaml",
@@ -610,19 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "App.xaml",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-05-26T15:57:28.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "PVP.xaml.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\Desktop\\work\\Pages\\PVP.xaml.cs",
               "ToolTip": "C:\\Users\\ctmik\\Desktop\\work\\Pages\\PVP.xaml.cs",
@@ -656,7 +650,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "PVP.xaml",
               "DocumentMoniker": "C:\\Users\\ctmik\\Desktop\\work\\Pages\\PVP.xaml",
               "ToolTip": "C:\\Users\\ctmik\\Desktop\\work\\Pages\\PVP.xaml",
@@ -665,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "Home.g.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\C-homework\\work\\obj\\Debug\\Pages\\Home.g.cs",
               "ToolTip": "C:\\Users\\ctmik\\C-homework\\work\\obj\\Debug\\Pages\\Home.g.cs",
@@ -675,7 +669,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "MainWindow.g.i.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\C-homework\\work\\obj\\Debug\\MainWindow.g.i.cs",
               "RelativeDocumentMoniker": "obj\\Debug\\MainWindow.g.i.cs",
@@ -687,7 +681,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "WpfXamlLoader.cs",
               "DocumentMoniker": "C:\\Users\\ctmik\\AppData\\Local\\Temp\\.vsdbgsrc\\c6a5a7f5f1f891b96e7ce20decdfb3b83d9ea38a008c3e03a9a2dc211cf459f6\\WpfXamlLoader.cs",
               "ToolTip": "C:\\Users\\ctmik\\AppData\\Local\\Temp\\.vsdbgsrc\\c6a5a7f5f1f891b96e7ce20decdfb3b83d9ea38a008c3e03a9a2dc211cf459f6\\WpfXamlLoader.cs",

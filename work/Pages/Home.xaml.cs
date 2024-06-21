@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace work.Pages
     public partial class Home : Page
     {
         public HistoryPage HistoryPage { get; set; }
+
+        private APIService apiService = new APIService();
         public Home()
         {
             App.HomeInstance = this;
@@ -31,7 +34,7 @@ namespace work.Pages
             LoadLastImage();
             HistoryPage = new HistoryPage();
             this.DataContext = HistoryPage.combine;
-
+            this.Loaded += Home_Loaded;
         }
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
@@ -40,6 +43,32 @@ namespace work.Pages
 
 
         }
+        //每次进入home都获取修改的头像信息
+        private async void Home_Loaded(object sender, RoutedEventArgs e)
+        {
+           
+
+            // 获取用户选择的文件路径
+            string selectedFileName = await apiService.getProfilePicture();
+            Console.WriteLine("selectedFileName:"+selectedFileName);
+            if (selectedFileName != "empty")
+            {
+                // 创建新的位图图像
+                BitmapImage bitmap = new BitmapImage();
+             
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(selectedFileName);
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.EndInit();
+              
+             
+                  var imageControl = App.HomeInstance.FindName("UserImageBrush") as Image;
+                // 将位图图像设置为 Ellipse 的填充
+                imageControl.Source = bitmap;
+                
+            }
+        }
+       
         private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
             if (sender is Border border)

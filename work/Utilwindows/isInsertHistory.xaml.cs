@@ -47,12 +47,12 @@ namespace work.Utilwindows
             DynamicImageSource = new BitmapImage(new Uri(imageUri));
             this.Show();
         }
+
         //confirm
         public void confirm(object sender, RoutedEventArgs e)
 		{
-			//调用APIService的insert函数来保存历史记录
-			//是在这个window传还是点击确定后传一个确认信号等wzz完成后决定
-
+			App.HistoryPageInstance.insertHistory();
+		
 			this.Close();
 		}
 		//cancel
