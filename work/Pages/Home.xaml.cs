@@ -40,10 +40,32 @@ namespace work.Pages
 
 
         }
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Border border)
+            {
+
+                border.Effect = mainpage.window.shadowEffect;
+
+            }
+        }
+
+        private void Border_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Border border)
+            {
+
+                border.Effect = null;
+
+            }
+
+        }
 
         //模糊效果
         private void InteractiveGrid_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
+
+            border1.Effect = mainpage.window.shadowEffect;
             Button1.Visibility = Visibility.Visible;
             Button2.Visibility = Visibility.Visible;
             ApplyBlurEffect(InteractiveGrid, true);
@@ -51,6 +73,7 @@ namespace work.Pages
 
         private void InteractiveGrid_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
+            border1.Effect = null;
             Button1.Visibility = Visibility.Collapsed;
             Button2.Visibility = Visibility.Collapsed;
             ApplyBlurEffect(InteractiveGrid, false);

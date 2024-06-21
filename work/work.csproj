@@ -198,5 +198,11 @@
   <ItemGroup>
     <Resource Include="Images\WHU.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WIN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LOSS.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

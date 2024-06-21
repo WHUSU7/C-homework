@@ -36,5 +36,6 @@ namespace work
         public static Models.mainWindowPositon AppMainWindowPosition = new Models.mainWindowPositon(1,1,1,1);
 
         public static string TemphistoryFromMain = "";
+        public static bool isWin;
 	}
 }
