@@ -67,7 +67,7 @@ namespace work
            
 			foreach (JObject item in jsonObject)
 			{
-				History history = new History((int)item["id"], item["content"].ToString(), item["matchTime"].ToString(), item["matchType"].ToString());
+				History history = new History((int)item["id"], item["content"].ToString(), item["matchTime"].ToString(), item["matchType"].ToString(), item["isWin"].ToString());
 				historyArray.Add(history);
             
 			}
@@ -156,109 +156,144 @@ namespace work
 			return -2;
 		}
 
+        //获取头像路径（get）
+        public async Task<string> getProfilePicture()
+        {
 
-		//发送消息
-		//turn是开始对局的时候返回的数，作为双方身份的唯一标识
-		//public async Task<string> clientSendMsg(Msg msg, int userid)
-		//{
-		//	var json = JsonConvert.SerializeObject(msg);
-		//	var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-		//	var response = await client.PostAsync($"{userid}/clientSendMsg", content);
-		//	if (response.IsSuccessStatusCode)
-		//	{
-		//		string res = await response.Content.ReadAsStringAsync();
-		//		var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
-		//		string isSuccess = jsonObject["isSuccess"].ToString();
-		//		return isSuccess;
+            var response = await client.GetAsync($"{App.user.id}/getProfilePicture");
+           
+            string json = await response.Content.ReadAsStringAsync();
+           
+            var jsonObject = JsonConvert.DeserializeObject<JObject>(json);
+            string profilePicturePath = jsonObject["profilePicture"].ToString();
 
-		//	}
-		//	return "";
-		//}
-		//接收消息
-		//public async void clientGetMsg(int userid)
-		//{
+            return profilePicturePath;
 
-		//	var response = await client.GetAsync($"{userid}/clientGetMsg");
-		//	if (response.IsSuccessStatusCode)
-		//	{
-		//		string res = await response.Content.ReadAsStringAsync();
+        }
 
-		//		var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
-		//		string msg = jsonObject["msg"].ToString();
-		//		string turn = jsonObject["turn"].ToString();
+		//修改头像路径
+		public async Task<string> updateProfilePicture(string newPath) {
+			ProfilePicturePath profilePicturePath = new ProfilePicturePath(newPath);
+            var json = JsonConvert.SerializeObject(profilePicturePath);
 
-		//		App.AppMsg.msg = msg;
-		//		App.AppMsg.turn = turn;
-		//		//执行同步（按钮显示等）
-		//		int x = (int)msg[0] - '0';
-		//		int y = (int)msg[1] - '0';
+            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
-		//		Button btn = (Button)App.WebsocketPVPInstance.FindName("Button" + msg);
+          var response = await client.PostAsync($"{App.user.id}/updateProfilePicture", content);
 
-				//历史记录获取坐标
-				//GameService.Instance.getPosition(x, y);
+            string res = await response.Content.ReadAsStringAsync();
+          
+		
 
-				//btn.Visibility = Visibility.Visible;
-				//if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
+            var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
 
-				// AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
+            string isSuccess = jsonObject["isSuccess"].ToString();
 
-				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-				//if (App.AppMsg.turn == "1")
-				//{
-				//	BitmapImage bitmap = new BitmapImage();
-				//	bitmap.BeginInit();
-				//	bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
-				//	// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
-				//	bitmap.EndInit();
-					// 创建 ImageBrush 并设置其 ImageSource
-				//	ImageBrush imageBrush = new ImageBrush();
-				//	imageBrush.ImageSource = bitmap;
-				//	btn.Background = imageBrush;
-				//}
-				//else
-				//{
-				//	btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+			return isSuccess; 
+        }
 
-				//}
 
-				//同步完成后把turn取反
-		//		if (App.AppMsg.turn == "1")
-		//		{
-		//			App.AppMsg.turn = "-1";
-		//		}
-		//		else
-		//		{
-		//			App.AppMsg.turn = "1";
-		//		}
+        //发送消息
+        //turn是开始对局的时候返回的数，作为双方身份的唯一标识
+        //public async Task<string> clientSendMsg(Msg msg, int userid)
+        //{
+        //	var json = JsonConvert.SerializeObject(msg);
+        //	var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+        //	var response = await client.PostAsync($"{userid}/clientSendMsg", content);
+        //	if (response.IsSuccessStatusCode)
+        //	{
+        //		string res = await response.Content.ReadAsStringAsync();
+        //		var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+        //		string isSuccess = jsonObject["isSuccess"].ToString();
+        //		return isSuccess;
 
-		//		clientGetMsg(userid);
-		//	}
-		//	else if ((int)response.StatusCode == 400)
-		//	{
+        //	}
+        //	return "";
+        //}
+        //接收消息
+        //public async void clientGetMsg(int userid)
+        //{
 
-		//		clientGetMsg(userid);
-		//	}
+        //	var response = await client.GetAsync($"{userid}/clientGetMsg");
+        //	if (response.IsSuccessStatusCode)
+        //	{
+        //		string res = await response.Content.ReadAsStringAsync();
 
-		//}
-		//开始pvp
-		//public async Task<string> createPvp(int userid)
-		//{
+        //		var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+        //		string msg = jsonObject["msg"].ToString();
+        //		string turn = jsonObject["turn"].ToString();
 
-		//	var response = await client.GetAsync($"{userid}/createPvp");
-		//	if (response.IsSuccessStatusCode)
-		//	{
-		//		string res = await response.Content.ReadAsStringAsync();
-				// var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
-				// string turn = jsonObject["turn"].ToString();
-			//	App.AppMsg.turn = res;
+        //		App.AppMsg.msg = msg;
+        //		App.AppMsg.turn = turn;
+        //		//执行同步（按钮显示等）
+        //		int x = (int)msg[0] - '0';
+        //		int y = (int)msg[1] - '0';
 
-			//	return res;
+        //		Button btn = (Button)App.WebsocketPVPInstance.FindName("Button" + msg);
 
-			//}
-			//return "";
+        //历史记录获取坐标
+        //GameService.Instance.getPosition(x, y);
 
-		//}
+        //btn.Visibility = Visibility.Visible;
+        //if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
 
-	}
+        // AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
+
+        //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
+        //if (App.AppMsg.turn == "1")
+        //{
+        //	BitmapImage bitmap = new BitmapImage();
+        //	bitmap.BeginInit();
+        //	bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+        //	// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+        //	bitmap.EndInit();
+        // 创建 ImageBrush 并设置其 ImageSource
+        //	ImageBrush imageBrush = new ImageBrush();
+        //	imageBrush.ImageSource = bitmap;
+        //	btn.Background = imageBrush;
+        //}
+        //else
+        //{
+        //	btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+
+        //}
+
+        //同步完成后把turn取反
+        //		if (App.AppMsg.turn == "1")
+        //		{
+        //			App.AppMsg.turn = "-1";
+        //		}
+        //		else
+        //		{
+        //			App.AppMsg.turn = "1";
+        //		}
+
+        //		clientGetMsg(userid);
+        //	}
+        //	else if ((int)response.StatusCode == 400)
+        //	{
+
+        //		clientGetMsg(userid);
+        //	}
+
+        //}
+        //开始pvp
+        //public async Task<string> createPvp(int userid)
+        //{
+
+        //	var response = await client.GetAsync($"{userid}/createPvp");
+        //	if (response.IsSuccessStatusCode)
+        //	{
+        //		string res = await response.Content.ReadAsStringAsync();
+        // var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+        // string turn = jsonObject["turn"].ToString();
+        //	App.AppMsg.turn = res;
+
+        //	return res;
+
+        //}
+        //return "";
+
+        //}
+
+    }
 }

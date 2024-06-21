@@ -61,14 +61,14 @@ namespace work
 					{
 						if (res == "1")
 						{
-							TextBlock tb = (TextBlock)App.WebsocketPVPInstance.FindName("left");
-							tb.Text = "1,first";
+							TextBlock tb = (TextBlock)App.WebsocketPVPInstance.FindName("leftUserName");
+							tb.Text = App.user.name;
 							App.AppMsg.turn = "1";
 						}
 						else
 						{
-							TextBlock tb = (TextBlock)App.WebsocketPVPInstance.FindName("right");
-							tb.Text = "-1,second";
+							TextBlock tb = (TextBlock)App.WebsocketPVPInstance.FindName("rightUserName");
+							tb.Text = App.user.name;
 							App.AppMsg.turn = "-1";
 						}
 					}
@@ -89,7 +89,7 @@ namespace work
 						Button btn = (Button)App.WebsocketPVPInstance.FindName("Button" + position);
 
 						//历史记录获取坐标
-						//GameService.Instance.getPosition(x, y);
+						GameService.Instance.getPosition(x, y);
 
 						btn.Visibility = Visibility.Visible;
 						if (Turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
@@ -120,12 +120,16 @@ namespace work
 							if (App.isPvpWin)
 							{
 								MessageBox.Show("YOU Win!");
-								Utils.showIsInsertHistoryWindow();
+                                GameService.Instance.winOrfail(true);//传递胜负参数
+                                GameService.Instance.getCompeteType("人人对战");//传递对局类型参数
+                                Utils.showIsInsertHistoryWindow();
 							}
 							else
 							{
 								MessageBox.Show("YOU Lose!");
-								Utils.showIsInsertHistoryWindow();
+                                GameService.Instance.winOrfail(false);//传递胜负参数
+                                GameService.Instance.getCompeteType("人人对战");//传递对局类型参数
+                                Utils.showIsInsertHistoryWindow();
 							}
 
 						}

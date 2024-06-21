@@ -191,7 +191,7 @@
                 </Ellipse>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom">
-                <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" Text="超级无敌暴龙战士" FontSize="20" Foreground="White"/>
+                <TextBlock x:Name="leftUserName"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="超级无敌暴龙战士" FontSize="20" Foreground="White"/>
             </Viewbox>
         </Grid>
 
@@ -213,7 +213,7 @@
                 </Ellipse>
             </Viewbox>
             <Viewbox Stretch="Uniform" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
-                <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center" Text="超级无敌暴龙战士" FontSize="20" Foreground="White"/>
+                <TextBlock  x:Name="rightUserName" HorizontalAlignment="Center" VerticalAlignment="Center" Text="超级无敌暴龙战士" FontSize="20" Foreground="White"/>
             </Viewbox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="4" Grid.RowSpan="3" Grid.ColumnSpan="2">

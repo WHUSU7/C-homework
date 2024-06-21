@@ -88,6 +88,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+              
             </Grid.ColumnDefinitions>
 
             <!-- 第一个按钮 -->
@@ -96,6 +97,7 @@
             <Button Grid.Column="1" Name="next" Content="下一步" Click="nextButton" Style="{StaticResource ctrlButton}"/>
             <!-- 第三个按钮 -->
             <Button Grid.Column="2" Name="last" Content="上一步" Click="lastButton" Style="{StaticResource ctrlButton}"/>
+           
         </Grid>
         <Grid Grid.Row="1" >
             <Grid.ColumnDefinitions>

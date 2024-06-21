@@ -69,6 +69,7 @@
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\mainWindowPositon.cs" />
     <Compile Include="Models\Msg.cs" />
+    <Compile Include="Models\ProfilePicturePath.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AI.xaml.cs">
       <DependentUpon>AI.xaml</DependentUpon>

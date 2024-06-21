@@ -23,6 +23,7 @@ namespace work.Pages
 	/// </summary>
 	public partial class Set : Page
 	{
+        private APIService apiService = new APIService();
 		public Set()
 		{
 			InitializeComponent();
@@ -38,7 +39,7 @@ namespace work.Pages
 
 		}
 
-		private void resetHeadImage(object sender, RoutedEventArgs e)
+		private async void resetHeadImage(object sender, RoutedEventArgs e)
 		{
             // 创建文件选择对话框
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -49,20 +50,21 @@ namespace work.Pages
             {
                 // 获取用户选择的文件路径
                 string selectedFileName = openFileDialog.FileName;
+             
+                //// 创建新的位图图像
+                //BitmapImage bitmap = new BitmapImage();
+                //bitmap.BeginInit();
+                //bitmap.UriSource = new Uri(selectedFileName);
+                //bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                //bitmap.EndInit();
+                //ImageBrush image = (ImageBrush)App.HomeInstance.FindName("UserImageBrush");
+                //// 将位图图像设置为 Ellipse 的填充
+                //image.ImageSource = bitmap;
 
-                // 创建新的位图图像
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(selectedFileName);
-                bitmap.CacheOption = BitmapCacheOption.OnLoad;
-                bitmap.EndInit();
-                ImageBrush image = (ImageBrush)App.HomeInstance.FindName("UserImageBrush");
-                // 将位图图像设置为 Ellipse 的填充
-                image.ImageSource = bitmap;
-       
                 // 保存图片到/bin/Image下
                 string savedFilePath = SaveImageToDirectory(selectedFileName);
-
+                //保存图片到数据库
+               await  apiService.updateProfilePicture(selectedFileName);
                 // 保存图片路径到/bin/Settings/config.txt
                 SaveImagePathToConfig(savedFilePath);
             }
