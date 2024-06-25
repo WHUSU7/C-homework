@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using work.Utilwindows;
 using static work.MainWindow;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace work
 {
@@ -166,6 +167,9 @@ namespace work
                     return "胜利";
 
     }
+
+      
+
 
 
 

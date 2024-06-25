@@ -32,8 +32,14 @@ namespace work.Pages
 			mdm = new MainDataModel();
 			this.DataContext = mdm;
 			App.LocalInstance = this;
-
+            this.Loaded += Local_Loaded;
         }
+
+        public void Local_Loaded(object sender, RoutedEventArgs e) {
+            TextBlock userText = (TextBlock)this.FindName("userText");
+            userText.Text = App.user.name;
+        }
+
         //悔棋
         public void regret(object sender, RoutedEventArgs e)
         {

@@ -51,7 +51,7 @@ namespace work.Pages
 		}
 		private void resetName(object sender, RoutedEventArgs e)
 		{
-
+            Utils.showWinWindow();
 		}
 
 		private void resetBackground(object sender, RoutedEventArgs e)

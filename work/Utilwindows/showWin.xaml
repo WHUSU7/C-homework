@@ -20,14 +20,14 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+           
+           
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Canvas Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" Background="{StaticResource winningImageBackground}">
-         
-        </Canvas>
+        <TextBlock Text="新用户名:" FontSize="35" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <TextBox Margin="30"   Width="400" Name="nameInput"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"/>
+      
         <Button x:Name="confirmBtn" Background="#C7EDCC" Content="确认" FontSize="35" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" Click="confirm"> </Button>
     </Grid>
 </Window>

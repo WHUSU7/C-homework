@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\ly\Desktop\work\obj\Debug\
+\\Mac\Home\Downloads\C-homework\work\obj\Debug\
 work
 none
 false
 DEBUG;TRACE
-C:\Users\ly\Desktop\work\App.xaml
+\\Mac\Home\Downloads\C-homework\work\App.xaml
 111184955784
 
 29-1262937582
-14363317349
+14-1305296252
 mainpage.xaml;MainWindow.xaml;Pages\AI.xaml;Pages\HistoryPage.xaml;Pages\Home.xaml;Pages\Local.xaml;Pages\Set.xaml;Pages\WebsocketPvp.xaml;Utilwindows\isInsertHistory.xaml;Utilwindows\showLose.xaml;Utilwindows\showWin.xaml;
 
 True

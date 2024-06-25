@@ -174,7 +174,7 @@ namespace work.Pages
 		//通过websocket链接后端
 		public async void connect()
 		{
-			Uri serverUri = new Uri($"ws://127.0.0.1:8000/fourchess/?param={App.AppPublicGroup.id}");
+			Uri serverUri = new Uri($"ws://192.168.43.254:8000/fourchess/?param={App.AppPublicGroup.id}");
 			await websocketService.ConnectAsync(serverUri);
 			await websocketService.StartListeningAsync();
 

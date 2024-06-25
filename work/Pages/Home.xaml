@@ -54,7 +54,7 @@
                             </Image.Clip>
                         </Image>
                         <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
-                            <TextBlock Text="Naved Mirza" Foreground="#4F5050"/>
+                            <TextBlock x:Name="userText" Text="User01" Foreground="#4F5050"/>
                             <TextBlock Text="Admin" Foreground="#959595"/>
                         </StackPanel>
                     </StackPanel>

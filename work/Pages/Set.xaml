@@ -76,7 +76,7 @@
 
                     <TextBlock Text="&#xe601;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
                     <TextBlock Text="Reset Background" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
-                    <TextBlock Text="修改密码" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+                    <TextBlock Text="修改用户名" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
 
 
 
@@ -85,7 +85,7 @@
                         <Border Canvas.Right="-50" Canvas.Top="34" Grid.RowSpan="4" Width="80" Height="80" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="133"/>
                         <Border Canvas.Right="-50" Canvas.Top="101" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="94"/>
                     </Canvas>
-                    <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Click="resetBackground" Name="ResetBackground" Style="{StaticResource RoundedButtonStyle}"/>
+                    <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Click="resetName"  Style="{StaticResource RoundedButtonStyle}"/>
                 </Grid>
             </Border>
 
