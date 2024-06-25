@@ -25,7 +25,8 @@ namespace work.Pages
 	public partial class Local : Page
 	{
 		MainDataModel mdm;
-		public Local()
+        List<Tuple<int, int>> Step = new List<Tuple<int, int>>();
+        public Local()
 		{
 			InitializeComponent();
 			mdm = new MainDataModel();
@@ -33,9 +34,41 @@ namespace work.Pages
 			App.LocalInstance = this;
 
         }
+        //悔棋
+        public void regret(object sender, RoutedEventArgs e)
+        {
+            if (Step.Count() > 0)
+            {
+                Tuple<int, int> lastElement = Step.Last();
+                string targetBtn = "Button" + lastElement.Item1.ToString() + lastElement.Item2.ToString();
+                Button btn = (Button)FindName(targetBtn);
+                btn.Visibility = Visibility.Hidden;
+                board[lastElement.Item1, lastElement.Item2] = 0;
+                Step.RemoveAt(Step.Count - 1);
+           //     suggession();
+            }
+        }
+        //按钮阴影动效
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
 
+				border.Effect = mainpage.window.shadowEffect1;
 
+			}
+		}
 
+		private void Border_MouseLeave(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect2;
+
+			}
+
+		}
 		public int[,] board = Board.getBoardInstance();
 		//决定现在是谁行动 1代表黄色，-1代表蓝色
 		public int nowTurn = 1;
@@ -86,12 +119,12 @@ namespace work.Pages
 
 				btn.Visibility = Visibility.Visible;
 				if (nowTurn == 1) { board[x, y] = 1; } else { board[x, y] = -1; }
-				// AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
-				//AnimationUtils.ChessRotateAnimation(btn);
+                // AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
+                //AnimationUtils.ChessRotateAnimation(btn);
+                Step.Add(new Tuple<int, int>(x, y));
 
-
-				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
-				if (nowTurn == 1)
+                //根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
+                if (nowTurn == 1)
 				{
 					BitmapImage bitmap = new BitmapImage();
 					bitmap.BeginInit();

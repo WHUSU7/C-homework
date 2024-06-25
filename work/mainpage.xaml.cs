@@ -36,13 +36,19 @@ namespace work
             home,
             set
         };
-        public DropShadowEffect shadowEffect = new DropShadowEffect
+        public DropShadowEffect shadowEffect1 = new DropShadowEffect
         {
             Color = Colors.Gray,
             BlurRadius = 15,
-            ShadowDepth = 1
+            ShadowDepth = 5
         };
-        Frame history = new Frame() { Content = new Pages.HistoryPage() };
+		public DropShadowEffect shadowEffect2 = new DropShadowEffect
+		{
+			Color = Colors.Gray,
+			BlurRadius = 10,
+			ShadowDepth = 1
+		};
+		Frame history = new Frame() { Content = new Pages.HistoryPage() };
         Frame local = new Frame() { Content = new Pages.Local() };
         Frame ai = new Frame() { Content = new Pages.AI() };
         Frame websocketpvp = new Frame() { Content = new Pages.WebsocketPvp() };

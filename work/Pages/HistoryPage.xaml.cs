@@ -50,6 +50,7 @@ namespace work.Pages
             getHistories();
             myLoad();
         }
+
             private void myLoad()
         {
             combine.HistoryViewModel.CurrentRecord.MoveString = App.TemphistoryFromMain;
@@ -65,9 +66,29 @@ namespace work.Pages
 
         }
 
+		//按钮阴影动效
+		private void Border_MouseEnter(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
 
-        // INotifyPropertyChanged 接口的实现
-        public event PropertyChangedEventHandler PropertyChanged;
+				border.Effect = mainpage.window.shadowEffect1;
+
+			}
+		}
+
+		private void Border_MouseLeave(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect2;
+
+			}
+
+		}
+		// INotifyPropertyChanged 接口的实现
+		public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -94,12 +115,10 @@ namespace work.Pages
         public async void getHistories()
         {
             var historyList = await apiService.getHistories(App.user.id);
- 
 
             foreach (History item in historyList)
             {
                 combine.HistoryViewModel.MoveRecords.Add(new MoveRecord { MoveString = item.content });
-             
 
             }
 
@@ -277,7 +296,7 @@ namespace work.Pages
             public ObservableCollection<MoveRecord> MoveRecords { get; set; }
             public MoveRecord CurrentRecord { get; set; }
             public ICommand SelectCommand { get; set; }
-            public ArrayList overallRecord = new ArrayList();
+            //public ArrayList overallRecord = new ArrayList();
             public Action ClearChessboardAction { get; set; }
             //命令类监听
             public class RelayCommand<T> : ICommand
@@ -330,11 +349,25 @@ namespace work.Pages
             {
                 MessageBox.Show("成功选中");
                 if (moveRecord != null)
-                {
-                    
+                {                   
                     CurrentRecord = moveRecord;
                     App.TemphistoryFromMain = moveRecord.MoveString;
                     MessageBox.Show(CurrentRecord.MoveString);
+                    index = 0; // 重置步骤索引
+                    RequestClearChessboard();
+                    mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);//跳转
+                }
+                // 清空棋盘
+            }
+
+            public void MoveRecordSelected(string move)
+            {
+                MessageBox.Show("成功选中");
+                if (move!=null)
+                {
+                    CurrentRecord.MoveString = move;
+                    App.TemphistoryFromMain = move;
+                    MessageBox.Show(move);
                     index = 0; // 重置步骤索引
                     RequestClearChessboard();
                     mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);//跳转
@@ -426,7 +459,7 @@ public class GameService
 
 //该类用于获取后台传来的历史记录arraylist并将其拆解为可用于布局的各个元素
 public class MoveRecord
-{
+{   
     public string MoveString { get; set; }
     
    

@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,8 +15,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using work.Models;
 
 namespace work.Pages
 {
@@ -23,8 +27,7 @@ namespace work.Pages
     /// </summary>
     public partial class Home : Page
     {
-        public HistoryPage HistoryPage { get; set; }
-
+       // public HistoryPage HistoryPage { get; set; }
         private APIService apiService = new APIService();
         public Home()
         {
@@ -32,9 +35,11 @@ namespace work.Pages
             InitializeComponent();
             EnsureSaveDirectoryExists();
             LoadLastImage();
-            HistoryPage = new HistoryPage();
-            this.DataContext = HistoryPage.combine;
+        //    HistoryPage = new HistoryPage();
+            //  this.DataContext = HistoryPage.combine;
+            DataContext = new MyViewModel();
             this.Loaded += Home_Loaded;
+     
         }
         private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
         {
@@ -43,10 +48,16 @@ namespace work.Pages
 
 
         }
-        //每次进入home都获取修改的头像信息
+        //每次进入home都获取修改的头像信息,并且更新历史记录
         private async void Home_Loaded(object sender, RoutedEventArgs e)
         {
-           
+            var historyList = await apiService.getHistories(App.user.id);
+            //每次进入前先清空再加载
+            MyViewModel.ClearMoveRecords();
+            foreach (History item in historyList)
+            {          
+                MyViewModel.AddMoveRecord(item.id, item.content, item.matchTime, item.matchType, item.isWin);
+            }
 
             // 获取用户选择的文件路径
             string selectedFileName = await apiService.getProfilePicture();
@@ -68,33 +79,73 @@ namespace work.Pages
                 
             }
         }
-       
-        private void Border_MouseEnter(object sender, MouseEventArgs e)
+
+		private void Border_MouseEnter(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect1;
+
+			}
+		}
+
+		private void Border_MouseLeave(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect2;
+
+			}
+
+		}
+        private void CloseWindow_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Border border)
+            // 获取父级窗口并关闭它
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null)
             {
-
-                border.Effect = mainpage.window.shadowEffect;
-
+                parentWindow.Close();
             }
         }
 
-        private void Border_MouseLeave(object sender, MouseEventArgs e)
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Border border)
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow.WindowState == WindowState.Normal)
             {
-
-                border.Effect = null;
-
+                parentWindow.WindowState = WindowState.Maximized;
             }
-
+            else
+            {
+                parentWindow.WindowState = WindowState.Normal;
+            }
+        }
+        private void btnRedirect_Click(object sender, EventArgs e)
+        {
+            // 修改网页地址为你想要跳转的网页
+            Process.Start("https://github.com/WHUSU7/C-homework");
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // 确保 sender 是 Button 类型
+            if (sender is Button button)
+            {
+                // 获取绑定的 Tag 数据
+                string content = button.Tag as string;
+                if (!string.IsNullOrEmpty(content))
+                {
+                    App.HistoryPageInstance.combine.HistoryViewModel.MoveRecordSelected(content);
+                }
+            }
         }
 
         //模糊效果
         private void InteractiveGrid_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
 
-            border1.Effect = mainpage.window.shadowEffect;
+            border1.Effect = mainpage.window.shadowEffect1;
             Button1.Visibility = Visibility.Visible;
             Button2.Visibility = Visibility.Visible;
             ApplyBlurEffect(InteractiveGrid, true);
@@ -102,7 +153,7 @@ namespace work.Pages
 
         private void InteractiveGrid_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            border1.Effect = null;
+            border1.Effect = mainpage.window.shadowEffect2;
             Button1.Visibility = Visibility.Collapsed;
             Button2.Visibility = Visibility.Collapsed;
             ApplyBlurEffect(InteractiveGrid, false);

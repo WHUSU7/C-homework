@@ -7,69 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
-
-    <Page.Resources>
-        <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                             
-                                CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="MoveRecordButtonStyle" TargetType="Button">
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="Background" Value="#FFADD8E6"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Margin" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <ControlTemplate x:Key="ListBoxTemplate" TargetType="{x:Type ListBox}">
-            <Border BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    Background="{TemplateBinding Background}"
-                    CornerRadius="10">
-                <!-- 设置圆角半径为 10 -->
-                <ScrollViewer Padding="{TemplateBinding Padding}">
-                    <ItemsPresenter/>
-                </ScrollViewer>
-            </Border>
-        </ControlTemplate>
-
-        <Style x:Key="ContentStyle"  
-               TargetType="{x:Type TextBlock}">
-            <Setter Property="HorizontalAlignment"  
-                    Value="Center" />
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="TextWrapping" Value="Wrap"/>
-        </Style>
-
-    </Page.Resources>
-    <Viewbox>
-        <Grid Width="800" Height="450">
+    <Grid Width="800" Height="450">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="13*"/>
@@ -81,7 +19,7 @@
                 <ColumnDefinition Width="3.5*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock FontWeight="Bold" FontSize="16" Foreground="#3DD0FB" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="zh-cn" Text="珞珈争霸"/></TextBlock>
+            
 
             <UniformGrid Columns="2" Grid.Column="1" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" Margin="15 0 0 0"/>
@@ -94,40 +32,48 @@
                             </Image.Clip>
                         </Image>
 
-                        <TextBlock Text="&#xe62f;" Foreground="#959595" FontSize="24" Margin="15 0 0 0" VerticalAlignment="Center" FontFamily="./Fonts/#iconfont"  />
-                        <TextBlock Text="&#xea97;" Foreground="#959595" FontSize="26" Margin="15 0 15 0" VerticalAlignment="Center" FontFamily="./Fonts/#iconfont"  />
-                        <TextBlock Text="&#xe607;" Foreground="#959595" FontSize="22" VerticalAlignment="Center" FontFamily="./Fonts/#iconfont"  />
-                    </StackPanel>
+                    <Button Content="&#xe7a2;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25"  VerticalAlignment="Bottom" Click="btnRedirect_Click" />
+                    <Button Content="&#xe603;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25"  VerticalAlignment="Bottom" Click="MaximizeButton_Click" />
+                    <Button Content="&#xe62b;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25"  VerticalAlignment="Bottom" Click="CloseWindow_Click" Background="White"/>
+
+                </StackPanel>
                 </StackPanel>
             </UniformGrid>
+        <Grid Grid.RowSpan="3">
+            <Border Background=" #efefef" Margin="0,40,0,30">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="59*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontWeight="Bold" FontSize="16" Foreground="#3DD0FB" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="zh-cn" Text="珞珈争霸"/></TextBlock>
+                    <StackPanel  Grid.Row="1" Margin="10 10 0 10" Orientation="Horizontal">
+                        <Image Name="UserImageBrush" Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                            </Image.Clip>
+                        </Image>
+                        <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
+                            <TextBlock Text="Naved Mirza" Foreground="#4F5050"/>
+                            <TextBlock Text="Admin" Foreground="#959595"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Background="#3DD0FB">
+                            
+                            <Button Width="177" Height="40" Name="Setting"  Content="&#xe605;  设       置" FontFamily="/work;component/Fonts/#iconfont" Click="setting" Background="#3DD0FB" BorderBrush="#3DD0FB"  Foreground="White" FontSize="25" HorizontalAlignment="Left"/>
+                        </StackPanel>
 
-
-            <StackPanel  Grid.Row="1" Margin="10 10 0 10" Orientation="Horizontal">
-                <Image Name="UserImageBrush" Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
-                    <Image.Clip>
-                        <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
-                    </Image.Clip>
-                </Image>
-                <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
-                    <TextBlock Text="Naved Mirza" Foreground="#4F5050"/>
-                    <TextBlock Text="Admin" Foreground="#959595"/>
-                </StackPanel>
-            </StackPanel>
-          
-            <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,30">
-                <StackPanel Orientation="Horizontal" Background="#3DD0FB">
-                    <TextBlock Text="&#xe605;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="Black" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                    <Button Width="150" Height="40" Name="Setting"  Content="设    置" Click="setting" Background="#3DD0FB" BorderBrush="#3DD0FB"  Foreground="White" FontSize="16" HorizontalAlignment="Left"/>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" Background="#3DD0FB">
-                    <TextBlock Text="&#xe61f;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="Black" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                    <Button Width="177" Height="40" Name="Logout"  Content="退出登录" Click="logout" Background="#3DD0FB" BorderBrush="#3DD0FB"  Foreground="White" FontSize="16" HorizontalAlignment="Left"/>
-                </StackPanel>
-             
-
-            </StackPanel>
-
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Background="#3DD0FB">
+                            
+                            <Button Width="177" Height="40" Name="Logout"  Content="&#xe61f;  退出登录" FontFamily="/work;component/Fonts/#iconfont" Click="logout" Background="#3DD0FB" BorderBrush="#3DD0FB"  Foreground="White" FontSize="25" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        
             <Grid Grid.Row="1" Grid.Column="1" Background="#F5F6FA" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -139,7 +85,7 @@
 
                 <UniformGrid Grid.Row="1" Columns="3">
 
-                    <Border  Name="border1" Margin="15" CornerRadius="5" MouseEnter="InteractiveGrid_MouseEnter" MouseLeave="InteractiveGrid_MouseLeave">
+                <Border  Name="border1" Margin="15" CornerRadius="5" MouseEnter="InteractiveGrid_MouseEnter" MouseLeave="InteractiveGrid_MouseLeave" Effect="{StaticResource DropShadowEffect}">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
                                 <GradientStop Offset="0" Color="#FF8C69"/>
@@ -147,40 +93,37 @@
                             </LinearGradientBrush>
                         </Border.Background>
 
-                        <Grid Name="InteractiveGrid">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                                <RowDefinition Height="2*"/>
-                            </Grid.RowDefinitions>
+                    <Grid Name="InteractiveGrid">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="2*"/>
+                        </Grid.RowDefinitions>
 
-                            <TextBlock Text="&#xec5f;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
-                            <TextBlock Text="AI Game" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
-                            <TextBlock Text="人机对战" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+                        <TextBlock Text="&#xec5f;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                        <TextBlock Text="AI Game" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                        <TextBlock Text="人机对战" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
 
 
-                            <Canvas ClipToBounds="True" Grid.RowSpan="4">
-                                <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
-                                <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+                        <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                            <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                            <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
 
-                            </Canvas>
-                            <Button Grid.Row="0" 
+                        </Canvas>
+                        <Button Grid.Row="0" 
                                 Grid.RowSpan="2" Content="简单" Foreground="White" Name="Button1"
                                 Click="easyAi" Visibility="Collapsed" Background="Transparent" FontSize="20" FontWeight="ExtraBold"
                                 Style="{StaticResource RoundedButtonStyle}"/>
 
-                            <Button Grid.Row="2"
+                        <Button Grid.Row="2"
                                 Grid.RowSpan="2" Content="困难" Foreground="White" Name="Button2"
                                 Click="difficultAi" Visibility="Collapsed" Background="Transparent" FontSize="20" FontWeight="ExtraBold"
                                 Style="{StaticResource RoundedButtonStyle}"/>
-                        
-            </Grid>
+                    </Grid>
+                </Border>
 
-
-                    </Border>
-
-                    <Border Name="border2" Margin="15" CornerRadius="5" MouseEnter="Border_MouseEnter"
+                <Border Name="border2" Margin="15" CornerRadius="5" MouseEnter="Border_MouseEnter" Effect="{StaticResource DropShadowEffect}"
                   MouseLeave="Border_MouseLeave">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
@@ -210,7 +153,7 @@
                         </Grid>
                     </Border>
 
-                    <Border Margin="15" Name="border3" CornerRadius="5" MouseEnter="Border_MouseEnter"
+                <Border Margin="15" Name="border3" CornerRadius="5" MouseEnter="Border_MouseEnter" Effect="{StaticResource DropShadowEffect}"
                   MouseLeave="Border_MouseLeave">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
@@ -246,55 +189,65 @@
 
                 <Border Background="White" Grid.Row="2" CornerRadius="10" Margin="15"/>
 
-                <Grid Grid.Row="2" Margin="15">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+            <Grid Grid.Row="2" Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                    <TextBlock Text="&#xe75b;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="Black" VerticalAlignment="Center" Margin="10 0 0 0"/>
-                    <TextBlock Margin="50 0 0 0" FontWeight="Bold" VerticalAlignment="Center" FontSize="15" Foreground="Black"><Run Language="zh-cn" Text="历史记录"/>
-                    </TextBlock>
-                    <!-- Insert Elements Here -->
-                    <Grid Grid.Row="1" Margin="0 10 0 0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                <TextBlock Text="&#xe75b;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="Black" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                <TextBlock Margin="50 0 0 0" FontWeight="Bold" VerticalAlignment="Center" FontSize="15" Foreground="Black">
+        <Run Language="zh-cn" Text="历史记录"/>
+                </TextBlock>
 
-                        <!-- Header Row -->
-                        <TextBlock Grid.Column="0" Text="ID" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
-                        <TextBlock Grid.Column="1" Text="Type" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
-                        <TextBlock Grid.Column="2" Text="Time" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
-                        <TextBlock Grid.Column="3" Text="Result" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
-                        <TextBlock Grid.Column="4" Text="Detail" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                <!-- Header Row -->
+                <Grid Grid.Row="1" Margin="0 10 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                        <!-- Data Row (Example) -->
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Email}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
-                        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Address}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
-                        <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding UserType}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595"/>
-                        <Button Grid.Row="1" Grid.Column="4" Width="75" Height="25" BorderThickness="0" Content="{Binding Status}" Foreground="White" Background="{Binding BackColor}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    </Grid>
-                    <ListBox Grid.Row="2" x:Name="historyListBox" ItemsSource="{Binding HistoryViewModel.MoveRecords}" Background="White" BorderBrush="Gray" BorderThickness="0" Template="{StaticResource ListBoxTemplate}" >
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Button Content="{Binding MoveString}" Command="{Binding DataContext.HistoryViewModel.SelectCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding}" Style="{StaticResource MoveRecordButtonStyle}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                    <TextBlock Grid.Column="0" Text="ID" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Text="Type" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="2" Text="Time" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="3" Text="Result" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="4" Text="Detail" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#959595" FontWeight="Bold"/>
                 </Grid>
 
-                <!-- ListBox for MoveRecords -->
-               
+                <!-- Items -->
+                <ListBox Grid.Row="2" x:Name="historyListBox" ItemsSource="{Binding MyRecords}" Background="White" BorderBrush="Gray" BorderThickness="0" Template="{StaticResource ListBoxTemplate}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0 10 0 0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="{Binding id}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="50 0 0 0"/>
+                                <TextBlock Grid.Column="1" Text="{Binding matchType}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="50 0 0 0"/>
+                                <TextBlock Grid.Column="2" Text="{Binding matchTime}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="50 0 0 0"/>
+                                <TextBlock Grid.Column="3" Text="{Binding isWin}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="50 0 0 0"/>
+                                <Button Grid.Column="4" Content="{Binding id}" Tag="{Binding content}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Margin="50 0 0 0" Click="Button_Click"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Grid>
 
 
 
         </Grid>
-    </Viewbox>
+
+
+
+        </Grid>
+ 
 </Page>

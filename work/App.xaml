@@ -5,11 +5,13 @@
              StartupUri="MainWindow.xaml">
  
         <Application.Resources>
+            
             <!--主题颜色-->
         <SolidColorBrush x:Key="MainColor" Color="#FF4A8CCB" />
             <SolidColorBrush x:Key="BackgroundColor" Color="#FFFAF0" />
-
-            <!--按钮颜色-->
+            <!--border阴影-->
+        <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="1" BlurRadius="10" Color="Gray" />
+        <!--按钮颜色-->
             <!--鼠标经过-->
             <SolidColorBrush x:Key="ButtonMouseOver1" Color="#FFF0F5" />
         <SolidColorBrush x:Key="ButtonMouseOver2" Color="#FF4A8CCB" />
@@ -43,6 +45,64 @@
         </Style>
 
         <!--控制按钮样式-->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                     
+                        CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MoveRecordButtonStyle" TargetType="Button">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#FFADD8E6"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="ListBoxTemplate" TargetType="{x:Type ListBox}">
+            <Border BorderBrush="{TemplateBinding BorderBrush}"
+             BorderThickness="{TemplateBinding BorderThickness}"
+             Background="{TemplateBinding Background}"
+             CornerRadius="10">
+                <!-- 设置圆角半径为 10 -->
+                <ScrollViewer Padding="{TemplateBinding Padding}">
+                    <ItemsPresenter/>
+                </ScrollViewer>
+            </Border>
+        </ControlTemplate>
+
+        <Style x:Key="ContentStyle"  
+        TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"  
+             Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
         <Style x:Key="ctrlButton" TargetType="Button">
             <Setter Property="Background" Value="#c3bef0"/>
             <Setter Property="Foreground" Value="White"/>

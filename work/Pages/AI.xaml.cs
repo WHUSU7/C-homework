@@ -38,6 +38,7 @@ namespace work.Pages
 				suggession();
 			};
 		}
+
 		//难度
 		public static int difficulty = -1;
 
@@ -293,7 +294,27 @@ namespace work.Pages
 				suggession();
             }
 		}
+		//按钮阴影动效
+		private void Border_MouseEnter(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
 
+				border.Effect = mainpage.window.shadowEffect1;
+
+			}
+		}
+
+		private void Border_MouseLeave(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect2;
+
+			}
+
+		}
 
 		//Binding绑定的数据源
 		public class MainDataModel : INotifyPropertyChanged

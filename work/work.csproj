@@ -61,6 +61,7 @@
     <Compile Include="AnimationUtils.cs" />
     <Compile Include="APIService.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="MyViewModel .cs" />
     <Compile Include="mainpage.xaml.cs">
       <DependentUpon>mainpage.xaml</DependentUpon>
     </Compile>

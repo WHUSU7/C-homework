@@ -149,12 +149,32 @@ namespace work.Pages
             websocketService = new WebsocketService();
             TimerFlag = false;
         }
-
-
-        //通过websocket链接后端
-        public async void connect()
+		//按钮阴影动效
+		private void Border_MouseEnter(object sender, MouseEventArgs e)
 		{
-			Uri serverUri = new Uri($"ws://192.168.43.254:8000/fourchess/?param={App.AppPublicGroup.id}");
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect1;
+
+			}
+		}
+
+		private void Border_MouseLeave(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect2;
+
+			}
+
+		}
+
+		//通过websocket链接后端
+		public async void connect()
+		{
+			Uri serverUri = new Uri($"ws://127.0.0.1:8000/fourchess/?param={App.AppPublicGroup.id}");
 			await websocketService.ConnectAsync(serverUri);
 			await websocketService.StartListeningAsync();
 
@@ -331,7 +351,7 @@ namespace work.Pages
 				}
 				// AnimationUtils.ChessDropDownAnimation(btn,x,canvasHeight);
 				//AnimationUtils.ChessRotateAnimation(btn);
-				await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+				
 
 				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
 				if (App.AppMsg.turn == "1")
@@ -354,7 +374,8 @@ namespace work.Pages
 					btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
 
 				}
-				string mes = x.ToString() + y.ToString();
+                await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+                string mes = x.ToString() + y.ToString();
 				var jsondata = new
 				{
 					Message = mes,

@@ -35,7 +35,7 @@
             <ImageBrush x:Key="chessBoardBackground" ImageSource="{StaticResource chessBoardImage}"/>
         </Page.Resources>
 
-        <Grid Background="Ivory">
+    <Grid Background="Ivory" Width="800" Height="450">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
@@ -57,8 +57,32 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2" Grid.RowSpan="8" >
+            <Border Background="#efefef" Margin="0,0,40,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="59*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel  Grid.Row="1" Margin="10 10 0 10" Orientation="Horizontal">
+                        <Image Name="UserImageBrush" Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
+                            <Image.Clip>
+                                <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
+                            </Image.Clip>
+                        </Image>
+                        <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
+                            <TextBlock Text="Naved Mirza" Foreground="#4F5050"/>
+                            <TextBlock Text="Admin" Foreground="#959595"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </Grid>
         <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
-                <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+            <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#eae6ce" Margin="50,0,50,0" Effect="{StaticResource DropShadowEffect}">
                     <Canvas  x:Name="myCanvas" Background="{StaticResource chessBoardBackground}" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" SizeChanged="myCanvas_SizeChanged" Height="{Binding ActualHeight,ElementName=myCanvasFatherGrid}" Width="{Binding CanvasWidth}">
 
                         <Grid Width="{Binding ActualWidth,ElementName=myCanvas}" Height="{Binding ActualHeight,ElementName=myCanvas}">
@@ -134,6 +158,38 @@
                     </Canvas>
                 </Border>
             </Grid>
-        <Button Grid.Column="3" Grid.Row="7" Grid.ColumnSpan="3" Content="返回主页" Style="{StaticResource ctrlButton}" Click="jumpBackToMain"/>
+
+        <Border Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="7" Name="border1" Margin="5" CornerRadius="5" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Effect="{StaticResource DropShadowEffect}">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="#00CED1"/>
+                    <GradientStop Offset="1" Color="#59E6B5"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Canvas ClipToBounds="True" >
+                    <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                    <Border Canvas.Right="-50" Canvas.Top="-3" Grid.RowSpan="4" Width="30" Height="30" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="17"/>
+
+                </Canvas>
+                <Button Background="Transparent" BorderBrush="Transparent" Content="返回主页" Click="jumpBackToMain" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="White"/>
+            </Grid>
+        </Border>
+        <Border Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="7" Name="border2" Margin="5" CornerRadius="5" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Effect="{StaticResource DropShadowEffect}">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Offset="0" Color="#00CED1"/>
+                    <GradientStop Offset="1" Color="#59E6B5"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Canvas ClipToBounds="True" >
+                    <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                    <Border Canvas.Right="-50" Canvas.Top="20" Grid.RowSpan="4" Width="30" Height="30" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="5"/>
+
+                </Canvas>
+                <Button Background="Transparent" BorderBrush="Transparent" Content="悔      棋" Click="regret" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="White"/>
+            </Grid>
+        </Border>
     </Grid>
     </Page>

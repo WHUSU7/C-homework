@@ -8,11 +8,11 @@ namespace work.Models
 {
     public  class History
     {
-        public int id;
-        public string content;
-        public string matchTime;
-        public string matchType;
-        public string isWin;
+        public int id { get; set; }
+        public string content { get; set; }
+        public string matchTime { get; set; }
+        public string matchType { get; set; }
+        public string isWin { get; set; }
         public History(int id, string content, string matchTime, string matchType, string isWin)
         {
             this.id = id;

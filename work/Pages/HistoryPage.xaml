@@ -77,36 +77,77 @@
             </Border>
         </ControlTemplate>
     </Page.Resources>
-    <Grid>
+    <Grid Width="800" Height="450">
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="1">
             <!-- 定义三列 -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-              
-            </Grid.ColumnDefinitions>
 
-            <!-- 第一个按钮 -->
-            <Button Grid.Column="0" Name="back" Content="返回" Click="jumpBackToMain" Style="{StaticResource ctrlButton}"/>
-            <!-- 第二个按钮 -->
-            <Button Grid.Column="1" Name="next" Content="下一步" Click="nextButton" Style="{StaticResource ctrlButton}"/>
-            <!-- 第三个按钮 -->
-            <Button Grid.Column="2" Name="last" Content="上一步" Click="lastButton" Style="{StaticResource ctrlButton}"/>
-           
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Name="border1" Margin="50,5,0,5" CornerRadius="5" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Effect="{StaticResource DropShadowEffect}">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#00CED1"/>
+                        <GradientStop Offset="1" Color="#59E6B5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Canvas ClipToBounds="True" >
+                        <Border Canvas.Right="-40" Canvas.Top="-9" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="93"/>
+                        <Border Canvas.Right="-50" Canvas.Top="4" Grid.RowSpan="4" Width="30" Height="30" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="180"/>
+
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Content="返回主页" Click="jumpBackToMain" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="White"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="1" Name="border2" Margin="25,5,25,5" CornerRadius="5" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Effect="{StaticResource DropShadowEffect}">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#00CED1"/>
+                        <GradientStop Offset="1" Color="#59E6B5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Canvas ClipToBounds="True" >
+                        <Border Canvas.Right="-40" Canvas.Top="20" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="143"/>
+                        <Border Canvas.Right="-50" Canvas.Top="-3" Grid.RowSpan="4" Width="30" Height="30" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="17"/>
+
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Content="下一步" Click="nextButton" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="White"/>
+                </Grid>
+            </Border>
+            <Border Grid.Column="2" Name="border3" Margin="0,5,50,5" CornerRadius="5" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" Effect="{StaticResource DropShadowEffect}">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#00CED1"/>
+                        <GradientStop Offset="1" Color="#59E6B5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Canvas ClipToBounds="True" >
+                        <Border Canvas.Right="-40" Canvas.Top="-60" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="92"/>
+                        <Border Canvas.Right="-50" Canvas.Top="29" Grid.RowSpan="4" Width="30" Height="30" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="19"/>
+
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Content="上一步" Click="lastButton" Style="{StaticResource RoundedButtonStyle}" FontSize="18" Foreground="White"/>
+                </Grid>
+            </Border>
         </Grid>
-        <Grid Grid.Row="1" >
+        <Grid Grid.Row="0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- 历史记录列表 -->
-            <ListBox x:Name="historyListBox" ItemsSource="{Binding HistoryViewModel.MoveRecords}"  Background="LightYellow" BorderBrush="Gray" BorderThickness="0"  Template="{StaticResource ListBoxTemplate}" >
+            <ListBox x:Name="historyListBox" Margin="5" ItemsSource="{Binding HistoryViewModel.MoveRecords}"  Background="LightYellow" BorderBrush="Gray" BorderThickness="0"  Template="{StaticResource ListBoxTemplate}" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Button Content="{Binding MoveString}" Command="{Binding DataContext.SelectCommand, 
@@ -116,7 +157,7 @@
             </ListBox>
             <!-- 棋盘区域和下一步按钮等其他界面元素 -->
             <Grid x:Name="myCanvasFatherGrid" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="6" >
-                <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#E0F5F8">
+                <Border CornerRadius="30" BorderBrush="Transparent" BorderThickness="1" Background="#eae6ce" Effect="{StaticResource DropShadowEffect}">
                     <Canvas  x:Name="myCanvas"  
                      Background="{StaticResource chessBoardBackground}"
                         

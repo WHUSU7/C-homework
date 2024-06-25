@@ -85,7 +85,7 @@ namespace work
                 // 循环创建粒子并设置动画
                 double r = btn.ActualWidth / 2;
                 Random rand = new Random();
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     // 创建新的粒子
                     var particle = new Ellipse

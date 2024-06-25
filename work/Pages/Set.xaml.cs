@@ -28,7 +28,27 @@ namespace work.Pages
 		{
 			InitializeComponent();
 		}
+		//按钮阴影动效
+		private void Border_MouseEnter(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
 
+				border.Effect = mainpage.window.shadowEffect1;
+
+			}
+		}
+
+		private void Border_MouseLeave(object sender, MouseEventArgs e)
+		{
+			if (sender is Border border)
+			{
+
+				border.Effect = mainpage.window.shadowEffect2;
+
+			}
+
+		}
 		private void resetName(object sender, RoutedEventArgs e)
 		{
 
@@ -95,5 +115,14 @@ namespace work.Pages
 		{
 			mainpage.window.jumpToTargetPage(WindowsID.home);
 		}
-	}
+
+        public void jumpToHistory(object sender, RoutedEventArgs e)
+        {
+            mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);
+
+
+        }
+
+
+    }
 }

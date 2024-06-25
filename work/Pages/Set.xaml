@@ -7,31 +7,157 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Set">
-    <Grid Background="Ivory">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="更新用户名" Click="resetName" Name="ResetName"/>
-        <Button Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="更换背景图" Click="resetBackground" Name="ResetBackground"/>
-        <Button Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="更换头像" Click="resetHeadImage" Name="ResetHeadImage"/>
-        <Button Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="3" Style="{StaticResource ctrlButton}" Content="返回主页" Click="jumpBackToMain" Name="returnToMain"/>
-   
+    <Grid Background="Ivory" Width="800" Height="450">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Name="border2" Margin="40,50,15,15" CornerRadius="5" MouseEnter="Border_MouseEnter" Grid.ColumnSpan="4" Effect="{StaticResource DropShadowEffect}"
+   MouseLeave="Border_MouseLeave">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#FFD700"/>
+                        <GradientStop Offset="1" Color="#FFC100"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Name="Grid2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="&#xe659;" FontFamily="/work;component/Fonts/#iconfont"  FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                    <TextBlock Text="Reset Name" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                    <TextBlock Text="跳转到历史记录" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+
+                    <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                        <Border Canvas.Right="-40" Canvas.Top="-15" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="79"/>
+                        <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+                        <Border Canvas.Right="-50" Canvas.Top="123" Grid.RowSpan="4" Width="50" Height="50" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="142"/>
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Click="jumpToHistory" Name="ResetName" Style="{StaticResource RoundedButtonStyle}"/>
+                </Grid>
+            </Border>
+
+            <Border Margin="15,50,40,15" Name="border3" CornerRadius="5" MouseEnter="Border_MouseEnter" Grid.Column="4" Grid.ColumnSpan="4" Effect="{StaticResource DropShadowEffect}"
+   MouseLeave="Border_MouseLeave">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#00CED1"/>
+                        <GradientStop Offset="1" Color="#59E6B5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Name="Grid3">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="&#xe601;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                    <TextBlock Text="Reset Background" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                    <TextBlock Text="修改密码" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+
+                    <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                        <Border Canvas.Right="-40" Canvas.Top="-15" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="250"/>
+                        <Border Canvas.Right="-50" Canvas.Top="34" Grid.RowSpan="4" Width="80" Height="80" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="133"/>
+                        <Border Canvas.Right="-50" Canvas.Top="101" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="94"/>
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Click="resetBackground" Name="ResetBackground" Style="{StaticResource RoundedButtonStyle}"/>
+                </Grid>
+            </Border>
+
+            <Border Name="border5" Margin="40,15,15,50" CornerRadius="5" MouseEnter="Border_MouseEnter" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Effect="{StaticResource DropShadowEffect}"
+MouseLeave="Border_MouseLeave">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#FF8C69"/>
+                        <GradientStop Offset="1" Color="#FF7000"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Name="Grid5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="&#xe659;" FontFamily="/work;component/Fonts/#iconfont"  FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                    <TextBlock Text="Reset HeadImage" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                    <TextBlock Text="更换头像" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+
+                    <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                        <Border Canvas.Right="-40" Canvas.Top="-8" Grid.RowSpan="4" Width="50" Height="50"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="140"/>
+                        <Border Canvas.Right="-50" Canvas.Top="102" Grid.RowSpan="4" Width="70" Height="70" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="212"/>
+                        <Border Canvas.Right="-50" Canvas.Top="114" Grid.RowSpan="4" Width="30" Height="30" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="121"/>
+                        <Border Canvas.Right="-50" Canvas.Top="34" Grid.RowSpan="4" Width="20" Height="20" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="230"/>
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Click="resetHeadImage" Name="ResetHeadImage" Style="{StaticResource RoundedButtonStyle}"/>
+                </Grid>
+            </Border>
+
+            <Border Margin="15,15,40,50" Name="border4" CornerRadius="5" MouseEnter="Border_MouseEnter" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="4" Effect="{StaticResource DropShadowEffect}"
+MouseLeave="Border_MouseLeave">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                        <GradientStop Offset="0" Color="#cca8e9"/>
+                        <GradientStop Offset="1" Color="#c3bef0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Name="Grid4">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="&#xe66c;" FontFamily="/work;component/Fonts/#iconfont" FontSize="25" Foreground="White" VerticalAlignment="Bottom" Margin="10 0 0 0"/>
+                    <TextBlock Text="Return To Main" Grid.Row="1" VerticalAlignment="Center" FontSize="8" Margin="10 0 0 0" Foreground="White"/>
+                    <TextBlock Text="返回主页" FontWeight="Bold" VerticalAlignment="Center" Grid.Row="2" FontSize="15" Margin="10 0 0 0" Foreground="White"/>
+
+
+
+                    <Canvas ClipToBounds="True" Grid.RowSpan="4">
+                        <Border Canvas.Right="-40" Canvas.Top="103" Grid.RowSpan="4" Width="110" Height="110"  CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Top"  HorizontalAlignment="Right" Canvas.Left="31"/>
+                        <Border Canvas.Right="-50" Canvas.Top="60" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right"/>
+                        <Border Canvas.Right="-50" Canvas.Top="-32" Grid.RowSpan="4" Width="110" Height="110" CornerRadius="100" Background="#ffffff" Opacity="0.2" VerticalAlignment="Bottom"  HorizontalAlignment="Right" Canvas.Left="96"/>
+
+                    </Canvas>
+                    <Button Background="Transparent" BorderBrush="Transparent" Grid.RowSpan="4" Click="jumpBackToMain" Name="returnToMain" Style="{StaticResource RoundedButtonStyle}"/>
+                </Grid>
+            </Border>
+
+
+        </Grid>
+
+
     </Grid>
 </Page>
 
