@@ -10,7 +10,7 @@
         <SolidColorBrush x:Key="MainColor" Color="#FF4A8CCB" />
             <SolidColorBrush x:Key="BackgroundColor" Color="#FFFAF0" />
             <!--border阴影-->
-        <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="1" BlurRadius="10" Color="Gray" />
+        <DropShadowEffect x:Key="DropShadowEffect" ShadowDepth="1" BlurRadius="5" Color="Gray" />
         <!--按钮颜色-->
             <!--鼠标经过-->
             <SolidColorBrush x:Key="ButtonMouseOver1" Color="#FFF0F5" />
@@ -109,14 +109,14 @@
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="20">
+                            CornerRadius="2">
                            <ContentPresenter HorizontalAlignment="Center"
                                 VerticalAlignment="Center"/>
                         </Border>

@@ -35,7 +35,7 @@
             <Border Grid.Column="0" Grid.RowSpan="2" CornerRadius="10 0 0 10"
                 Background="{DynamicResource MainColor}">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock Text="珞珈争霸" FontSize="40" FontWeight="Bold" Foreground="#FFFAFA"
+                    <TextBlock Text="珞珈四连" FontSize="40" FontWeight="Bold" Foreground="#FFFAFA"
                            FontFamily="Times New Roman" TextAlignment="Center" />
                     <TextBlock HorizontalAlignment="Center" Text="Powered By C#" FontSize="15" FontWeight="Bold" Foreground="#FFFAFA" />
                 </StackPanel>
@@ -99,9 +99,6 @@
 
                 <Button Name="back" Grid.Column="3" Grid.Row="11" Content="返回" Style="{StaticResource TransparentButtonStyle}"
                     HorizontalAlignment="Center"  Click="change2login" Grid.RowSpan="2"  Visibility="Collapsed"/>
-
-                <Button Content="MAIN" Background="AliceBlue" Click="jumpToMain" Grid.Row="0" Grid.Column="0" />
-                
             </Grid>
         </Grid>
     </ContentControl>

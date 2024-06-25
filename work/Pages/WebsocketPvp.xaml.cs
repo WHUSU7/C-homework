@@ -165,7 +165,7 @@ namespace work.Pages
 			if (sender is Border border)
 			{
 
-				border.Effect = mainpage.window.shadowEffect2;
+				border.Effect = null;
 
 			}
 
@@ -245,6 +245,7 @@ namespace work.Pages
 					resetTime();
 					rightTimerFlag=true;
 					leftTimerFlag = false;
+					
 					timer.Start();
 				}
                 //我方为右侧倒计时
