@@ -49,6 +49,7 @@ namespace work.Pages
         {
             getHistories();
             myLoad();
+            combine.HistoryViewModel.MoveRecords.Clear();
         }
 
             private void myLoad()
@@ -72,7 +73,7 @@ namespace work.Pages
 			if (sender is Border border)
 			{
 
-				border.Effect = mainpage.window.shadowEffect1;
+				border.Effect = mainpage.window.shadowEffect2;
 
 			}
 		}
@@ -82,7 +83,7 @@ namespace work.Pages
 			if (sender is Border border)
 			{
 
-				border.Effect = mainpage.window.shadowEffect2;
+				border.Effect = null;
 
 			}
 
@@ -118,7 +119,7 @@ namespace work.Pages
 
             foreach (History item in historyList)
             {
-                combine.HistoryViewModel.MoveRecords.Add(new MoveRecord { MoveString = item.content });
+                combine.HistoryViewModel.MoveRecords.Add(new MoveRecord { MoveString = item.content, id = item.id,result=item.isWin }) ;
 
             }
 
@@ -331,9 +332,7 @@ namespace work.Pages
 
             public void InitializeMoveRecords()
             {
-                // 初始化 MoveRecords 的逻辑
-                
-                MoveRecords.Add(new MoveRecord { MoveString = "505152" });
+                // 初始化 MoveRecords 的逻辑               
 
              
             }
@@ -406,9 +405,9 @@ namespace work.Pages
             }
         }
 
-
-
-
+        private void historyListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
     }
 
 }
@@ -473,6 +472,8 @@ public class MoveRecord
             return Utils.SplitStringIntoPairs(MoveString);
         }
     }
+    public string result { get; set; }
+    public int id { get; set; }
 }
 
 

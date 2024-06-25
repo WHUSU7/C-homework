@@ -310,7 +310,7 @@ namespace work.Pages
 			if (sender is Border border)
 			{
 
-				border.Effect = mainpage.window.shadowEffect2;
+				border.Effect = null;
 
 			}
 
