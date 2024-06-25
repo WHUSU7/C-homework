@@ -29,8 +29,8 @@ namespace work.Pages
 	public partial class WebsocketPvp : Page
 	{
 		WebsocketService websocketService;
-
-		private bool isAnimating = false;
+        APIService apiService = new APIService();
+        private bool isAnimating = false;
 
 		public int[,] board = Board.getBoardInstance();
 		//决定现在是谁行动 1代表黄色，-1代表蓝色
@@ -174,7 +174,7 @@ namespace work.Pages
 		//通过websocket链接后端
 		public async void connect()
 		{
-			Uri serverUri = new Uri($"ws://192.168.43.254:8000/fourchess/?param={App.AppPublicGroup.id}");
+			Uri serverUri = new Uri($"ws://127.0.0.1:8000/fourchess/?param={App.AppPublicGroup.id}");
 			await websocketService.ConnectAsync(serverUri);
 			await websocketService.StartListeningAsync();
 
@@ -342,7 +342,7 @@ namespace work.Pages
 				//历史记录获取坐标
 				//GameService.Instance.getPosition(x, y);
 
-				btn.Visibility = Visibility.Visible;
+				//btn.Visibility = Visibility.Visible;
 				if (App.AppMsg.turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
 				if (Board.IsWin(x, y, int.Parse(App.AppMsg.turn)))
 				{
@@ -359,7 +359,7 @@ namespace work.Pages
 				{
 					BitmapImage bitmap = new BitmapImage();
 					bitmap.BeginInit();
-					bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+					bitmap.UriSource = new Uri(@"..\..\Images\black.png", UriKind.RelativeOrAbsolute);
 					// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
 					bitmap.EndInit();
 					// 创建 ImageBrush 并设置其 ImageSource
@@ -372,10 +372,18 @@ namespace work.Pages
 				else
 				{
 
-					btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(@"..\..\Images\white.png", UriKind.RelativeOrAbsolute);
+                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                    bitmap.EndInit();
+                    // 创建 ImageBrush 并设置其 ImageSource
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = bitmap;
+                    btn.Background = imageBrush;
 
-				}
-                await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
+                }
+              //  await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
                 string mes = x.ToString() + y.ToString();
 				var jsondata = new
 				{

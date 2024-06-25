@@ -108,7 +108,7 @@ namespace work.Pages
         public async void getHistoryById(object sender, RoutedEventArgs e)
         {
             var history = await apiService.getSingleHistory(1);
-            MessageBox.Show(history);
+          //  MessageBox.Show(history);
 
         }
 
@@ -139,6 +139,7 @@ namespace work.Pages
             string matchTime = currentTime.ToString("yyyy-MM-dd HH:mm:ss"); //历史记录时间
             string matchType = GameService.Instance.competeType;//历史记录类型
             string isWin = Utils.judgeIsWin(GameService.Instance.singleHistory);
+            Console.WriteLine(isWin);
             await apiService.insertHistory(new History(-1, content,matchTime,matchType,isWin), App.user.id);
             //每次进入都要清空
             GameService.Instance.clearData();
@@ -178,7 +179,7 @@ namespace work.Pages
                             targetButton.Visibility = Visibility.Visible;
                             BitmapImage bitmap = new BitmapImage();
                             bitmap.BeginInit();
-                            bitmap.UriSource = new Uri(@"..\..\Images\chess2.gif", UriKind.RelativeOrAbsolute);
+                            bitmap.UriSource = new Uri(@"..\..\Images\black.png", UriKind.RelativeOrAbsolute);
                             // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
                             bitmap.EndInit();
                             // 创建 ImageBrush 并设置其 ImageSource
@@ -194,7 +195,16 @@ namespace work.Pages
                         else if (targetButton != null && index % 2 == 1)
                         {
                             targetButton.Visibility = Visibility.Visible;
-                            targetButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                           // targetButton.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                            BitmapImage bitmap = new BitmapImage();
+                            bitmap.BeginInit();
+                            bitmap.UriSource = new Uri(@"..\..\Images\white.png", UriKind.RelativeOrAbsolute);
+                            // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                            bitmap.EndInit();
+                            // 创建 ImageBrush 并设置其 ImageSource
+                            ImageBrush imageBrush = new ImageBrush();
+                            imageBrush.ImageSource = bitmap;
+                            targetButton.Background = imageBrush;
                             char s = buttonName[0];
                             int x = s - '0';
                             double canvasHeight = myCanvas.ActualHeight;
@@ -346,12 +356,12 @@ namespace work.Pages
 
             public void OnMoveRecordSelected(MoveRecord moveRecord)
             {
-                MessageBox.Show("成功选中");
+               // MessageBox.Show("成功选中");
                 if (moveRecord != null)
                 {                   
                     CurrentRecord = moveRecord;
                     App.TemphistoryFromMain = moveRecord.MoveString;
-                    MessageBox.Show(CurrentRecord.MoveString);
+                 //   MessageBox.Show(CurrentRecord.MoveString);
                     index = 0; // 重置步骤索引
                     RequestClearChessboard();
                     mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);//跳转
@@ -361,12 +371,12 @@ namespace work.Pages
 
             public void MoveRecordSelected(string move)
             {
-                MessageBox.Show("成功选中");
+              //  MessageBox.Show("成功选中");
                 if (move!=null)
                 {
                     CurrentRecord.MoveString = move;
                     App.TemphistoryFromMain = move;
-                    MessageBox.Show(move);
+                //    MessageBox.Show(move);
                     index = 0; // 重置步骤索引
                     RequestClearChessboard();
                     mainpage.window.jumpToTargetPage(mainpage.WindowsID.history);//跳转

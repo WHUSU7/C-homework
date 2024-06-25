@@ -20,8 +20,8 @@ namespace work
 	public class WebsocketService
 	{
 		private ClientWebSocket _webSocket;
-
-		public int[,] board = Board.getBoardInstance();
+        APIService apiService = new APIService();
+        public int[,] board = Board.getBoardInstance();
 		//链接后端
 		public async Task ConnectAsync(Uri uri)
 		{
@@ -62,14 +62,53 @@ namespace work
 						if (res == "1")
 						{
 							TextBlock tb = (TextBlock)App.WebsocketPVPInstance.FindName("leftUserName");
-							tb.Text = App.user.name;
-							App.AppMsg.turn = "1";
+							tb.Text = App.user.nickname;
+                            string path = await apiService.getProfilePicture();
+							Console.WriteLine(path);
+                            if (path != "empty")
+                            {
+                                // 创建新的位图图像
+                                BitmapImage bitmap = new BitmapImage();
+
+                                bitmap.BeginInit();
+                                bitmap.UriSource = new Uri(path);
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.EndInit();
+
+                                var imageControl = App.WebsocketPVPInstance.FindName("leftUserImage") as ImageBrush;
+								Console.WriteLine(imageControl);
+                                // 将位图图像设置为 Ellipse 的填充
+								if(imageControl!=null)
+                                imageControl.ImageSource = bitmap;
+
+                            }
+                            App.AppMsg.turn = "1";
 						}
 						else
 						{
 							TextBlock tb = (TextBlock)App.WebsocketPVPInstance.FindName("rightUserName");
-							tb.Text = App.user.name;
-							App.AppMsg.turn = "-1";
+							tb.Text = App.user.nickname;
+                            string path = await apiService.getProfilePicture();
+
+                            if (path != "empty")
+                            {
+                                // 创建新的位图图像
+                                BitmapImage bitmap = new BitmapImage();
+
+                                bitmap.BeginInit();
+                                bitmap.UriSource = new Uri(path);
+                                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                                bitmap.EndInit();
+
+
+								var imageControl = App.WebsocketPVPInstance.FindName("RightUserImage") as ImageBrush;
+                                // 将位图图像设置为 Ellipse 的填充
+                                if (imageControl != null)
+                                    imageControl.ImageSource = bitmap;
+								
+
+                            }
+                            App.AppMsg.turn = "-1";
 						}
 					}
 					//后续链接返回的坐标
@@ -93,15 +132,14 @@ namespace work
 
 						btn.Visibility = Visibility.Visible;
 						if (Turn == "1") { board[x, y] = 1; } else { board[x, y] = -1; }
-
-						await AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
+;
 
 						//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反
 						if (Turn == "1")
 						{
 							BitmapImage bitmap = new BitmapImage();
 							bitmap.BeginInit();
-							bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+							bitmap.UriSource = new Uri(@"..\..\Images\black.png", UriKind.RelativeOrAbsolute);
 							// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
 							bitmap.EndInit();
 							// 创建 ImageBrush 并设置其 ImageSource
@@ -111,15 +149,25 @@ namespace work
 						}
 						else
 						{
-							btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                            BitmapImage bitmap = new BitmapImage();
+                            bitmap.BeginInit();
+                            bitmap.UriSource = new Uri(@"..\..\Images\white.png", UriKind.RelativeOrAbsolute);
+                            // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                            bitmap.EndInit();
+                            // 创建 ImageBrush 并设置其 ImageSource
+                            ImageBrush imageBrush = new ImageBrush();
+                            imageBrush.ImageSource = bitmap;
+                            btn.Background = imageBrush;
+                        }
 
-						}
+						await AnimationUtils.allAnimation(btn, x, App.AppCanvasShape.width, (Canvas)App.WebsocketPVPInstance.FindName("myCanvas"));
 
-						if (Board.IsWin(x, y, int.Parse(App.AppMsg.turn)))
+                        if (Board.IsWin(x, y, int.Parse(App.AppMsg.receiveTurn)))
 						{
+							Console.WriteLine("someOne win");
 							if (App.isPvpWin)
 							{
-								MessageBox.Show("YOU Win!");
+							//	MessageBox.Show("YOU Win!");
                                 App.isWin = true;
                                 GameService.Instance.winOrfail(true);//传递胜负参数
                                 GameService.Instance.getCompeteType("人人对战");//传递对局类型参数
@@ -127,7 +175,9 @@ namespace work
 							}
 							else
 							{
-								MessageBox.Show("YOU Lose!");
+
+								Console.WriteLine("you lose");
+							//	MessageBox.Show("YOU Lose!");
 								App.isWin = false;
                                 GameService.Instance.winOrfail(false);//传递胜负参数
                                 GameService.Instance.getCompeteType("人人对战");//传递对局类型参数

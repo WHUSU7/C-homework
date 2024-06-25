@@ -52,7 +52,7 @@ namespace work.Pages
         private async void Home_Loaded(object sender, RoutedEventArgs e)
         {
             TextBlock userText = (TextBlock)this.FindName("userText");
-            userText.Text = App.user.name;
+            userText.Text = App.user.nickname;
 
             var historyList = await apiService.getHistories(App.user.id);
             //每次进入前先清空再加载

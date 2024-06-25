@@ -67,14 +67,13 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel  Grid.Row="1" Margin="10 10 0 10" Orientation="Horizontal">
-                        <Image Name="UserImageBrush" Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
+                        <Image Name="UserImageBrush" Source="../Images/default.png" Width="40" Height="40" Stretch="Fill">
                             <Image.Clip>
                                 <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
                             </Image.Clip>
                         </Image>
                         <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
                             <TextBlock x:Name="userText" Text="Naved Mirza" Foreground="#4F5050"/>
-                            <TextBlock Text="Admin" Foreground="#959595"/>
                         </StackPanel>
                     </StackPanel>
                 </Grid>

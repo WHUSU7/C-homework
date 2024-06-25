@@ -26,6 +26,7 @@ namespace work.Pages
 	public partial class AI : Page
 	{
 		MainDataModel mdm;
+		APIService apiService = new APIService();
 		List<Tuple<int,int>> Step = new List<Tuple<int,int>>();
 		public AI()
 		{
@@ -52,11 +53,31 @@ namespace work.Pages
 		private bool isAnimating = false;
 		private bool AImove = false; //AI走
 
-		public void AI_Loaded()
+		public async void AI_Loaded()
 		{
 			TextBlock userText = (TextBlock)this.FindName("userText");
-			userText.Text = App.user.name;
-		}
+			userText.Text = App.user.nickname;
+			string path = await apiService.getProfilePicture();
+
+            if (path != "empty")
+            {
+                // 创建新的位图图像
+                BitmapImage bitmap = new BitmapImage();
+
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(path);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+
+
+                //var imageControl = App.HomeInstance.FindName("UserImageBrush") as Image;
+                //// 将位图图像设置为 Ellipse 的填充
+                //imageControl.Source = bitmap;
+                UserImageBrush.Source = bitmap;
+
+            }
+
+        }
 									 //所有按钮的公共方法
 		private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
 		{
@@ -103,7 +124,7 @@ namespace work.Pages
 				//根据nowTurn显示当前按钮，后续添加逻辑时要注意何时将nowTurn取反              
 				BitmapImage bitmap = new BitmapImage();
 				bitmap.BeginInit();
-				bitmap.UriSource = new Uri(@"..\..\Images\chess2.gif", UriKind.RelativeOrAbsolute);
+				bitmap.UriSource = new Uri(@"..\..\Images\black.png", UriKind.RelativeOrAbsolute);
 				// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
 				bitmap.EndInit();
 				// 创建 ImageBrush 并设置其 ImageSource
@@ -176,9 +197,17 @@ namespace work.Pages
                     Step.Add(new Tuple<int, int>(aiX, aiY));
                     aiBtn.Visibility = Visibility.Visible;
 					board[aiX, aiY] = -1;
-					aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-
-					await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
+				//	aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(@"..\..\Images\white.png", UriKind.RelativeOrAbsolute);
+                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                    bitmap.EndInit();
+                    // 创建 ImageBrush 并设置其 ImageSource
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = bitmap;
+                    aiBtn.Background = imageBrush;
+                    await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
 					nowTurn = 1;
 
 					if (Board.IsWin(aiX, aiY, -1))
@@ -225,8 +254,16 @@ namespace work.Pages
                     GameService.Instance.getPosition(aiX, aiY);
                     aiBtn.Visibility = Visibility.Visible;
 					board[aiX, aiY] = -1;
-					aiBtn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
-					await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(@"..\..\Images\white.png", UriKind.RelativeOrAbsolute);
+                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                    bitmap.EndInit();
+                    // 创建 ImageBrush 并设置其 ImageSource
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = bitmap;
+                    aiBtn.Background = imageBrush;
+                    await AnimationUtils.allAnimation(aiBtn, x, canvasHeight, myCanvas);
 					nowTurn = 1;
 
 					if (Board.IsWin(aiX, aiY, -1))
