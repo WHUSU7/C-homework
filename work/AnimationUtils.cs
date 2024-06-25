@@ -165,16 +165,16 @@ namespace work
             btn.RenderTransform = transformGroup;
 
             // 旋转部分
-            DoubleAnimationUsingKeyFrames rotateAnimation = new DoubleAnimationUsingKeyFrames
-            {
-                Duration = new Duration(TimeSpan.FromMilliseconds(2000))
-            };
-            DiscreteDoubleKeyFrame startFrame = new DiscreteDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)));
-            LinearDoubleKeyFrame endFrame = new LinearDoubleKeyFrame(360, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(2)));
-            rotateAnimation.KeyFrames.Add(startFrame);
-            rotateAnimation.KeyFrames.Add(endFrame);
-            rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
-            btn.RenderTransformOrigin = new Point(0.5, 0.5);
+            //DoubleAnimationUsingKeyFrames rotateAnimation = new DoubleAnimationUsingKeyFrames
+            //{
+            //    Duration = new Duration(TimeSpan.FromMilliseconds(2000))
+            //};
+            //DiscreteDoubleKeyFrame startFrame = new DiscreteDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0)));
+            //LinearDoubleKeyFrame endFrame = new LinearDoubleKeyFrame(360, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(2)));
+            //rotateAnimation.KeyFrames.Add(startFrame);
+            //rotateAnimation.KeyFrames.Add(endFrame);
+            //rotateAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            //btn.RenderTransformOrigin = new Point(0.5, 0.5);
 
             // 平移部分
             DoubleAnimationUsingKeyFrames dakY = new DoubleAnimationUsingKeyFrames
@@ -268,7 +268,7 @@ namespace work
 
 
             // 开始动画和定时器
-            rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+           // rotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
             translateTransform.BeginAnimation(TranslateTransform.YProperty, dakY);
             timer.Start();
 

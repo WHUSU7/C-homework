@@ -48,14 +48,13 @@
                     </Grid.RowDefinitions>
                     <TextBlock FontWeight="Bold" FontSize="16" Foreground="#3DD0FB" VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="zh-cn" Text="珞珈四连"/></TextBlock>
                     <StackPanel  Grid.Row="1" Margin="10 10 0 10" Orientation="Horizontal">
-                        <Image Name="UserImageBrush" Source="../Images/user.png" Width="40" Height="40" Stretch="Fill">
+                        <Image Name="UserImageBrush" Source="../Images/default.png" Width="40" Height="40" Stretch="Fill">
                             <Image.Clip>
                                 <EllipseGeometry RadiusX="20" RadiusY="20" Center="20,20"/>
                             </Image.Clip>
                         </Image>
                         <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
                             <TextBlock x:Name="userText" Text="User01" Foreground="#4F5050"/>
-                            <TextBlock Text="Admin" Foreground="#959595"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,0,0">
@@ -236,7 +235,7 @@
                                 <TextBlock Grid.Column="1" Text="{Binding matchType}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" />
                                 <TextBlock Grid.Column="2" Text="{Binding matchTime}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" />
                                 <TextBlock Grid.Column="3" Text="{Binding isWin}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" />
-                                <Button Grid.Column="4" Content="详情" Tag="{Binding content}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Click="Button_Click" Style="{StaticResource ctrlButton}"/>
+                                <Button Grid.Column="4" Content="详情" Tag="{Binding content}" Width="45" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" Click="Button_Click" Style="{StaticResource ctrlButton}"/>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

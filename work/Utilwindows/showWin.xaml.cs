@@ -29,7 +29,7 @@ namespace work.Utilwindows
         public async void confirm(object sender, RoutedEventArgs e) {
 
             TextBox newName = (TextBox)this.FindName("nameInput");
-            User user = new User(App.user.id,newName.Text,App.user.password,App.user.nickname);
+            User user = new User(App.user.id,App.user.name,App.user.password,newName.Text);
            await apiService.modifyUserName(user,App.user.id);
             this.Close();
         }

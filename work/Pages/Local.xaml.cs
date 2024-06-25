@@ -26,6 +26,7 @@ namespace work.Pages
 	{
 		MainDataModel mdm;
         List<Tuple<int, int>> Step = new List<Tuple<int, int>>();
+        APIService apiService = new APIService();
         public Local()
 		{
 			InitializeComponent();
@@ -35,9 +36,28 @@ namespace work.Pages
             this.Loaded += Local_Loaded;
         }
 
-        public void Local_Loaded(object sender, RoutedEventArgs e) {
+        public async void Local_Loaded(object sender, RoutedEventArgs e) {
             TextBlock userText = (TextBlock)this.FindName("userText");
-            userText.Text = App.user.name;
+            userText.Text = App.user.nickname;
+            string path = await apiService.getProfilePicture();
+
+            if (path != "empty")
+            {
+                // 创建新的位图图像
+                BitmapImage bitmap = new BitmapImage();
+
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(path);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
+
+
+                //var imageControl = App.HomeInstance.FindName("UserImageBrush") as Image;
+                //// 将位图图像设置为 Ellipse 的填充
+                //imageControl.Source = bitmap;
+                UserImageBrush.Source = bitmap;
+
+            }
         }
 
         //悔棋
@@ -134,7 +154,7 @@ namespace work.Pages
 				{
 					BitmapImage bitmap = new BitmapImage();
 					bitmap.BeginInit();
-					bitmap.UriSource = new Uri(@"..\..\Images\OIP-C1.jpg", UriKind.RelativeOrAbsolute);
+					bitmap.UriSource = new Uri(@"..\..\Images\black.png", UriKind.RelativeOrAbsolute);
 					// Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
 					bitmap.EndInit();
 					// 创建 ImageBrush 并设置其 ImageSource
@@ -145,10 +165,18 @@ namespace work.Pages
 				}
 				else
 				{
-					btn.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FBD26A"));
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(@"..\..\Images\white.png", UriKind.RelativeOrAbsolute);
+                    // Console.WriteLine("Image path: " + AppDomain.CurrentDomain.BaseDirectory + @"Images\OIP-C1.jpg");
+                    bitmap.EndInit();
+                    // 创建 ImageBrush 并设置其 ImageSource
+                    ImageBrush imageBrush = new ImageBrush();
+                    imageBrush.ImageSource = bitmap;
+                    btn.Background = imageBrush;
 
-                   
-				}
+
+                }
                 await AnimationUtils.allAnimation(btn, x, canvasHeight, myCanvas);
 				if (nowTurn == 1)
 				{

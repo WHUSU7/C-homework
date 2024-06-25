@@ -61,7 +61,7 @@ namespace work
 			var result = await apiService.login(u);
 			if (result > 0)
 			{
-				MessageBox.Show("登录成功，id是：" + result.ToString());
+			//	MessageBox.Show("登录成功，id是：" + result.ToString());
 				mainpage mainpage = new mainpage();
 				mainpage.Show();
 				window.Close();

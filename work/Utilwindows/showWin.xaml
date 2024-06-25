@@ -5,29 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:work.Utilwindows"
         mc:Ignorable="d"
-        Title="showWin" Height="450" Width="800">
+        Title="showWin" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Window.Resources>
-    <BitmapImage x:Key="winningImage" UriSource="pack://application:,,,/Images/winningImage.png" />
-    <ImageBrush x:Key="winningImageBackground" ImageSource="{StaticResource winningImage}"/>
+        <BitmapImage x:Key="winningImage" UriSource="pack://application:,,,/Images/winningImage.png" />
+        <ImageBrush x:Key="winningImageBackground" ImageSource="{StaticResource winningImage}"/>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#C7EDCC"/>
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#AAAAAA"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="30"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#AAAAAA"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
     </Window.Resources>
-    <Grid Background="Beige" >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFFAFA" Offset="0"/>
+                <GradientStop Color="#E6E6FA" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-           
-           
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="新用户名:" FontSize="35" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <TextBox Margin="30"   Width="400" Name="nameInput"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"/>
-      
-        <Button x:Name="confirmBtn" Background="#C7EDCC" Content="确认" FontSize="35" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" Margin="10" Click="confirm"> </Button>
+        <TextBlock Text="请输入新的用户名:" FontSize="35" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+        <TextBox Name="nameInput" Grid.Row="2" Grid.Column="1" Margin="10"/>
+        <Button x:Name="confirmBtn" Content="确认" Grid.Row="4" Grid.Column="1" Click="confirm"/>
     </Grid>
 </Window>

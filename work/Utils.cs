@@ -161,7 +161,7 @@ namespace work
 
         public static string judgeIsWin(string content) {
    
-                if (content[content.Length - 1] == 0)
+                if (content[content.Length - 1] == '0')
                     return "败北";
                 else
                     return "胜利";
