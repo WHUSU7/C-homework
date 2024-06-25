@@ -120,6 +120,7 @@ namespace work
 							if (App.isPvpWin)
 							{
 								MessageBox.Show("YOU Win!");
+                                App.isWin = true;
                                 GameService.Instance.winOrfail(true);//传递胜负参数
                                 GameService.Instance.getCompeteType("人人对战");//传递对局类型参数
                                 Utils.showIsInsertHistoryWindow();
@@ -127,6 +128,7 @@ namespace work
 							else
 							{
 								MessageBox.Show("YOU Lose!");
+								App.isWin = false;
                                 GameService.Instance.winOrfail(false);//传递胜负参数
                                 GameService.Instance.getCompeteType("人人对战");//传递对局类型参数
                                 Utils.showIsInsertHistoryWindow();

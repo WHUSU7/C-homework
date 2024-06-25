@@ -32,7 +32,7 @@ namespace work
 			//虚拟机上要用物理机可用端口的ip代替本地地址，如en0的inet
 			//物理机上直接127.0.0.1：4523即可
 			
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/m1/4020303-0-default/fourchess/");
+            client.BaseAddress = new Uri("http://192.168.43.254:8000/m1/4020303-0-default/fourchess/");
 			client.DefaultRequestHeaders.Add("Accept", "application/json");
 		}
 
@@ -94,9 +94,27 @@ namespace work
 			return "";
 
 		}
+		//修改用户名
+		public async Task<string> modifyUserName(User user, int userid)
+        {
+            var json = JsonConvert.SerializeObject(user);
+            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            var response = await client.PostAsync($"{userid}/modifyUserName", content);
 
-		//登录（post）
-		public async Task<int> login(User user)
+           
+                string res = await response.Content.ReadAsStringAsync();
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(res);
+                string isSuccess = jsonObject["isSuccess"].ToString();
+            App.user.name = user.name;
+                return isSuccess;
+          
+           
+
+        }
+
+
+        //登录（post）
+        public async Task<int> login(User user)
 		{
 			var json = JsonConvert.SerializeObject(user);
 			//content代表要传入的参数

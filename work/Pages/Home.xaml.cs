@@ -51,6 +51,9 @@ namespace work.Pages
         //每次进入home都获取修改的头像信息,并且更新历史记录
         private async void Home_Loaded(object sender, RoutedEventArgs e)
         {
+            TextBlock userText = (TextBlock)this.FindName("userText");
+            userText.Text = App.user.name;
+
             var historyList = await apiService.getHistories(App.user.id);
             //每次进入前先清空再加载
             MyViewModel.ClearMoveRecords();

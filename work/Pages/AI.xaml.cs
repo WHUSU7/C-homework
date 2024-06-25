@@ -35,6 +35,7 @@ namespace work.Pages
 			App.AIInstance = this;
 			this.Loaded += (s, e) =>
 			{
+				AI_Loaded();
 				suggession();
 			};
 		}
@@ -50,6 +51,12 @@ namespace work.Pages
 		public int nowTurn = 1;
 		private bool isAnimating = false;
 		private bool AImove = false; //AI走
+
+		public void AI_Loaded()
+		{
+			TextBlock userText = (TextBlock)this.FindName("userText");
+			userText.Text = App.user.name;
+		}
 									 //所有按钮的公共方法
 		private void CommonBtnClickHandler(object sender, RoutedEventArgs e)
 		{
