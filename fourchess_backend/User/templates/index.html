@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .message {
+            height: 300px;
+            border: 1px solid #dddddd;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="message" id="message"></div>
+<div>
+    <input type="text" placeholder="请输入" id="txt">
+    <input type="button" value="发送" onclick="sendMessage();">
+</div>
+<script>
+    socket = new WebSocket("ws://127.0.0.1:8000/fourchess/")
+    socket.onopen = function (e) {
+        console.log('WebSocket connection established');
+        socket.send(JSON.stringify({'message': 'Hello, Server!'}));
+    };
+    socket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+        let tag = document.getElementById("message");
+        tag.value = "123124141"
+        console.log('Message from server: ', data.message);
+    };
+
+    function sendMessage() {
+        console.log("send");
+        let tag = document.getElementById("txt");
+        socket.send("11111");
+    }
+</script>
+
+</body>
+</html>
