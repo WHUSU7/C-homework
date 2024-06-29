@@ -368,15 +368,19 @@ namespace work
 							}
 							if (nearbyOpponentPiece)
 							{
-								break;
+								board[row, col] = nowturn;
+								if(!IsWin(row - 1, col, -1 * nowturn))
+								{
+                                    return Tuple.Create(row, col);
+                                }
+								else
+								{
+									board[row, col] = 0;
+									continue;
+								}
 							}
 						}
 
-						// 如果周围有对方的棋子，则返回当前位置
-						if (nearbyOpponentPiece)
-						{
-							return Tuple.Create(row, col);
-						}
 					}
 				}
 			}
@@ -386,27 +390,20 @@ namespace work
 		// 4、寻找安全的位置
 		private static Tuple<int, int> FindSafeMove(int nowturn)
 		{
-			// 在上方有棋子的位置落子，避免给对方搭桥
-			for (int col = 0; col < board.GetLength(1); col++)
-			{
-				for (int row = 0; row < board.GetLength(0); row++)
-				{
-					if (IsValidMove(row, col) && !IsWin(row - 1, col, -1 * nowturn))
-					{
-						return Tuple.Create(row, col); // 返回安全的位置
-					}
-				}
-			}
+
 			// 如果找不到安全的位置，则随机选择一个合法的位置
 			Random random = new Random();
 			while (true)
 			{
-				int row = random.Next(0, board.GetLength(0));
 				int col = random.Next(0, board.GetLength(1));
-				if (IsValidMove(row, col))
+				for(int row = board.GetLength(0) - 1; row >= 0; row--)
 				{
-					return Tuple.Create(row, col); // 返回随机选择的合法位置
-				}
+                    if (IsValidMove(row, col))
+                    {
+                        return Tuple.Create(row, col); // 返回随机选择的合法位置
+                    }
+                }
+				
 			}
 		}
 
@@ -509,7 +506,7 @@ namespace work
 			return null;
 		}
 		//MAX_DEPTH 搜索的最大深度，可调节难度，深度越大难度越大
-		public const int MAX_DEPTH = 7;
+		public const int MAX_DEPTH = 6;
 		private static int aiMove()
 		{
 			return miniMax(board, MAX_DEPTH, 0 - int.MaxValue, int.MaxValue, COMPUTER).Item2;
