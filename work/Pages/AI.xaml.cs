@@ -162,13 +162,13 @@ namespace work.Pages
 
 
 
-				tie += 1;
-				if (tie == 21)
-				{
-				//	Utils.end = true;
-					MessageBox.Show("平局");
-					Utils.showIsInsertHistoryWindow();
-				}
+				//tie += 1;
+				//if (tie == 21)
+				//{
+				////	Utils.end = true;
+				//	MessageBox.Show("平局");
+				//	Utils.showIsInsertHistoryWindow();
+				//}
 
 
 			}
@@ -240,8 +240,8 @@ namespace work.Pages
 		private async Task DifficultAIPlay(int x, double canvasHeight)
 		{
 			if (!AImove) return;
-			//Tuple<int, int> aiMove = Board.showMove();
-            Tuple<int, int> aiMove = Board.NextMove(-1);
+			Tuple<int, int> aiMove = Board.showMove();
+         //   Tuple<int, int> aiMove = Board.NextMove(-1);
             if (aiMove != null)
 			{
 				int aiX = aiMove.Item1;
