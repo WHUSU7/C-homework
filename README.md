@@ -13,5 +13,5 @@ fourchess_backend 为数据库后端，需要在pycharm中运行
 
 # 运行方法
 1. 用Pycharm打开fourchess_backend，将fourchess_backend/settings.py中80、81行的USER、PASSWORD更改为mySQL的账号密码。
-2. 在Pycharm终端输入uvicorn fourchess_end.asgi:application --host 127.0.0.1 --port 8000，开启服务器。
+2. 在Pycharm终端输入uvicorn fourchess_end.asgi:application --host 127.0.0.1 --port 8000，python manage.py runserver 0.0.0.0:8000,开启服务器。
 3. VS打开work并运行。
